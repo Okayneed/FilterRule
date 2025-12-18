@@ -2,22 +2,22 @@
 # Source: v2fly/domain-list-community
 # Total Rules: 19
 
-host-suffix, cdn-telegram.org, PROXY
-host-suffix, comments.app, PROXY
-host-suffix, contest.com, PROXY
-host-suffix, fragment.com, PROXY
-host-suffix, graph.org, PROXY
-host-suffix, quiz.directory, PROXY
-host-suffix, t.me, PROXY
-host-suffix, tdesktop.com, PROXY
-host-suffix, telega.one, PROXY
-host-suffix, telegra.ph, PROXY
-host-suffix, telegram-cdn.org, PROXY
-host-suffix, telegram.dog, PROXY
-host-suffix, telegram.me, PROXY
-host-suffix, telegram.org, PROXY
-host-suffix, telegram.space, PROXY
-host-suffix, telesco.pe, PROXY
-host-suffix, tg.dev, PROXY
-host-suffix, tx.me, PROXY
-host-suffix, usercontent.dev, PROXY
+host-suffix, cdn-telegram.org
+host-suffix, comments.app
+host-suffix, contest.com
+host-suffix, fragment.com
+host-suffix, graph.org
+host-suffix, quiz.directory
+host-suffix, t.me
+host-suffix, tdesktop.com
+host-suffix, telega.one
+host-suffix, telegra.ph
+host-suffix, telegram-cdn.org
+host-suffix, telegram.dog
+host-suffix, telegram.me
+host-suffix, telegram.org
+host-suffix, telegram.space
+host-suffix, telesco.pe
+host-suffix, tg.dev
+host-suffix, tx.me
+host-suffix, usercontent.dev
