@@ -56,7 +56,7 @@ def main():
     for domain in sorted(domains):
         # 过滤掉一些明显的杂质
         if len(domain) > 3: 
-            output_lines.append(f"host-suffix, {domain}, {POLICY}")
+            output_lines.append(f"host-suffix, {domain}")
 
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
