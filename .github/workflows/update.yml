@@ -40,3 +40,27 @@ jobs:
           else
             echo "No changes detected."
           fi
+
+# ... 前面的步骤不变 ...
+
+      - name: Run generation scripts
+        run: |
+          python scripts/generate_o365.py
+          python scripts/generate_apple.py   # <--- 新增这一行
+
+      - name: Commit and Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # 同时添加两个文件
+          git add list/o365_cn.list list/apple_cn.list
+          
+          # 只有当有变动时才提交
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "Auto update Rules"
+            git push
+            echo "Rules updated."
+          else
+            echo "No changes."
+          fi
