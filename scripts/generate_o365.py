@@ -49,19 +49,19 @@ def main():
 
     lines.append("; --- Domains (host-suffix) ---")
     for domain in sorted(domains):
-        lines.append(f"host-suffix, {domain}, DIRECT")
+        lines.append(f"host-suffix, {domain}")
 
     lines.append("")
     lines.append("; --- IPv4 Ranges (ip-cidr) ---")
     # 简单的 IP 排序
     for ip in sorted(ipv4_list, key=lambda x: int(x.split('.')[0])):
-        lines.append(f"ip-cidr, {ip}, DIRECT")
+        lines.append(f"ip-cidr, {ip}")
 
     # 如果需要 IPv6，取消下面注释
     # lines.append("")
     # lines.append("; --- IPv6 Ranges (ip6-cidr) ---")
     # for ip in sorted(ipv6_list):
-    #     lines.append(f"ip6-cidr, {ip}, DIRECT")
+    #     lines.append(f"ip6-cidr, {ip}")
 
     # 确保输出目录存在
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
