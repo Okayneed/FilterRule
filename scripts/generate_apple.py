@@ -48,11 +48,11 @@ def main():
                 type_tag, value = domain_raw.split(':', 1)
                 if type_tag == 'full':
                     # full 对应 host
-                    domains.add(f"host, {value}, DIRECT")
+                    domains.add(f"host, {value}")
                 # 忽略 regexp (QX 不好直接转)
             else:
                 # 默认为 domain-suffix
-                domains.add(f"host-suffix, {domain_raw}, DIRECT")
+                domains.add(f"host-suffix, {domain_raw}")
 
     # 写入文件
     lines = []
