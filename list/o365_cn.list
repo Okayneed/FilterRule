@@ -4,111 +4,111 @@
 # Total IPv4: 59
 
 ; --- Domains (host-suffix) ---
-host-suffix, aadrm.cn, DIRECT
-host-suffix, activation.sls.microsoft.com, DIRECT
-host-suffix, attachments.office365-net.cn, DIRECT
-host-suffix, auth.microsoft.cn, DIRECT
-host-suffix, azure-mobile.cn, DIRECT
-host-suffix, cdn.office.net, DIRECT
-host-suffix, chinacloud-mobile.cn, DIRECT
-host-suffix, chinacloudapi.cn, DIRECT
-host-suffix, chinacloudapp.cn, DIRECT
-host-suffix, chinacloudsites.cn, DIRECT
-host-suffix, crl.microsoft.com, DIRECT
-host-suffix, login.microsoftonline.com, DIRECT
-host-suffix, login.partner.microsoftonline.cn, DIRECT
-host-suffix, loki.office365.cn, DIRECT
-host-suffix, mail.protection.partner.outlook.cn, DIRECT
-host-suffix, microsoftgraph.chinacloudapi.cn, DIRECT
-host-suffix, microsoftonline.cn, DIRECT
-host-suffix, msauth.cn, DIRECT
-host-suffix, msauthimages.cn, DIRECT
-host-suffix, msftauth.cn, DIRECT
-host-suffix, msftauthimages.cn, DIRECT
-host-suffix, odc.officeapps.live.com, DIRECT
-host-suffix, officecdn.microsoft.com, DIRECT
-host-suffix, officeclient.microsoft.com, DIRECT
-host-suffix, officewebapps.cn, DIRECT
-host-suffix, onmschina.cn, DIRECT
-host-suffix, partner.lync.cn, DIRECT
-host-suffix, partner.microsoftonline-m-i.net.cn, DIRECT
-host-suffix, partner.microsoftonline-m.net.cn, DIRECT
-host-suffix, partner.microsoftonline-p.cn, DIRECT
-host-suffix, partner.microsoftonline-p.net.cn, DIRECT
-host-suffix, partner.microsoftonline.cn, DIRECT
-host-suffix, partner.office365.cn, DIRECT
-host-suffix, partner.officewebapps.cn, DIRECT
-host-suffix, partner.outlook.cn, DIRECT
-host-suffix, portal.partner.microsoftonline.cdnsvc.com, DIRECT
-host-suffix, protection.partner.outlook.cn, DIRECT
-host-suffix, r4.partner.outlook.cn, DIRECT
-host-suffix, sharepoint.cn, DIRECT
-host-suffix, shellprod.msocdn.com, DIRECT
-host-suffix, sovcloud-mx.cn, DIRECT
-host-suffix, sovcloud-static.cn, DIRECT
-host-suffix, sovcloud-usercontent.cn, DIRECT
-host-suffix, sovcloud.cn, DIRECT
-host-suffix, teams.microsoftonline.cn, DIRECT
-host-suffix, windowsazure.cn, DIRECT
-host-suffix, wns.windows.com, DIRECT
+host-suffix, aadrm.cn
+host-suffix, activation.sls.microsoft.com
+host-suffix, attachments.office365-net.cn
+host-suffix, auth.microsoft.cn
+host-suffix, azure-mobile.cn
+host-suffix, cdn.office.net
+host-suffix, chinacloud-mobile.cn
+host-suffix, chinacloudapi.cn
+host-suffix, chinacloudapp.cn
+host-suffix, chinacloudsites.cn
+host-suffix, crl.microsoft.com
+host-suffix, login.microsoftonline.com
+host-suffix, login.partner.microsoftonline.cn
+host-suffix, loki.office365.cn
+host-suffix, mail.protection.partner.outlook.cn
+host-suffix, microsoftgraph.chinacloudapi.cn
+host-suffix, microsoftonline.cn
+host-suffix, msauth.cn
+host-suffix, msauthimages.cn
+host-suffix, msftauth.cn
+host-suffix, msftauthimages.cn
+host-suffix, odc.officeapps.live.com
+host-suffix, officecdn.microsoft.com
+host-suffix, officeclient.microsoft.com
+host-suffix, officewebapps.cn
+host-suffix, onmschina.cn
+host-suffix, partner.lync.cn
+host-suffix, partner.microsoftonline-m-i.net.cn
+host-suffix, partner.microsoftonline-m.net.cn
+host-suffix, partner.microsoftonline-p.cn
+host-suffix, partner.microsoftonline-p.net.cn
+host-suffix, partner.microsoftonline.cn
+host-suffix, partner.office365.cn
+host-suffix, partner.officewebapps.cn
+host-suffix, partner.outlook.cn
+host-suffix, portal.partner.microsoftonline.cdnsvc.com
+host-suffix, protection.partner.outlook.cn
+host-suffix, r4.partner.outlook.cn
+host-suffix, sharepoint.cn
+host-suffix, shellprod.msocdn.com
+host-suffix, sovcloud-mx.cn
+host-suffix, sovcloud-static.cn
+host-suffix, sovcloud-usercontent.cn
+host-suffix, sovcloud.cn
+host-suffix, teams.microsoftonline.cn
+host-suffix, windowsazure.cn
+host-suffix, wns.windows.com
 
 ; --- IPv4 Ranges (ip-cidr) ---
-ip-cidr, 23.236.126.0/24, DIRECT
-ip-cidr, 40.73.164.128/25, DIRECT
-ip-cidr, 40.72.124.192/26, DIRECT
-ip-cidr, 40.73.161.0/24, DIRECT
-ip-cidr, 40.73.240.0/24, DIRECT
-ip-cidr, 40.72.70.0/23, DIRECT
-ip-cidr, 40.73.129.0/24, DIRECT
-ip-cidr, 40.73.165.0/26, DIRECT
-ip-cidr, 40.73.132.0/24, DIRECT
-ip-cidr, 40.73.242.0/24, DIRECT
-ip-cidr, 40.72.120.0/22, DIRECT
-ip-cidr, 40.72.124.128/28, DIRECT
-ip-cidr, 42.159.162.32/27, DIRECT
-ip-cidr, 42.159.34.64/27, DIRECT
-ip-cidr, 42.159.165.0/24, DIRECT
-ip-cidr, 42.159.36.0/24, DIRECT
-ip-cidr, 42.159.33.192/27, DIRECT
-ip-cidr, 42.159.162.64/27, DIRECT
-ip-cidr, 42.159.40.0/24, DIRECT
-ip-cidr, 42.159.34.32/27, DIRECT
-ip-cidr, 42.159.162.96/28, DIRECT
-ip-cidr, 42.159.34.96/28, DIRECT
-ip-cidr, 42.159.44.0/22, DIRECT
-ip-cidr, 42.159.164.0/24, DIRECT
-ip-cidr, 42.159.163.128/25, DIRECT
-ip-cidr, 42.159.38.0/23, DIRECT
-ip-cidr, 42.159.172.0/22, DIRECT
-ip-cidr, 42.159.161.192/27, DIRECT
-ip-cidr, 52.130.3.64/27, DIRECT
-ip-cidr, 52.130.18.32/27, DIRECT
-ip-cidr, 52.130.2.32/27, DIRECT
-ip-cidr, 52.130.17.192/27, DIRECT
-ip-cidr, 58.68.168.0/24, DIRECT
-ip-cidr, 101.28.252.0/24, DIRECT
-ip-cidr, 103.9.8.0/22, DIRECT
-ip-cidr, 112.25.33.0/24, DIRECT
-ip-cidr, 115.231.150.0/24, DIRECT
-ip-cidr, 123.235.32.0/24, DIRECT
-ip-cidr, 123.150.49.0/24, DIRECT
-ip-cidr, 125.65.247.0/24, DIRECT
-ip-cidr, 139.219.24.0/22, DIRECT
-ip-cidr, 139.219.146.0/24, DIRECT
-ip-cidr, 139.219.16.0/23, DIRECT
-ip-cidr, 139.219.145.0/24, DIRECT
-ip-cidr, 139.219.156.0/22, DIRECT
-ip-cidr, 159.27.160.0/21, DIRECT
-ip-cidr, 159.27.176.0/21, DIRECT
-ip-cidr, 171.107.84.0/24, DIRECT
-ip-cidr, 171.111.154.0/24, DIRECT
-ip-cidr, 175.6.10.0/24, DIRECT
-ip-cidr, 180.210.229.0/24, DIRECT
-ip-cidr, 180.210.232.0/24, DIRECT
-ip-cidr, 180.210.234.0/24, DIRECT
-ip-cidr, 182.50.87.0/24, DIRECT
-ip-cidr, 209.177.90.0/24, DIRECT
-ip-cidr, 209.177.94.0/24, DIRECT
-ip-cidr, 209.177.86.0/24, DIRECT
-ip-cidr, 211.90.28.0/24, DIRECT
-ip-cidr, 222.161.226.0/24, DIRECT
+ip-cidr, 23.236.126.0/24
+ip-cidr, 40.73.161.0/24
+ip-cidr, 40.72.124.192/26
+ip-cidr, 40.73.164.128/25
+ip-cidr, 40.73.132.0/24
+ip-cidr, 40.72.124.128/28
+ip-cidr, 40.73.165.0/26
+ip-cidr, 40.73.242.0/24
+ip-cidr, 40.72.70.0/23
+ip-cidr, 40.73.240.0/24
+ip-cidr, 40.72.120.0/22
+ip-cidr, 40.73.129.0/24
+ip-cidr, 42.159.162.64/27
+ip-cidr, 42.159.44.0/22
+ip-cidr, 42.159.163.128/25
+ip-cidr, 42.159.34.32/27
+ip-cidr, 42.159.34.96/28
+ip-cidr, 42.159.162.96/28
+ip-cidr, 42.159.33.192/27
+ip-cidr, 42.159.172.0/22
+ip-cidr, 42.159.34.64/27
+ip-cidr, 42.159.162.32/27
+ip-cidr, 42.159.40.0/24
+ip-cidr, 42.159.164.0/24
+ip-cidr, 42.159.38.0/23
+ip-cidr, 42.159.165.0/24
+ip-cidr, 42.159.161.192/27
+ip-cidr, 42.159.36.0/24
+ip-cidr, 52.130.3.64/27
+ip-cidr, 52.130.2.32/27
+ip-cidr, 52.130.17.192/27
+ip-cidr, 52.130.18.32/27
+ip-cidr, 58.68.168.0/24
+ip-cidr, 101.28.252.0/24
+ip-cidr, 103.9.8.0/22
+ip-cidr, 112.25.33.0/24
+ip-cidr, 115.231.150.0/24
+ip-cidr, 123.235.32.0/24
+ip-cidr, 123.150.49.0/24
+ip-cidr, 125.65.247.0/24
+ip-cidr, 139.219.146.0/24
+ip-cidr, 139.219.145.0/24
+ip-cidr, 139.219.16.0/23
+ip-cidr, 139.219.156.0/22
+ip-cidr, 139.219.24.0/22
+ip-cidr, 159.27.160.0/21
+ip-cidr, 159.27.176.0/21
+ip-cidr, 171.111.154.0/24
+ip-cidr, 171.107.84.0/24
+ip-cidr, 175.6.10.0/24
+ip-cidr, 180.210.229.0/24
+ip-cidr, 180.210.234.0/24
+ip-cidr, 180.210.232.0/24
+ip-cidr, 182.50.87.0/24
+ip-cidr, 209.177.86.0/24
+ip-cidr, 209.177.90.0/24
+ip-cidr, 209.177.94.0/24
+ip-cidr, 211.90.28.0/24
+ip-cidr, 222.161.226.0/24
