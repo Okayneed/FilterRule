@@ -64,3 +64,28 @@ jobs:
           else
             echo "No changes."
           fi
+
+# ... 前面的步骤不变 ...
+
+      - name: Run generation scripts
+        run: |
+          python scripts/generate_o365.py
+          python scripts/generate_apple.py
+          python scripts/generate_proxy_apps.py  # <--- 新增 Google/Telegram
+          python scripts/generate_gfw.py         # <--- 新增 GFW
+
+      - name: Commit and Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # 添加所有新生成的文件
+          git add list/o365_cn.list list/apple_cn.list list/google.list list/telegram.list list/gfw.list
+          
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "Auto update All Rules"
+            git push
+            echo "Rules updated."
+          else
+            echo "No changes."
+          fi
