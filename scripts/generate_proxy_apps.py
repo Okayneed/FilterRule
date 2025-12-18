@@ -45,7 +45,7 @@ def parse_v2fly(url, policy):
             parts = line.replace(',', ' ').split()
             if len(parts) >= 2:
                 ip = parts[1]
-                rules.append(f"ip-cidr, {ip}, {policy}")
+                rules.append(f"ip-cidr, {ip}")
             continue
 
         # 处理域名
@@ -53,11 +53,11 @@ def parse_v2fly(url, policy):
         if ':' in line:
             type_tag, value = line.split(':', 1)
             if type_tag == 'full':
-                rules.append(f"host, {value}, {policy}")
+                rules.append(f"host, {value}")
             # 忽略 regexp，QX 转换容易出错
         else:
             # 默认为域名后缀
-            rules.append(f"host-suffix, {line}, {policy}")
+            rules.append(f"host-suffix, {line}")
 
     return sorted(list(set(rules))) # 去重并排序
 
