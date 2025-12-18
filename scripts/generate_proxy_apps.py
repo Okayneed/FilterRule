@@ -52,7 +52,7 @@ def parse_v2fly(url, policy):
             ip_parts = line.replace(',', ' ').replace(':', ' ').split()
             if len(ip_parts) >= 2:
                 ip = ip_parts[1]
-                rules.append(f"ip-cidr, {ip}, {policy}")
+                rules.append(f"ip-cidr, {ip}")
             continue
 
         # 5. 处理域名
@@ -60,11 +60,11 @@ def parse_v2fly(url, policy):
         if ':' in clean_content:
             type_tag, value = clean_content.split(':', 1)
             if type_tag == 'full':
-                rules.append(f"host, {value}, {policy}")
+                rules.append(f"host, {value}")
             # 忽略 regexp 和其他类型
         else:
             # 默认为域名后缀
-            rules.append(f"host-suffix, {clean_content}, {policy}")
+            rules.append(f"host-suffix, {clean_content}")
 
     return sorted(list(set(rules)))
 
