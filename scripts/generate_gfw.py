@@ -81,7 +81,7 @@ def main():
     for domain in sorted(domains):
         # 过滤掉过短的错误提取（如 "com", "cn"）
         if len(domain) > 3: 
-            output_lines.append(f"host-suffix, {domain}, {POLICY}")
+            output_lines.append(f"host-suffix, {domain}")
 
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
