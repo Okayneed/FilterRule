@@ -1,0 +1,23 @@
+# Telegram Rules (Auto-Generated)
+# Source: v2fly/domain-list-community
+# Total Rules: 19
+
+host-suffix, cdn-telegram.org, PROXY
+host-suffix, comments.app, PROXY
+host-suffix, contest.com, PROXY
+host-suffix, fragment.com, PROXY
+host-suffix, graph.org, PROXY
+host-suffix, quiz.directory, PROXY
+host-suffix, t.me, PROXY
+host-suffix, tdesktop.com, PROXY
+host-suffix, telega.one, PROXY
+host-suffix, telegra.ph, PROXY
+host-suffix, telegram-cdn.org, PROXY
+host-suffix, telegram.dog, PROXY
+host-suffix, telegram.me, PROXY
+host-suffix, telegram.org, PROXY
+host-suffix, telegram.space, PROXY
+host-suffix, telesco.pe, PROXY
+host-suffix, tg.dev, PROXY
+host-suffix, tx.me, PROXY
+host-suffix, usercontent.dev, PROXY
