@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 5643
+# Total Rules: 5644
 
 host-suffix, 000webhost.com
 host-suffix, 030buy.com
@@ -4336,6 +4336,7 @@ host-suffix, startpage.com
 host-suffix, startuplivingchina.com
 host-suffix, stat.gov.tw
 host-suffix, static-economist.com
+host-suffix, static.pocketcasts.com
 host-suffix, static.shemalez.com
 host-suffix, static01.nyt.com
 host-suffix, staticflickr.com
