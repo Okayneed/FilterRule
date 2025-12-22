@@ -1,3 +1,4 @@
 
 host, wangda.chinamobile.com, Proxy
 host-suffix, google.com, Proxy
+host-suffix, kimi.com, 
