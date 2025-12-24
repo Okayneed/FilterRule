@@ -6,3 +6,4 @@ host-suffix, openai.com, Only_US
 host-suffix, chatgpt.com, Only_US
 host-suffix, notebooklm.google, Only_US
 host-suffix, api2.moe233.app, Not_HK
+host-suffix, think-cell.com, Fast_All
