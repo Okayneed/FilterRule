@@ -951,7 +951,6 @@ host-suffix, chrome.com
 host-suffix, chromecast.com
 host-suffix, chromeexperiments.com
 host-suffix, chromestatus.com
-host-suffix, chromium.org
 host-suffix, chuang-yen.org
 host-suffix, chubold.com
 host-suffix, chubun.com
@@ -2886,6 +2885,7 @@ host-suffix, lookpic.com
 host-suffix, looktoronto.com
 host-suffix, lotsawahouse.org
 host-suffix, lotuslight.org.tw
+host-suffix, lovart.ai
 host-suffix, lovetvshow.com
 host-suffix, lpsg.com
 host-suffix, lrfz.com
