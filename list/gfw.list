@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 5647
+# Total Rules: 5649
 
 host-suffix, 000webhost.com
 host-suffix, 030buy.com
@@ -3616,6 +3616,7 @@ host-suffix, pct.org.tw
 host-suffix, pdetails.com
 host-suffix, pdproxy.com
 host-suffix, pds.nasa.gov
+host-suffix, pdst.fm
 host-suffix, peace.ca
 host-suffix, peacefire.org
 host-suffix, peeasian.com
@@ -4979,6 +4980,7 @@ host-suffix, unseen.is
 host-suffix, unstable.icu
 host-suffix, unwire.hk
 host-suffix, uocn.org
+host-suffix, up.audio
 host-suffix, upbit.com
 host-suffix, updates.tdesktop.com
 host-suffix, upghsbc.com
