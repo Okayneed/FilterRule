@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 5649
+# Total Rules: 5666
 
 host-suffix, 000webhost.com
 host-suffix, 030buy.com
@@ -3664,6 +3664,23 @@ host-suffix, ping.fm
 host-suffix, pinimg.com
 host-suffix, pinkrod.com
 host-suffix, pinoy-n.com
+host-suffix, pinterest.at
+host-suffix, pinterest.ca
+host-suffix, pinterest.cl
+host-suffix, pinterest.co.uk
+host-suffix, pinterest.com
+host-suffix, pinterest.com.au
+host-suffix, pinterest.com.mx
+host-suffix, pinterest.de
+host-suffix, pinterest.es
+host-suffix, pinterest.fr
+host-suffix, pinterest.ie
+host-suffix, pinterest.it
+host-suffix, pinterest.jp
+host-suffix, pinterest.nz
+host-suffix, pinterest.ph
+host-suffix, pinterest.pt
+host-suffix, pinterest.se
 host-suffix, pioneer-worker.forums-free.com
 host-suffix, pipii.tv
 host-suffix, piraattilahti.org
