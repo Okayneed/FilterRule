@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 5666
+# Total Rules: 5671
 
 host-suffix, 000webhost.com
 host-suffix, 030buy.com
@@ -201,6 +201,7 @@ host-suffix, agoogleaday.com
 host-suffix, agro.hk
 host-suffix, ai.binwang.me
 host-suffix, ai.dev
+host-suffix, ai.studio
 host-suffix, aiosearch.com
 host-suffix, aiph.net
 host-suffix, airasia.com
@@ -1193,6 +1194,7 @@ host-suffix, david-kilgour.com
 host-suffix, dawangidc.com
 host-suffix, daxa.cn
 host-suffix, daylife.com
+host-suffix, dazn.com
 host-suffix, db.tt
 host-suffix, dbgjd.com
 host-suffix, dcard.tw
@@ -3506,6 +3508,8 @@ host-suffix, onmypc.org
 host-suffix, onthehunt.com
 host-suffix, ontrac.com
 host-suffix, oojj.de
+host-suffix, ooni.io
+host-suffix, ooni.org
 host-suffix, open.com.hk
 host-suffix, open.firstory.me
 host-suffix, openai.com
@@ -5425,6 +5429,7 @@ host-suffix, xbabe.com
 host-suffix, xbookcn.com
 host-suffix, xbtce.com
 host-suffix, xcafe.in
+host-suffix, xcancel.com
 host-suffix, xcity.jp
 host-suffix, xcritic.com
 host-suffix, xerotica.com
