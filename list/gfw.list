@@ -953,6 +953,7 @@ host-suffix, chrome.com
 host-suffix, chromecast.com
 host-suffix, chromeexperiments.com
 host-suffix, chromestatus.com
+host-suffix, chromium.org
 host-suffix, chuang-yen.org
 host-suffix, chubold.com
 host-suffix, chubun.com
@@ -2539,7 +2540,6 @@ host-suffix, ismalltits.com
 host-suffix, ismprofessional.net
 host-suffix, isohunt.com
 host-suffix, israbox.com
-host-suffix, issues.chromium.org
 host-suffix, issuu.com
 host-suffix, istars.co.nz
 host-suffix, istockphoto.com

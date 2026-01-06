@@ -1,6 +1,6 @@
 # Google Rules (Auto-Generated)
 # Source: v2fly/domain-list-community
-# Total Rules: 629
+# Total Rules: 624
 
 host, 265.com
 host, 2mdn-cn.net
@@ -30,7 +30,6 @@ host, cnappinstall.googleadapis.com
 host, connectivitycheck.gstatic.com
 host, content.googleadapis.com
 host, crashlyticsreports-pa.googleapis.com
-host, crl.pki.goog
 host, csi.gstatic.com
 host, dartsearch-cn.net
 host, dg-meta.video.google.com
@@ -42,7 +41,6 @@ host, download.mlcc.google.com
 host, download.qatp1.net
 host, download.tensorflow.google.com
 host, emmapplecodevice.googleapis.com
-host, firebase-settings.crashlytics.com
 host, fontfiles.googleapis.com
 host, fonts.googleapis.com
 host, fonts.gstatic.com
@@ -82,10 +80,8 @@ host, logger-dev.corp.google.com
 host, logger.corp.google.com
 host, login.corp.google.com
 host, monitoring.qpdp1.net
-host, ocsp.pki.goog
 host, pagead-googlehosted.l.google.com
 host, performanceparameters.googleapis.com
-host, pki-goog.l.google.com
 host, prod-controlbe.floonet.goog
 host, prod-databe.floonet.goog
 host, prod.databe.floonet.goog
@@ -104,7 +100,6 @@ host, redirector.bdn.dev
 host, redirector.c.chat.google.com
 host, redirector.c.mail.google.com
 host, redirector.c.pack.google.com
-host, redirector.c.play.google.com
 host, redirector.c.youtubeeducation.com
 host, redirector.gcpcdn.gvt1.com
 host, redirector.gvt1.com
