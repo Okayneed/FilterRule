@@ -7,7 +7,9 @@ host-suffix, chatgpt.com, Only_US
 host-suffix, notebooklm.google, Only_US
 host-suffix, api2.moe233.app, Not_HK
 host-suffix, think-cell.com, Fast_All
+#------同花顺终端
 host-suffix, 10jqka.com.cn, Direct
 host-suffix, ipify.org, Direct
 host-suffix, 51ifind.com, Direct
 host-suffix, icanhazip.com, Direct
+#------同花顺终端
