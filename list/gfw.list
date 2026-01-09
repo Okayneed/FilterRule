@@ -151,7 +151,6 @@ host-suffix, abematv.akamaized.net
 host-suffix, abitno.linpie.com
 host-suffix, ablwang.com
 host-suffix, aboluowang.com
-host-suffix, about.gitlab.com
 host-suffix, about.me
 host-suffix, abplive.com
 host-suffix, abs.edu
@@ -1925,6 +1924,7 @@ host-suffix, github.io
 host-suffix, githubassets.com
 host-suffix, githubcopilot.com
 host-suffix, githubusercontent.com
+host-suffix, gitlab.com
 host-suffix, gitlab.net
 host-suffix, gizlen.net
 host-suffix, gjczz.com
