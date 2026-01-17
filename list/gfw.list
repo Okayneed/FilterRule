@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 5671
+# Total Rules: 5676
 
 host-suffix, 000webhost.com
 host-suffix, 030buy.com
@@ -213,6 +213,7 @@ host-suffix, ait.org.tw
 host-suffix, aiweiwei.com
 host-suffix, aiweiweiblog.com
 host-suffix, akademiye.org
+host-suffix, akamai.tvb.com
 host-suffix, akiba-online.com
 host-suffix, akiba-web.com
 host-suffix, akinator.com
@@ -285,7 +286,10 @@ host-suffix, angola.org
 host-suffix, angularjs.org
 host-suffix, animecrazy.net
 host-suffix, aniscartujo.com
+host-suffix, annas-archive.in
+host-suffix, annas-archive.li
 host-suffix, annas-archive.org
+host-suffix, annas-archive.pm
 host-suffix, annas-archive.se
 host-suffix, annatam.com
 host-suffix, anobii.com
@@ -1704,7 +1708,6 @@ host-suffix, forum.baby-kingdom.com
 host-suffix, forum.mymaji.com
 host-suffix, forum.palmislife.com
 host-suffix, forum.slime.com.tw
-host-suffix, forum.tvb.com
 host-suffix, forum.xinbao.de
 host-suffix, forum4hk.com
 host-suffix, fountmedia.io
@@ -3221,6 +3224,7 @@ host-suffix, myspace.com
 host-suffix, myspacecdn.com
 host-suffix, mytalkbox.com
 host-suffix, mytizi.com
+host-suffix, mytvsuper.com
 host-suffix, mywife.cc
 host-suffix, mywww.biz
 host-suffix, myz.info
@@ -4855,6 +4859,7 @@ host-suffix, tuvpn.com
 host-suffix, tv.com
 host-suffix, tv.jtbc.joins.com
 host-suffix, tvants.com
+host-suffix, tvbanywhere.com
 host-suffix, tvboxnow.com
 host-suffix, tvider.com
 host-suffix, tvmost.com.hk
