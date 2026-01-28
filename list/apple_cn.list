@@ -1,6 +1,6 @@
 # Apple & iCloud China (Auto-Generated)
 # Source: v2fly/domain-list-community
-# Total Rules: 957
+# Total Rules: 958
 
 host, a1.mzstatic.com
 host, a2.mzstatic.com
@@ -17,6 +17,7 @@ host, amp-api-updates.apps.apple.com
 host, amp-api.apps.apple.com
 host, amp-api.media.apple.com
 host, amp-api.music.apple.com
+host, aod-ssl.itunes.apple.com
 host, aod.itunes.apple.com
 host, api-edge.apps.apple.com
 host, app-site-association.cdn-apple.com

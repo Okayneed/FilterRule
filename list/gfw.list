@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 5678
+# Total Rules: 5679
 
 host-suffix, 000webhost.com
 host-suffix, 030buy.com
@@ -432,6 +432,7 @@ host-suffix, b0ne.com
 host-suffix, babylonbee.com
 host-suffix, babynet.com.hk
 host-suffix, backchina.com
+host-suffix, backend-v2.crixet.com
 host-suffix, backpackers.com.tw
 host-suffix, backtotiananmen.com
 host-suffix, bad.news
