@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 5679
+# Total Rules: 5680
 
 host-suffix, 000webhost.com
 host-suffix, 030buy.com
@@ -1763,6 +1763,7 @@ host-suffix, freeoz.org
 host-suffix, freess.org
 host-suffix, freessh.us
 host-suffix, freetcp.com
+host-suffix, freeterabox.com
 host-suffix, freetibet.net
 host-suffix, freetibet.org
 host-suffix, freetibetanheroes.org
