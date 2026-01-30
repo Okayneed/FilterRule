@@ -14,3 +14,4 @@ host-suffix, 51ifind.com, Direct
 host-suffix, icanhazip.com, Direct
 #------同花顺终端
 
+HOST-SUFFIX, svc.cloud.microsoft, Direct
