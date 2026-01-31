@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 5682
+# Total Rules: 5685
 
 host-suffix, 000webhost.com
 host-suffix, 030buy.com
@@ -467,6 +467,7 @@ host-suffix, bayvoice.net
 host-suffix, bb-chat.tv
 host-suffix, bbc.co.uk
 host-suffix, bbc.com
+host-suffix, bbc.pdn.tritondigital.com
 host-suffix, bbcchinese.com
 host-suffix, bbchat.tv
 host-suffix, bbci.co.uk
@@ -1205,6 +1206,7 @@ host-suffix, db.tt
 host-suffix, dbgjd.com
 host-suffix, dcard.tw
 host-suffix, dcmilitary.com
+host-suffix, dcs-spotify.megaphone.fm
 host-suffix, ddc.com.tw
 host-suffix, ddex.io
 host-suffix, ddns.info
@@ -2179,6 +2181,7 @@ host-suffix, hegre-art.com
 host-suffix, helloandroid.com
 host-suffix, helloqueer.com
 host-suffix, hellouk.org
+host-suffix, help.byspotify.com
 host-suffix, helpeachpeople.com
 host-suffix, helpster.de
 host-suffix, helpzhuling.org
