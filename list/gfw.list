@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 5685
+# Total Rules: 5686
 
 host-suffix, 000webhost.com
 host-suffix, 030buy.com
@@ -4479,6 +4479,7 @@ host-suffix, taedp.org.tw
 host-suffix, tafm.org
 host-suffix, tagwalk.com
 host-suffix, tahr.org.tw
+host-suffix, tails.net
 host-suffix, taipei.gov.tw
 host-suffix, taipeisociety.org
 host-suffix, taipeitimes.com
