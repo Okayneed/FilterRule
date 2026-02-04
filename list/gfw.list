@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 5686
+# Total Rules: 5689
 
 host-suffix, 000webhost.com
 host-suffix, 030buy.com
@@ -3577,6 +3577,7 @@ host-suffix, pacopacomama.com
 host-suffix, padmanet.com
 host-suffix, page.link
 host-suffix, page2rss.com
+host-suffix, pages.dev
 host-suffix, paimon.moe
 host-suffix, palacemoon.com
 host-suffix, paljorpublications.com
@@ -4105,6 +4106,7 @@ host-suffix, seed4.me
 host-suffix, seesmic.com
 host-suffix, seevpn.com
 host-suffix, seezone.net
+host-suffix, sef.org.tw
 host-suffix, sehuatang.net
 host-suffix, sehuatang.org
 host-suffix, sejie.com
@@ -5412,6 +5414,7 @@ host-suffix, www.ajsands.com
 host-suffix, www.aolnews.com
 host-suffix, www.bing.com
 host-suffix, www.dwheeler.com
+host-suffix, www.hoyolab.com
 host-suffix, www.klip.me
 host-suffix, www.lorenzetti.com.br
 host-suffix, www.moztw.org
