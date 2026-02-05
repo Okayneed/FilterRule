@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 5689
+# Total Rules: 5690
 
 host-suffix, 000webhost.com
 host-suffix, 030buy.com
@@ -2111,6 +2111,7 @@ host-suffix, greenvpn.net
 host-suffix, greenvpn.org
 host-suffix, grindr.com
 host-suffix, grok.com
+host-suffix, grokipedia.com
 host-suffix, ground.news
 host-suffix, gs-discuss.com
 host-suffix, gsearch.media
