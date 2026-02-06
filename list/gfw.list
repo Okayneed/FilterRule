@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 5690
+# Total Rules: 5693
 
 host-suffix, 000webhost.com
 host-suffix, 030buy.com
@@ -574,6 +574,7 @@ host-suffix, bitmex.com
 host-suffix, bitshare.com
 host-suffix, bitsnoop.com
 host-suffix, bitterwinter.org
+host-suffix, bittorrent.com
 host-suffix, bitvise.com
 host-suffix, bitz.ai
 host-suffix, bizhat.com
@@ -2186,6 +2187,7 @@ host-suffix, help.byspotify.com
 host-suffix, helpeachpeople.com
 host-suffix, helpster.de
 host-suffix, helpzhuling.org
+host-suffix, hembed.com
 host-suffix, hentai.to
 host-suffix, hentaitube.tv
 host-suffix, hentaivideoworld.com
@@ -5069,6 +5071,7 @@ host-suffix, uyghurstudies.org
 host-suffix, uyghurtribunal.com
 host-suffix, uygur.org
 host-suffix, v2.help
+host-suffix, v2.hysteria.network
 host-suffix, v2ex.com
 host-suffix, v2fly.org
 host-suffix, v2ray.com
