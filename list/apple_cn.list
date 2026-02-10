@@ -1,6 +1,6 @@
 # Apple & iCloud China (Auto-Generated)
 # Source: v2fly/domain-list-community
-# Total Rules: 958
+# Total Rules: 963
 
 host, a1.mzstatic.com
 host, a2.mzstatic.com
@@ -228,6 +228,7 @@ host-suffix, 5lml.com
 host-suffix, a0pple.net
 host-suffix, aapl.tw
 host-suffix, aaplimg.com
+host-suffix, advertising.apple.com
 host-suffix, airport.brussels
 host-suffix, airport.com
 host-suffix, airport.eu
@@ -237,6 +238,7 @@ host-suffix, airtunes.info
 host-suffix, airtunes.net
 host-suffix, alchemysynth.com
 host-suffix, ap0le.com
+host-suffix, api-adservices.apple.com
 host-suffix, aple.com
 host-suffix, aplestore.com
 host-suffix, aplleipods.com
@@ -653,6 +655,8 @@ host-suffix, homepod.cn
 host-suffix, hopstop.tv
 host-suffix, i-book.com
 host-suffix, i-book.net
+host-suffix, iad.apple.com
+host-suffix, iadsdk.apple.com
 host-suffix, ibook.co.nz
 host-suffix, ibook.com
 host-suffix, ibook.eu
@@ -921,6 +925,7 @@ host-suffix, quicktime.com.au
 host-suffix, quicktime.eu
 host-suffix, quicktime.net
 host-suffix, quicktime.tv
+host-suffix, qwapi.com
 host-suffix, reform-apple.com
 host-suffix, services-apple.net
 host-suffix, shazam.com

@@ -1,12 +1,13 @@
 # Google Rules (Auto-Generated)
 # Source: v2fly/domain-list-community
-# Total Rules: 624
+# Total Rules: 676
 
 host, 265.com
 host, 2mdn-cn.net
 host, 2mdn.net
 host, admob-cn.com
 host, adservice.google.com
+host, analytics.google.com
 host, app-analytics-services.com
 host, app-measurement-cn.com
 host, app-measurement.com
@@ -142,13 +143,32 @@ host, xn--flw351e.com
 host-suffix, 0emm.com
 host-suffix, 1e100.net
 host-suffix, 1ucrs.com
+host-suffix, 2mdn-cn.net
+host-suffix, 2mdn.net
 host-suffix, 466453.com
 host-suffix, abc.xyz
 host-suffix, adgoogle.net
 host-suffix, admeld.com
+host-suffix, admob-cn.com
+host-suffix, admob.com
+host-suffix, adsense.com
+host-suffix, adsensecustomsearchads.com
+host-suffix, adsenseformobileapps.com
+host-suffix, adservice.google.com
+host-suffix, adtrafficquality.google
+host-suffix, advertisercommunity.com
+host-suffix, advertiserscommunity.com
+host-suffix, adwords-community.com
+host-suffix, adwords.com
+host-suffix, adwordsexpress.com
+host-suffix, analytics-alv.google.com
 host-suffix, angulardart.org
 host-suffix, api.ai
 host-suffix, apigee.com
+host-suffix, app-analytics-services-att.com
+host-suffix, app-analytics-services.com
+host-suffix, app-measurement-cn.com
+host-suffix, app-measurement.com
 host-suffix, appbridge.ca
 host-suffix, appbridge.io
 host-suffix, appbridge.it
@@ -205,7 +225,12 @@ host-suffix, devsitetest.how
 host-suffix, dialogflow.com
 host-suffix, digitalassetlinks.org
 host-suffix, docs.new
+host-suffix, doubleclick-cn.net
+host-suffix, doubleclick.cn
+host-suffix, doubleclick.com
+host-suffix, doubleclick.net
 host-suffix, episodic.com
+host-suffix, fcmatch.google.com
 host-suffix, feedburner.com
 host-suffix, fflick.com
 host-suffix, financeleadsonline.com
@@ -242,6 +267,8 @@ host-suffix, googil.com
 host-suffix, googl.com
 host-suffix, google
 host-suffix, google-access.net
+host-suffix, google-analytics-cn.com
+host-suffix, google-analytics.com
 host-suffix, google-syndication.com
 host-suffix, google.ad
 host-suffix, google.ae
@@ -440,6 +467,14 @@ host-suffix, google.vg
 host-suffix, google.vu
 host-suffix, google.ws
 host-suffix, googleacquisitionmigration.com
+host-suffix, googleadapis.com
+host-suffix, googleadapis.l.google.com
+host-suffix, googleads-cn.com
+host-suffix, googleads.com
+host-suffix, googleadservices-cn.com
+host-suffix, googleadservices.com
+host-suffix, googleadsserving.cn
+host-suffix, googleanalytics.com
 host-suffix, googleapis.cn
 host-suffix, googleapis.com
 host-suffix, googleapps.com
@@ -462,13 +497,24 @@ host-suffix, googlefiber.net
 host-suffix, googlefinland.com
 host-suffix, googlemail.com
 host-suffix, googlemaps.com
+host-suffix, googleoptimize-cn.com
+host-suffix, googleoptimize.com
 host-suffix, googlepagecreator.com
 host-suffix, googlephotos.com
 host-suffix, googleplus.com
 host-suffix, googlesource.com
 host-suffix, googlestore.com
 host-suffix, googlesverige.com
+host-suffix, googlesyndication-cn.com
+host-suffix, googlesyndication.com
+host-suffix, googletagmanager-cn.com
+host-suffix, googletagmanager.com
+host-suffix, googletagservices-cn.com
+host-suffix, googletagservices.com
+host-suffix, googletraveladservices-cn.com
+host-suffix, googletraveladservices.com
 host-suffix, googleusercontent.com
+host-suffix, googlevads-cn.com
 host-suffix, googleventures.com
 host-suffix, googlezip.net
 host-suffix, googlr.com
@@ -513,10 +559,13 @@ host-suffix, keytransparency.org
 host-suffix, lanternal.com
 host-suffix, like.com
 host-suffix, madewithcode.com
+host-suffix, mail-ads.google.com
+host-suffix, marketingplatform.google.com
 host-suffix, material.io
 host-suffix, mdialog.com
 host-suffix, meet.new
 host-suffix, mfg-inspector.com
+host-suffix, mobileads.google.com
 host-suffix, mobileview.page
 host-suffix, moodstocks.com
 host-suffix, near.by
@@ -533,9 +582,11 @@ host-suffix, openthread.io
 host-suffix, openweave.io
 host-suffix, orbitera.com
 host-suffix, page.link
+host-suffix, pagead.l.google.com
 host-suffix, pagespeedmobilizer.com
 host-suffix, pageview.mobi
 host-suffix, panoramio.com
+host-suffix, partnerad.l.google.com
 host-suffix, partylikeits1986.org
 host-suffix, paxlicense.org
 host-suffix, picasa.com
@@ -586,6 +637,7 @@ host-suffix, tiltbrush.com
 host-suffix, txcloud.net
 host-suffix, txvia.com
 host-suffix, unfiltered.news
+host-suffix, urchin.com
 host-suffix, useplannr.com
 host-suffix, usvimosquito.com
 host-suffix, usvimosquitoproject.com
