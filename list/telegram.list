@@ -1,6 +1,6 @@
 # Telegram Rules (Auto-Generated)
 # Source: v2fly/domain-list-community
-# Total Rules: 19
+# Total Rules: 20
 
 host-suffix, cdn-telegram.org
 host-suffix, comments.app
@@ -19,5 +19,6 @@ host-suffix, telegram.org
 host-suffix, telegram.space
 host-suffix, telesco.pe
 host-suffix, tg.dev
+host-suffix, ton.org
 host-suffix, tx.me
 host-suffix, usercontent.dev

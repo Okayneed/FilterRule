@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3865
+# Total Rules: 3867
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -2315,6 +2315,7 @@ host-suffix, nflxso.net
 host-suffix, nflxvideo.net
 host-suffix, nftstorage.link
 host-suffix, nga.mil
+host-suffix, nhentai.net
 host-suffix, nhi.gov.tw
 host-suffix, nic.cz.cc
 host-suffix, nic.gov
@@ -3536,6 +3537,7 @@ host-suffix, walletconnect.com
 host-suffix, wallmama.com
 host-suffix, wallpapercasa.com
 host-suffix, wallsttv.com
+host-suffix, wallzhihu.com
 host-suffix, waltermartin.com
 host-suffix, waltermartin.org
 host-suffix, wanderinghorse.net
