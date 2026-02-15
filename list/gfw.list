@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3867
+# Total Rules: 3870
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -1258,6 +1258,7 @@ host-suffix, glorystar.me
 host-suffix, glype.com
 host-suffix, gmail.com
 host-suffix, gmgard.com
+host-suffix, gmgn.ai
 host-suffix, gmodules.com
 host-suffix, gnci.org.hk
 host-suffix, gnews.org
@@ -2956,6 +2957,7 @@ host-suffix, southpark.cc.com
 host-suffix, sowers.org.hk
 host-suffix, soylentnews.org
 host-suffix, spaces.hightail.com
+host-suffix, spacex.com
 host-suffix, spankbang.com
 host-suffix, sparkpool.com
 host-suffix, spatial.io
@@ -3534,6 +3536,7 @@ host-suffix, w-pool.com
 host-suffix, waffle1999.com
 host-suffix, wainao.me
 host-suffix, walletconnect.com
+host-suffix, walletconnect.org
 host-suffix, wallmama.com
 host-suffix, wallpapercasa.com
 host-suffix, wallsttv.com
