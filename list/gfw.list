@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3870
+# Total Rules: 3837
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -119,7 +119,6 @@ host-suffix, aiph.net
 host-suffix, airconsole.com
 host-suffix, airitilibrary.com
 host-suffix, airvpn.org
-host-suffix, aiss.anws.gov.tw
 host-suffix, ait.org.tw
 host-suffix, aiweiweiblog.com
 host-suffix, akamai.tvb.com
@@ -230,7 +229,6 @@ host-suffix, archive.vn
 host-suffix, archiveofourown.com
 host-suffix, archiveofourown.org
 host-suffix, archives.gov
-host-suffix, archives.gov.tw
 host-suffix, arctosia.com
 host-suffix, areca-backup.org
 host-suffix, arena.taipei
@@ -785,7 +783,6 @@ host-suffix, darpa.mil
 host-suffix, darrenliuwei.com
 host-suffix, dashlane.com
 host-suffix, data-vocabulary.org
-host-suffix, data.gov.tw
 host-suffix, daum.net
 host-suffix, dawangidc.com
 host-suffix, daxa.cn
@@ -979,7 +976,6 @@ host-suffix, euronews.com
 host-suffix, evchk.wikia.com
 host-suffix, everipedia.org
 host-suffix, evschool.net
-host-suffix, exam.gov.tw
 host-suffix, exchristian.hk
 host-suffix, exhentai.org
 host-suffix, exmo.com
@@ -991,13 +987,11 @@ host-suffix, exploader.net
 host-suffix, expressvpn.com
 host-suffix, exrates.me
 host-suffix, extmatrix.com
-host-suffix, ey.gov.tw
 host-suffix, eyevio.jp
 host-suffix, eyny.com
 host-suffix, f-droid.org
 host-suffix, f2pool.com
 host-suffix, f8.com
-host-suffix, fa.gov.tw
 host-suffix, facebook.com
 host-suffix, facebook.de
 host-suffix, facebook.design
@@ -1050,7 +1044,6 @@ host-suffix, fbcdn.net
 host-suffix, fbsbx.com
 host-suffix, fbworkmail.com
 host-suffix, fc2cn.com
-host-suffix, fda.gov.tw
 host-suffix, feedburner.com
 host-suffix, feeder.co
 host-suffix, feedly.com
@@ -1525,6 +1518,7 @@ host-suffix, gotrusted.com
 host-suffix, gotw.ca
 host-suffix, gov.ir
 host-suffix, gov.taipei
+host-suffix, gov.tw
 host-suffix, grammaly.com
 host-suffix, graph.org
 host-suffix, graphis.ne.jp
@@ -1659,7 +1653,6 @@ host-suffix, hotvpn.com
 host-suffix, howtoforge.com
 host-suffix, hoxx.com
 host-suffix, hoy.tv
-host-suffix, hpa.gov.tw
 host-suffix, hpjav.com
 host-suffix, hqcdp.org
 host-suffix, hqjapanesesex.com
@@ -1762,7 +1755,6 @@ host-suffix, imgchili.net
 host-suffix, imgur.com
 host-suffix, imkev.com
 host-suffix, imlive.co
-host-suffix, immigration.gov.tw
 host-suffix, improd.works
 host-suffix, incloak.com
 host-suffix, incredibox.fr
@@ -1825,7 +1817,6 @@ host-suffix, ismprofessional.net
 host-suffix, israbox.com
 host-suffix, issuu.com
 host-suffix, isupportuyghurs.org
-host-suffix, itaiwan.gov.tw
 host-suffix, italiatibet.org
 host-suffix, itasoftware.com
 host-suffix, itch.io
@@ -1884,7 +1875,6 @@ host-suffix, journalofdemocracy.org
 host-suffix, jpl.nasa.gov
 host-suffix, jsdelivr.net
 host-suffix, jtvnw.net
-host-suffix, judicial.gov.tw
 host-suffix, jukujo-club.com
 host-suffix, juliepost.com
 host-suffix, juliereyc.com
@@ -2049,7 +2039,6 @@ host-suffix, lupm.org
 host-suffix, lushstories.com
 host-suffix, lvhai.org
 host-suffix, lvv2.com
-host-suffix, ly.gov.tw
 host-suffix, lzjscript.com
 host-suffix, lzmtnews.org
 host-suffix, m.me
@@ -2173,7 +2162,6 @@ host-suffix, mixi.jp
 host-suffix, mixx.com
 host-suffix, mizzmona.com
 host-suffix, mji.rip
-host-suffix, mjib.gov.tw
 host-suffix, mjj.rip
 host-suffix, mlc.ai
 host-suffix, mlzs.work
@@ -2183,16 +2171,12 @@ host-suffix, mobile01.com
 host-suffix, mobileways.de
 host-suffix, mod.io
 host-suffix, modernchinastudies.org
-host-suffix, moeaic.gov.tw
 host-suffix, moeerolibrary.com
 host-suffix, moeshare.cc
-host-suffix, mofa.gov.tw
 host-suffix, mog.com
 host-suffix, mohu.club
 host-suffix, mohu.rocks
-host-suffix, moj.gov.tw
 host-suffix, mojim.com
-host-suffix, mol.gov.tw
 host-suffix, momoshop.com.tw
 host-suffix, mondex.org
 host-suffix, money-link.com.tw
@@ -2226,7 +2210,6 @@ host-suffix, musixmatch.com
 host-suffix, muzi.com
 host-suffix, muzi.net
 host-suffix, muzu.tv
-host-suffix, mvdis.gov.tw
 host-suffix, mvg.jp
 host-suffix, mx981.com
 host-suffix, my-private-network.co.uk
@@ -2256,7 +2239,6 @@ host-suffix, namu.wiki
 host-suffix, nanopool.org
 host-suffix, nanyang.com
 host-suffix, nanyangpost.com
-host-suffix, nat.gov.tw
 host-suffix, nat.moe
 host-suffix, national-lottery.co.uk
 host-suffix, nationalawakening.org
@@ -2317,7 +2299,6 @@ host-suffix, nflxvideo.net
 host-suffix, nftstorage.link
 host-suffix, nga.mil
 host-suffix, nhentai.net
-host-suffix, nhi.gov.tw
 host-suffix, nic.cz.cc
 host-suffix, nic.gov
 host-suffix, nicovideo.jp
@@ -2352,14 +2333,8 @@ host-suffix, now.com
 host-suffix, nownews.com
 host-suffix, noxinfluencer.com
 host-suffix, npa.go.jp
-host-suffix, npa.gov.tw
-host-suffix, npm.gov.tw
 host-suffix, npsboost.com
 host-suffix, nrk.no
-host-suffix, nsc.gov.tw
-host-suffix, ntbk.gov.tw
-host-suffix, ntbna.gov.tw
-host-suffix, ntbt.gov.tw
 host-suffix, ntd.tv
 host-suffix, ntdtv.com
 host-suffix, ntdtv.com.tw
@@ -2488,7 +2463,6 @@ host-suffix, pbs.org
 host-suffix, pbworks.com
 host-suffix, pbxes.com
 host-suffix, pbxes.org
-host-suffix, pcc.gov.tw
 host-suffix, pcgamestorrents.com
 host-suffix, pcij.org
 host-suffix, pct.org.tw
@@ -2833,7 +2807,6 @@ host-suffix, securitykiss.com
 host-suffix, seed4.me
 host-suffix, seevpn.com
 host-suffix, seezone.net
-host-suffix, sef.org.tw
 host-suffix, sehuatang.net
 host-suffix, sehuatang.org
 host-suffix, sensortower.com
@@ -2997,7 +2970,6 @@ host-suffix, standupfortibet.org
 host-suffix, standwithhk.org
 host-suffix, starp2p.com
 host-suffix, startpage.com
-host-suffix, stat.gov.tw
 host-suffix, static-economist.com
 host-suffix, static.pocketcasts.com
 host-suffix, static.shemalez.com
@@ -3066,16 +3038,13 @@ host-suffix, t.co
 host-suffix, t.me
 host-suffix, t66y.com
 host-suffix, taaze.tw
-host-suffix, tacc.cwb.gov.tw
 host-suffix, taedp.org.tw
 host-suffix, tagwalk.com
 host-suffix, tails.net
-host-suffix, taipei.gov.tw
 host-suffix, taipeisociety.org
 host-suffix, taipeitimes.com
 host-suffix, taisounds.com
 host-suffix, taiwanhot.net
-host-suffix, taiwanjobs.gov.tw
 host-suffix, taiwanjustice.net
 host-suffix, taiwanncf.org.tw
 host-suffix, taiwannews.com.tw
@@ -3129,7 +3098,6 @@ host-suffix, tfhub.dev
 host-suffix, tfiflve.com
 host-suffix, tg-me.com
 host-suffix, tg.dev
-host-suffix, thb.gov.tw
 host-suffix, theatlantic.com
 host-suffix, theatrum-belli.com
 host-suffix, thebcomplex.com
@@ -3240,7 +3208,6 @@ host-suffix, tinychat.com
 host-suffix, tinypaste.com
 host-suffix, tinyurl.com
 host-suffix, tipas.net
-host-suffix, tipo.gov.tw
 host-suffix, tkcs-collins.com
 host-suffix, tma.co.jp
 host-suffix, tmagazine.com
@@ -3330,6 +3297,7 @@ host-suffix, tweetwally.com
 host-suffix, twelve.today
 host-suffix, twerkingbutt.com
 host-suffix, twftp.org
+host-suffix, twgov.tw
 host-suffix, twgreatdaily.com
 host-suffix, twibble.de
 host-suffix, twibs.com
@@ -3561,7 +3529,6 @@ host-suffix, waveprotocol.org
 host-suffix, waybig.com
 host-suffix, waymo.com
 host-suffix, wd.bible
-host-suffix, wda.gov.tw
 host-suffix, wealth.com.tw
 host-suffix, wearn.com
 host-suffix, web.dev
