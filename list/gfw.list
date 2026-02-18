@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3837
+# Total Rules: 3838
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -1546,7 +1546,7 @@ host-suffix, gumroad.com
 host-suffix, gunsamerica.com
 host-suffix, gutteruncensored.com
 host-suffix, gvm.com.tw
-host-suffix, gvt1.com]
+host-suffix, gvt1.com
 host-suffix, gvt3.com
 host-suffix, gwins.org
 host-suffix, gwtproject.org
@@ -2193,6 +2193,7 @@ host-suffix, moptt.tw
 host-suffix, moresci.sale
 host-suffix, morningsun.org
 host-suffix, mos.ru
+host-suffix, mosavi.io
 host-suffix, movements.org
 host-suffix, moviefap.com
 host-suffix, mpettis.com
