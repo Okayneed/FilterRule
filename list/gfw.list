@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3838
+# Total Rules: 3843
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -124,6 +124,7 @@ host-suffix, aiweiweiblog.com
 host-suffix, akamai.tvb.com
 host-suffix, akiba-online.com
 host-suffix, akiba-web.com
+host-suffix, akile.io
 host-suffix, akinator.com
 host-suffix, akow.org
 host-suffix, alabout.com
@@ -251,6 +252,7 @@ host-suffix, aspi.org.au
 host-suffix, aspistrategist.org.au
 host-suffix, assembla.com
 host-suffix, assets.bwbx.io
+host-suffix, assets.nxtrace.org
 host-suffix, assimp.org
 host-suffix, astrill.com
 host-suffix, atc.org.au
@@ -2090,6 +2092,7 @@ host-suffix, mediachinese.com
 host-suffix, mediafreakcity.com
 host-suffix, mediawiki.org
 host-suffix, medium.com
+host-suffix, meee.com.tw
 host-suffix, meetup.com
 host-suffix, mega.co.nz
 host-suffix, mega.io
@@ -2404,6 +2407,7 @@ host-suffix, ooni.io
 host-suffix, ooni.org
 host-suffix, open.firstory.me
 host-suffix, openai.com
+host-suffix, opencritic.com
 host-suffix, opendemocracy.net
 host-suffix, openid.net
 host-suffix, openleaks.org
@@ -3647,6 +3651,7 @@ host-suffix, wwitv.com
 host-suffix, www.ajsands.com
 host-suffix, www.aolnews.com
 host-suffix, www.bing.com
+host-suffix, www.clashverge.dev
 host-suffix, www.hoyolab.com
 host-suffix, www.lorenzetti.com.br
 host-suffix, www.moztw.org
