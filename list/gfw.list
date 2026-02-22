@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3843
+# Total Rules: 3845
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -3233,6 +3233,7 @@ host-suffix, topbtc.com
 host-suffix, topsy.com
 host-suffix, toptip.ca
 host-suffix, toptoon.net
+host-suffix, tor.eff.org
 host-suffix, torguard.net
 host-suffix, torlock.com
 host-suffix, torproject.org
@@ -3363,6 +3364,7 @@ host-suffix, unblocksit.es
 host-suffix, underwoodammo.com
 host-suffix, unholyknight.com
 host-suffix, unirule.cloud
+host-suffix, uniswap.org
 host-suffix, unknownspace.org
 host-suffix, unmineable.com
 host-suffix, unseen.is
