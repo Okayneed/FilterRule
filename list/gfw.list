@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3845
+# Total Rules: 3846
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -1112,6 +1112,7 @@ host-suffix, free.com.tw
 host-suffix, freebeacon.com
 host-suffix, freebrowser.org
 host-suffix, freechinaweibo.com
+host-suffix, freedom.gov
 host-suffix, freedomhouse.org
 host-suffix, freedominfonetweb.wordpress.com
 host-suffix, freedomsherald.org
