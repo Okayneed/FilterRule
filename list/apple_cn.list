@@ -1,6 +1,6 @@
 # Apple & iCloud China (Auto-Generated)
 # Source: v2fly/domain-list-community
-# Total Rules: 963
+# Total Rules: 967
 
 host, a1.mzstatic.com
 host, a2.mzstatic.com
@@ -12,6 +12,7 @@ host, adcdownload.apple.com.akadns.net
 host, amp-api-edge-lb-cn.itunes-apple.com.akadns.net
 host, amp-api-edge-lb.itunes-apple.com.akadns.net
 host, amp-api-edge.apps.apple.com
+host, amp-api-edge.music.apple.com
 host, amp-api-search-edge.apps.apple.com
 host, amp-api-updates.apps.apple.com
 host, amp-api.apps.apple.com
@@ -146,6 +147,8 @@ host, mesu.apple.com
 host, misc-assets.itunes.apple.com
 host, ml.cdn-apple.com
 host, music.apple.com
+host, musicstatus.music.apple.com
+host, mvod.itunes.apple.com
 host, myapp.itunes.apple.com
 host, np-edge.itunes.apple.com
 host, oscdn.apple.com
@@ -182,6 +185,7 @@ host, sh-pod2-smp-device.apple.com
 host, shazam-insights.cdn-apple.com
 host, smp-device-content.apple.com
 host, sp.itunes.apple.com
+host, speedysub.music.apple.com
 host, static.gc.apple.com
 host, stocks-sparkline-lb.apple.com.akadns.net
 host, stocks-sparkline.apple.com
