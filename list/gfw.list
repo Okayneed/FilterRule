@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3846
+# Total Rules: 3848
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -649,6 +649,7 @@ host-suffix, cixiaoya.club
 host-suffix, ck101.com
 host-suffix, classicalguitarblog.net
 host-suffix, claude.ai
+host-suffix, claude.com
 host-suffix, cldr.unicode.org
 host-suffix, clearsurance.com
 host-suffix, clementine-player.org
@@ -2062,6 +2063,7 @@ host-suffix, mangafox.com
 host-suffix, mangafox.me
 host-suffix, mangmang.run
 host-suffix, manta.com
+host-suffix, manus.im
 host-suffix, manyvoices.news
 host-suffix, marc.info
 host-suffix, martau.com
