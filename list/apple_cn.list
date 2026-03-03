@@ -1,6 +1,6 @@
 # Apple & iCloud China (Auto-Generated)
 # Source: v2fly/domain-list-community
-# Total Rules: 967
+# Total Rules: 968
 
 host, a1.mzstatic.com
 host, a2.mzstatic.com
@@ -673,6 +673,7 @@ host-suffix, icloud-content.com
 host-suffix, icloud-isupport.com
 host-suffix, icloud-sandbox.com
 host-suffix, icloud.ch
+host-suffix, icloud.cn
 host-suffix, icloud.com
 host-suffix, icloud.com.cn
 host-suffix, icloud.de
