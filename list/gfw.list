@@ -922,6 +922,7 @@ host-suffix, ebook.hyread.com.tw
 host-suffix, ebtcbank.com
 host-suffix, ecfa.org.tw
 host-suffix, ecimg.tw
+host-suffix, economist.com
 host-suffix, edgecastcdn.net
 host-suffix, edubridge.com
 host-suffix, edx-cdn.org
@@ -3804,7 +3805,6 @@ host-suffix, z-library.ec
 host-suffix, z-library.sk
 host-suffix, zalmos.com
 host-suffix, zamimg.com
-host-suffix, zaobao.com.sg
 host-suffix, zaochenbao.com
 host-suffix, zattoo.com
 host-suffix, zb.com
