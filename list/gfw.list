@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3851
+# Total Rules: 3852
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -879,6 +879,7 @@ host-suffix, doublethinklab.org
 host-suffix, douchi.space
 host-suffix, dougscripts.com
 host-suffix, doujincafe.com
+host-suffix, download.dappcdn.com
 host-suffix, dpool.top
 host-suffix, dpp.org.tw
 host-suffix, dpr.info
