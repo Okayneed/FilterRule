@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3852
+# Total Rules: 3855
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -852,6 +852,7 @@ host-suffix, dmc.nico
 host-suffix, dmcdn.net
 host-suffix, dmhy.org
 host-suffix, dmm.co.jp
+host-suffix, dns.cloudflare.com
 host-suffix, dns2go.com
 host-suffix, dnscrypt.org
 host-suffix, dnssec.net
@@ -1401,6 +1402,7 @@ host-suffix, google.com.vn
 host-suffix, google.cv
 host-suffix, google.cz
 host-suffix, google.de
+host-suffix, google.dev
 host-suffix, google.dk
 host-suffix, google.dm
 host-suffix, google.dz
@@ -1795,6 +1797,7 @@ host-suffix, internetpopculture.com
 host-suffix, interseclab.org
 host-suffix, inthenameofconfuciusmovie.com
 host-suffix, investigating.wordpress.com
+host-suffix, investing.com
 host-suffix, invidio.us
 host-suffix, inxian.com
 host-suffix, ipdefenseforum.com
