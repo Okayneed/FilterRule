@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3855
+# Total Rules: 3856
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -2852,6 +2852,7 @@ host-suffix, shenyunshop.com
 host-suffix, shenzhoufilm.com
 host-suffix, shenzhouzhengdao.org
 host-suffix, shiksha.com
+host-suffix, shitjournal.org
 host-suffix, shixiao.org
 host-suffix, shizhao.org
 host-suffix, shodanhq.com
