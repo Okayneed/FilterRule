@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3856
+# Total Rules: 3857
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -3690,6 +3690,7 @@ host-suffix, xbtce.com
 host-suffix, xcafe.in
 host-suffix, xcancel.com
 host-suffix, xcity.jp
+host-suffix, xdaforums.com
 host-suffix, xerotica.com
 host-suffix, xfinity.com
 host-suffix, xfxssr.me
