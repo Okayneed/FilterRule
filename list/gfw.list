@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3857
+# Total Rules: 3858
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -72,6 +72,7 @@ host-suffix, 9gag.com
 host-suffix, 9news.com.au
 host-suffix, a-normal-day.com
 host-suffix, a248.e.akamai.net
+host-suffix, aave.com
 host-suffix, abc.net.au
 host-suffix, abc.xyz
 host-suffix, abebooks.co.uk
