@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3858
+# Total Rules: 3860
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -2387,8 +2387,10 @@ host-suffix, ogate.org
 host-suffix, ohmyrss.com
 host-suffix, ok.ru
 host-suffix, okayfreedom.com
+host-suffix, okcoin.com
 host-suffix, okex.com
 host-suffix, okk.tw
+host-suffix, oklink.com
 host-suffix, okpool.me
 host-suffix, okx.com
 host-suffix, olehdtv.com
