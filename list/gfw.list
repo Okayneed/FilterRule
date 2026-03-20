@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3860
+# Total Rules: 3861
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -637,6 +637,7 @@ host-suffix, chromeexperiments.com
 host-suffix, chromestatus.com
 host-suffix, chromium.org
 host-suffix, ci-en.jp
+host-suffix, cia.gov
 host-suffix, cici.com
 host-suffix, ciciai.com
 host-suffix, cirosantilli.com
