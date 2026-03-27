@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3864
+# Total Rules: 3863
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -2773,7 +2773,6 @@ host-suffix, ruten.com.tw
 host-suffix, rutracker.net
 host-suffix, rutracker.org
 host-suffix, s-cute.com
-host-suffix, s.rmimg.com
 host-suffix, s.yimg.com
 host-suffix, s3-ap-northeast-1.amazonaws.com
 host-suffix, s3-ap-northeast-2.amazonaws.com
