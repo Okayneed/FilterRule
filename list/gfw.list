@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3863
+# Total Rules: 3864
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -2437,6 +2437,7 @@ host-suffix, orient-doll.com
 host-suffix, orientaldaily.com.my
 host-suffix, orn.jp
 host-suffix, osfoora.com
+host-suffix, osmand.net
 host-suffix, otcbtc.com
 host-suffix, otto.de
 host-suffix, ourdearamy.com
