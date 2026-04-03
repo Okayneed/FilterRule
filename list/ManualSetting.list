@@ -21,5 +21,22 @@ HOST-SUFFIX, nympho.com, Proxy
 HOST-SUFFIX, netflixgc.net, Proxy
 HOST-SUFFIX, globalsight.ai, Proxy
 HOST-SUFFIX, surrit.com, Proxy
-
 HOST-SUFFIX, av-wiki.net, Proxy
+#------MOA开始
+IP-CIDR, 121.36.82.18,Direct
+host-suffix, zj.moazq.chinamobile.com,Direct
+IP-CIDR, 43.248.130.182,Direct
+host-suffix, bops.meeting.huaweicloud.com, Direct
+IP-CIDR, 43.248.130.184,Direct
+host-suffix, map.baidu.com,Direct
+IP-CIDR, 111.22.67.173,Direct
+host-suffix, dnconfig.cmpassport.com, Direct
+IP-CIDR, 36.139.5.64,Direct
+host-suffix, zj.moazq.chinamobile.com,Direct
+IP-CIDR, 36.139.1.1,Direct
+host-suffix, bj.moazq.chinamobile.com,Direct
+IP-CIDR, 36.140.79.104,Direct
+host-suffix, conf.125339.com.cn,Direct
+IP-CIDR, 36.140.77.158,Direct
+host-suffix, link.cmpassport.com,Direct
+#------MOA结束
