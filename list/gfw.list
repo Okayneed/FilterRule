@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3864
+# Total Rules: 3868
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -220,6 +220,7 @@ host-suffix, appsocks.net
 host-suffix, appspot.com
 host-suffix, appsto.re
 host-suffix, aptoide.com
+host-suffix, archive-it.org
 host-suffix, archive.fo
 host-suffix, archive.is
 host-suffix, archive.li
@@ -855,6 +856,7 @@ host-suffix, dmcdn.net
 host-suffix, dmhy.org
 host-suffix, dmm.co.jp
 host-suffix, dns.cloudflare.com
+host-suffix, dns.sb
 host-suffix, dns2go.com
 host-suffix, dnscrypt.org
 host-suffix, dnssec.net
@@ -865,6 +867,7 @@ host-suffix, docker.io
 host-suffix, dockerstatus.com
 host-suffix, docs.new
 host-suffix, documentingreality.com
+host-suffix, doh.sb
 host-suffix, dolc.de
 host-suffix, dolf.org.hk
 host-suffix, dongtaiwang.com
@@ -872,6 +875,7 @@ host-suffix, dongtaiwang.net
 host-suffix, doom9.org
 host-suffix, doosho.com
 host-suffix, doourbest.org
+host-suffix, dot.sb
 host-suffix, dotplane.com
 host-suffix, dotsub.com
 host-suffix, dotvpn.com
