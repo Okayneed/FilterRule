@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3868
+# Total Rules: 3869
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -730,6 +730,7 @@ host-suffix, coze.com
 host-suffix, cpj.org
 host-suffix, cpu-monkey.com
 host-suffix, crackle.com
+host-suffix, crashlytics.com
 host-suffix, crazypool.org
 host-suffix, crazyshit.com
 host-suffix, crbug.com
