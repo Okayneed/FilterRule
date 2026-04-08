@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3869
+# Total Rules: 3868
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -2110,7 +2110,6 @@ host-suffix, mediafreakcity.com
 host-suffix, mediawiki.org
 host-suffix, medium.com
 host-suffix, meee.com.tw
-host-suffix, meetup.com
 host-suffix, mega.co.nz
 host-suffix, mega.io
 host-suffix, mega.nz
@@ -2175,6 +2174,7 @@ host-suffix, mirrorbooks.com
 host-suffix, mirrormedia.mg
 host-suffix, missav.com
 host-suffix, missav.ws
+host-suffix, mistral.ai
 host-suffix, mitbbs.com
 host-suffix, miuipolska.pl
 host-suffix, mixero.com
@@ -2657,7 +2657,6 @@ host-suffix, pursuestar.com
 host-suffix, putty.org
 host-suffix, pximg.net
 host-suffix, python.com.tw
-host-suffix, pytorch.org
 host-suffix, qbittorrent.org
 host-suffix, qgirl.com.tw
 host-suffix, qi-gong.me
