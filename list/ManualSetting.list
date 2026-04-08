@@ -23,3 +23,4 @@ HOST-SUFFIX, globalsight.ai, Proxy
 HOST-SUFFIX, surrit.com, Proxy
 HOST-SUFFIX, av-wiki.net, Proxy
 
+HOST, notebooklm.google.com, Only_US
