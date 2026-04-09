@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3868
+# Total Rules: 3864
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -172,11 +172,9 @@ host-suffix, angela-merkel.de
 host-suffix, angola.org
 host-suffix, angularjs.org
 host-suffix, aniscartujo.com
-host-suffix, annas-archive.in
-host-suffix, annas-archive.li
-host-suffix, annas-archive.org
-host-suffix, annas-archive.pm
-host-suffix, annas-archive.se
+host-suffix, annas-archive.gd
+host-suffix, annas-archive.gl
+host-suffix, annas-archive.pk
 host-suffix, anobii.com
 host-suffix, anonfiles.com
 host-suffix, anonymouse.org
@@ -3092,7 +3090,6 @@ host-suffix, tbsec.org
 host-suffix, tbsn.org
 host-suffix, teachparentstech.org
 host-suffix, technews.tw
-host-suffix, techspot.com
 host-suffix, techviz.net
 host-suffix, teck.in
 host-suffix, teco-hk.org
@@ -3106,7 +3103,6 @@ host-suffix, telegram.me
 host-suffix, telegram.org
 host-suffix, telegram.space
 host-suffix, telegramdownload.com
-host-suffix, telegraph.co.uk
 host-suffix, telesco.pe
 host-suffix, tellapart.com
 host-suffix, temu.com
