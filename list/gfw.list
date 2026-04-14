@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3865
+# Total Rules: 3854
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -1622,8 +1622,6 @@ host-suffix, hiveon.net
 host-suffix, hk.jiepang.com
 host-suffix, hk01.com
 host-suffix, hka8964.wordpress.com
-host-suffix, hkacg.com
-host-suffix, hkacg.net
 host-suffix, hkanews.wordpress.com
 host-suffix, hkbookcity.com
 host-suffix, hkchronicles.com
@@ -2230,7 +2228,6 @@ host-suffix, muzi.com
 host-suffix, muzi.net
 host-suffix, muzu.tv
 host-suffix, mvg.jp
-host-suffix, mx981.com
 host-suffix, my-private-network.co.uk
 host-suffix, my.pcloud.com
 host-suffix, myaudiocast.com
@@ -2424,6 +2421,7 @@ host-suffix, ooni.io
 host-suffix, ooni.org
 host-suffix, open.firstory.me
 host-suffix, openai.com
+host-suffix, openart.ai
 host-suffix, opencritic.com
 host-suffix, opendemocracy.net
 host-suffix, openid.net
@@ -2778,13 +2776,6 @@ host-suffix, rutracker.org
 host-suffix, s-cute.com
 host-suffix, s.yimg.com
 host-suffix, s3-ap-northeast-1.amazonaws.com
-host-suffix, s3-ap-northeast-2.amazonaws.com
-host-suffix, s3-ap-southeast-1.amazonaws.com
-host-suffix, s3-ap-southeast-2.amazonaws.com
-host-suffix, s3-eu-central-1.amazonaws.com
-host-suffix, s3.ap-northeast-2.amazonaws.com
-host-suffix, s3.eu-central-1.amazonaws.com
-host-suffix, s3.us-east-1.amazonaws.com
 host-suffix, sacks.com
 host-suffix, sacom.hk
 host-suffix, sadistic-v.com
@@ -3522,7 +3513,6 @@ host-suffix, vrchat.com
 host-suffix, vrporn.com
 host-suffix, vrsmash.com
 host-suffix, vtunnel.com
-host-suffix, vuku.cc
 host-suffix, vultryhw.com
 host-suffix, w-pool.com
 host-suffix, waffle1999.com
@@ -3710,7 +3700,6 @@ host-suffix, xiaxiaoqiang.net
 host-suffix, xijie.wordpress.com
 host-suffix, xinjiangpolicefiles.org
 host-suffix, xinmiao.com.hk
-host-suffix, xjp.cc
 host-suffix, xjtravelguide.com
 host-suffix, xm.com
 host-suffix, xml-training-guide.com
