@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3854
+# Total Rules: 3855
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -273,6 +273,7 @@ host-suffix, avdb.tv
 host-suffix, avg.com
 host-suffix, avgle.com
 host-suffix, avidemux.org
+host-suffix, avistaz.to
 host-suffix, avmo.pw
 host-suffix, avmoo.pw
 host-suffix, avoision.com
