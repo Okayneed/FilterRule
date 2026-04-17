@@ -24,3 +24,4 @@ HOST-SUFFIX, surrit.com, Proxy
 HOST-SUFFIX, av-wiki.net, Proxy
 
 HOST, notebooklm.google.com, Only_US
+HOST-SUFFIX, gov.my, Proxy
