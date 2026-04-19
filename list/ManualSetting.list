@@ -27,3 +27,4 @@ HOST, notebooklm.google.com, Only_US
 HOST-SUFFIX, gov.my, Proxy
 HOST-SUFFIX, spglobal.cn, Proxy
 HOST-SUFFIX, jpmorgan.com, Proxy
+HOST-SUFFIX, co.jp, Only_JP
