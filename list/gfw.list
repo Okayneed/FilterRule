@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3863
+# Total Rules: 3864
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -3394,6 +3394,7 @@ host-suffix, updates.tdesktop.com
 host-suffix, upghsbc.com
 host-suffix, upmedia.mg
 host-suffix, uproxy.org
+host-suffix, upsangel.com
 host-suffix, uptodown.com
 host-suffix, uraban.me
 host-suffix, urbandictionary.com
