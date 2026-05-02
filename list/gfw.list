@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3864
+# Total Rules: 3865
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -2921,6 +2921,7 @@ host-suffix, socialblade.com
 host-suffix, socks-proxy.net
 host-suffix, sockslist.net
 host-suffix, softether-download.com
+host-suffix, softether.co.jp
 host-suffix, softether.org
 host-suffix, softfamous.com
 host-suffix, softwarebychuck.com
