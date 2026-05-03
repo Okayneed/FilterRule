@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3865
+# Total Rules: 3861
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -2804,9 +2804,6 @@ host-suffix, savetibet.org
 host-suffix, savetibetstore.org
 host-suffix, saveuighur.org
 host-suffix, sbti.unun.dev
-host-suffix, scache.vzw.com
-host-suffix, scache1.vzw.com
-host-suffix, scache2.vzw.com
 host-suffix, schema.org
 host-suffix, scmp.com
 host-suffix, scramble.io
@@ -2978,7 +2975,6 @@ host-suffix, springwood.me
 host-suffix, sproutcore.com
 host-suffix, squirrelvpn.com
 host-suffix, ss-link.com
-host-suffix, ss7.vzw.com
 host-suffix, ssl.webpack.de
 host-suffix, sspanel.net
 host-suffix, ssr.tools
