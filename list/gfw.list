@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3889
+# Total Rules: 3890
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -3398,6 +3398,7 @@ host-suffix, ulop.net
 host-suffix, ultrasurf.us
 host-suffix, ultravpn.com
 host-suffix, ultravpn.fr
+host-suffix, umap.openstreetmap.fr
 host-suffix, unblock-us.com
 host-suffix, unblock.cn.com
 host-suffix, unblocksit.es
