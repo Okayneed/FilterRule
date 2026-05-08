@@ -29,3 +29,4 @@ HOST-SUFFIX, spglobal.cn, Proxy
 HOST-SUFFIX, jpmorgan.com, Proxy
 HOST-SUFFIX, co.jp, Only_JP
 HOST-SUFFIX, ladyboystar.com, Proxy
+HOST-SUFFIX, chatgpt.com, Only_US
