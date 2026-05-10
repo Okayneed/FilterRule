@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3890
+# Total Rules: 3892
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -798,6 +798,7 @@ host-suffix, darpa.mil
 host-suffix, darrenliuwei.com
 host-suffix, dashlane.com
 host-suffix, data-vocabulary.org
+host-suffix, data18.com
 host-suffix, daum.net
 host-suffix, dawangidc.com
 host-suffix, daxa.cn
@@ -904,6 +905,7 @@ host-suffix, dropbooks.tv
 host-suffix, dropbox.com
 host-suffix, dropboxapi.com
 host-suffix, dropboxusercontent.com
+host-suffix, dt18.com
 host-suffix, dtiblog.com
 host-suffix, dtic.mil
 host-suffix, dubox.com
