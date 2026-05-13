@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3892
+# Total Rules: 3893
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -633,6 +633,7 @@ host-suffix, chineseradioseattle.com
 host-suffix, chineseupress.com
 host-suffix, chingcheong.com
 host-suffix, chobit.cc
+host-suffix, chonglangtv.org
 host-suffix, christianfreedom.org
 host-suffix, christianstudy.com
 host-suffix, christiantimes.org.hk
