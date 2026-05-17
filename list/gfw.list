@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3893
+# Total Rules: 3895
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -2891,6 +2891,7 @@ host-suffix, showwe.tw
 host-suffix, shutterstock.com
 host-suffix, shwchurch.org
 host-suffix, sidelinesnews.com
+host-suffix, sider.ai
 host-suffix, signal.org
 host-suffix, silvergatebank.com
 host-suffix, simbolostwitter.com
@@ -3861,6 +3862,7 @@ host-suffix, zh.ecdm.wikia.com
 host-suffix, zh.pokerstrategy.com
 host-suffix, zh.wikiquote.org
 host-suffix, zhangtianliang.com
+host-suffix, zhangzhehan.net
 host-suffix, zhanlve.org
 host-suffix, zhao.1984.city
 host-suffix, zhengjian.org
