@@ -1,6 +1,6 @@
 # Google Rules (Auto-Generated)
 # Source: v2fly/domain-list-community
-# Total Rules: 676
+# Total Rules: 645
 
 host, 265.com
 host, 2mdn-cn.net
@@ -27,9 +27,7 @@ host, clickserve.dartsearch.net
 host, clickserver.googleads.com
 host, clientservices.googleapis.com
 host, cn.widevine.com
-host, cnappinstall.googleadapis.com
 host, connectivitycheck.gstatic.com
-host, content.googleadapis.com
 host, crashlyticsreports-pa.googleapis.com
 host, csi.gstatic.com
 host, dartsearch-cn.net
@@ -39,9 +37,7 @@ host, dl.l.google.com
 host, doubleclick-cn.net
 host, doubleclick.net
 host, download.mlcc.google.com
-host, download.qatp1.net
 host, download.tensorflow.google.com
-host, emmapplecodevice.googleapis.com
 host, fontfiles.googleapis.com
 host, fonts.googleapis.com
 host, fonts.gstatic.com
@@ -49,7 +45,6 @@ host, g0.gstatic.com
 host, g1.gstatic.com
 host, g2.gstatic.com
 host, g3.gstatic.com
-host, go.corp.google.com
 host, gonglchuangl.net
 host, gongyichuangyi.net
 host, google-analytics-cn.com
@@ -76,25 +71,13 @@ host, gstatic-cn.com
 host, gstaticadssl.l.google.com
 host, gtm.oasisfeng.com
 host, imasdk.googleapis.com
-host, l2-uberproxy.corp.google.com
-host, logger-dev.corp.google.com
-host, logger.corp.google.com
-host, login.corp.google.com
-host, monitoring.qpdp1.net
 host, pagead-googlehosted.l.google.com
 host, performanceparameters.googleapis.com
 host, prod-controlbe.floonet.goog
 host, prod-databe.floonet.goog
 host, prod.databe.floonet.goog
-host, proxyconfig.corp.google.com
-host, qagpublic.qatp1.net
-host, qgadmin.qcpp1.net
 host, qiao-cn.com
 host, qpx.googleflights.net
-host, qualysapi.qatp1.net
-host, qualysguard.qpdp1.net
-host, r.cert.corp.google.com
-host, rapture-prod.corp.google.com
 host, recaptcha-cn.net
 host, recaptcha.net
 host, redirector.bdn.dev
@@ -109,27 +92,14 @@ host, redirector.snap.gvt1.com
 host, redirector.xn--ngstr-lra8j.com
 host, safebrowsing-cache.google.com
 host, safebrowsing.googleapis.com
-host, scanservice1.qcpp1.net
 host, service.urchin.com
 host, ssl-google-analytics.l.google.com
 host, ssl.gstatic.com
-host, sslredirect.corp.google.com
 host, staging-controlbe.floonet.goog
 host, staging-databe.floonet.goog
 host, staging.databe.floonet.goog
-host, streaming-uberproxy-rotation.corp.google.com
-host, streaming-uberproxy.corp.google.com
-host, sup-ssh-relay.corp.google.com
-host, sup-ssh-relay2.corp.google.com
-host, sup.corp.google.com
-host, sup.l.google.com
 host, tac.googleapis.com
-host, test.gbugs-qa.chromium.org
 host, tools.google.com
-host, tools.l.google.com
-host, uberproxy-debug4.corp.google.com
-host, uberproxy.corp.google.com
-host, uberproxy6.corp.google.com
 host, update.crashlytics.com
 host, update.googleapis.com
 host, wear.googleapis.com
@@ -139,7 +109,6 @@ host, www.destinationurl.com
 host, www.gstatic.com
 host, www.pxcc.com
 host, www.recaptcha.net
-host, xn--flw351e.com
 host-suffix, 0emm.com
 host-suffix, 1e100.net
 host-suffix, 1ucrs.com
