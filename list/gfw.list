@@ -1,6 +1,6 @@
 # GFWList (Auto-Converted)
 # Source: gfwlist/gfwlist
-# Total Rules: 3895
+# Total Rules: 3901
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -1017,6 +1017,7 @@ host-suffix, eyny.com
 host-suffix, f-droid.org
 host-suffix, f2pool.com
 host-suffix, f8.com
+host-suffix, f95zone.to
 host-suffix, facebook.com
 host-suffix, facebook.de
 host-suffix, facebook.design
@@ -1188,6 +1189,7 @@ host-suffix, fxcm-chinese.com
 host-suffix, fxnetworks.com
 host-suffix, g-area.org
 host-suffix, g-queen.com
+host-suffix, g.ai
 host-suffix, g.co
 host-suffix, g0v.social
 host-suffix, gab.com
@@ -1999,6 +2001,7 @@ host-suffix, leisurepro.com
 host-suffix, lematin.ch
 host-suffix, lemonde.fr
 host-suffix, lenwhite.com
+host-suffix, leonardo.ai
 host-suffix, lesoir.be
 host-suffix, letscorp.net
 host-suffix, lexica.art
@@ -2721,6 +2724,7 @@ host-suffix, raggedbanner.com
 host-suffix, raidcall.com.tw
 host-suffix, rakuten.co.jp
 host-suffix, ramcity.com.au
+host-suffix, raphael.app
 host-suffix, rapidmoviez.com
 host-suffix, rapidvpn.com
 host-suffix, rarbgprx.org
@@ -2797,6 +2801,7 @@ host-suffix, rti.org.tw
 host-suffix, rti.tw
 host-suffix, rtm.tnt-ea.com
 host-suffix, rts.ch
+host-suffix, rule34.us
 host-suffix, rule34.xxx
 host-suffix, rule34video.com
 host-suffix, rumble.com
@@ -2964,6 +2969,7 @@ host-suffix, sorting-algorithms.com
 host-suffix, sos.org
 host-suffix, sosad.fun
 host-suffix, sosreader.com
+host-suffix, sotwe.com
 host-suffix, soulcaliburhentai.net
 host-suffix, soundcloud.com
 host-suffix, soundofhope.org
