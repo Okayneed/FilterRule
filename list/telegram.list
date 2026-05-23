@@ -1,12 +1,14 @@
-# Telegram Rules (Auto-Generated)
-# Source: v2fly/domain-list-community
-# Total Rules: 20
+# Telegram Rules (Manually Maintained)
+# Sources: v2fly/domain-list-community + manual additions
+# Total Rules: 31
 
+; --- Domains (host-suffix) ---
 host-suffix, cdn-telegram.org
 host-suffix, comments.app
 host-suffix, contest.com
 host-suffix, fragment.com
 host-suffix, graph.org
+host-suffix, nicegram.app
 host-suffix, quiz.directory
 host-suffix, t.me
 host-suffix, tdesktop.com
@@ -22,3 +24,17 @@ host-suffix, tg.dev
 host-suffix, ton.org
 host-suffix, tx.me
 host-suffix, usercontent.dev
+
+; --- IPv4 Ranges (ip-cidr) ---
+ip-cidr, 91.108.4.0/22
+ip-cidr, 91.108.8.0/22
+ip-cidr, 91.108.12.0/22
+ip-cidr, 91.108.16.0/22
+ip-cidr, 91.108.20.0/22
+ip-cidr, 91.108.56.0/22
+ip-cidr, 91.105.192.0/23
+ip-cidr, 149.154.160.0/20
+ip-cidr, 149.154.164.0/22
+ip-cidr, 149.154.168.0/22
+ip-cidr, 149.154.172.0/22
+ip-cidr, 95.161.64.0/20
