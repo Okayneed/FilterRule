@@ -8,12 +8,6 @@ TASKS = [
         "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/google",
         "output": "list/google.list",
         "policy": "PROXY"
-    },
-    {
-        "name": "Telegram",
-        "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/telegram",
-        "output": "list/telegram.list",
-        "policy": "PROXY"
     }
 ]
 

@@ -41,7 +41,7 @@ jobs:
           git config --local user.name "GitHub Action"
           
           # 将所有生成的 list 文件加入暂存区
-          git add list/o365_cn.list list/apple_cn.list list/google.list list/telegram.list list/gfw.list
+          git add list/o365_cn.list list/apple_cn.list list/google.list list/gfw.list
           
           # 检查是否有文件变动，有变动才提交，没变动则跳过
           if [ -n "$(git status --porcelain)" ]; then
