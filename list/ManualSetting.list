@@ -1,4 +1,7 @@
-#手动维护
+# Manual Settings (Manually Maintained)
+# Maintained by: manual editing (no auto-script)
+# Last Updated: User-driven (manual edits only)
+# Total Rules: 33
 host-suffix, aistudio.google.com, Fast_All
 host-suffix, sec.gov, Fast_All
 host-suffix, yfsp.tv, Fast_All

@@ -1,6 +1,9 @@
 # Apple & iCloud China (Auto-Generated)
+# Maintained by: scripts/generate_apple.py
+# Last Updated: 2026-05-23 08:39 UTC
 # Source: v2fly/domain-list-community
 # Total Rules: 969
+# Status: Updated
 
 host, a1.mzstatic.com
 host, a2.mzstatic.com

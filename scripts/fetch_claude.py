@@ -1,9 +1,11 @@
 import requests
 import re
 import os
+from datetime import datetime, timezone
 
 OUTPUT = "list/claude.list"
 SOURCE_URL = "https://ip.net.coffee/claude/site.html"
+SCRIPT_NAME = "fetch_claude.py"
 
 # Clash 类型 → Quantumult X 类型 映射
 TYPE_MAP = {
@@ -27,38 +29,27 @@ def fetch_page(url: str) -> str:
 
 
 def extract_rules(text: str):
-    """
-    从页面内容中提取 Clash 格式的规则行（如 DOMAIN-SUFFIX,xxx），
-    转换为 Quantumult X 格式。
-    """
     rules = []
     seen = set()
 
     for line in text.splitlines():
         line = line.strip()
 
-        # 跳过空行和注释
         if not line or line.startswith("#") or line.startswith("//"):
             continue
 
-        # 匹配 Clash 规则行: DOMAIN-SUFFIX,xxx 或 IP-CIDR,xxx,no-resolve 等
-        # 格式: TYPE,value[,optional_args]
         match = re.match(r"^(DOMAIN|DOMAIN-SUFFIX|DOMAIN-KEYWORD|IP-CIDR6?|IP-ASN),(.+)$", line)
         if not match:
             continue
 
         clash_type = match.group(1)
         rest = match.group(2)
-
-        # 提取主值（去掉 no-resolve 等附加参数）
         value = rest.split(",")[0].strip()
 
-        # 转换类型
         qx_type = TYPE_MAP.get(clash_type)
         if not qx_type:
             continue
 
-        # 去重
         key = f"{qx_type},{value}"
         if key in seen:
             continue
@@ -66,7 +57,6 @@ def extract_rules(text: str):
 
         rules.append(f"{qx_type}, {value}")
 
-    # 自定义排序：先按类型分组，同类型内按值排序
     def sort_key(rule):
         type_order = {
             "host": 0,
@@ -82,6 +72,50 @@ def extract_rules(text: str):
     return sorted(rules, key=sort_key)
 
 
+def read_old_rules(filepath):
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+        body_start = 0
+        for i, line in enumerate(lines):
+            if line.startswith('#') or line.strip() == '':
+                body_start = i + 1
+            else:
+                break
+        return ''.join(lines[body_start:])
+    except FileNotFoundError:
+        return None
+
+
+def write_rules(rules):
+    now_utc = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+
+    new_body = "\n".join(rules) + ("\n" if rules else "")
+    old_body = read_old_rules(OUTPUT)
+    if old_body is not None and old_body == new_body:
+        status = "No Changes"
+    else:
+        status = "Updated"
+
+    header = [
+        f"# Claude Rules (Auto-Generated)",
+        f"# Maintained by: scripts/{SCRIPT_NAME}",
+        f"# Last Updated: {now_utc}",
+        f"# Source: {SOURCE_URL}",
+        f"# Total Rules: {len(rules)}",
+        f"# Status: {status}",
+        "",
+    ]
+
+    lines = header + rules
+
+    os.makedirs(os.path.dirname(OUTPUT), exist_ok=True)
+    with open(OUTPUT, 'w', encoding='utf-8') as f:
+        f.write("\n".join(lines) + "\n")
+
+    print(f"✅ 生成 {OUTPUT} 成功（共 {len(rules)} 条规则, Status: {status})")
+
+
 def main():
     print(f"🌐 从 {SOURCE_URL} 获取 Claude 规则...")
     page = fetch_page(SOURCE_URL)
@@ -91,21 +125,7 @@ def main():
         print("⚠️ 未提取到任何规则，跳过更新")
         return
 
-    header = [
-        f"# Claude Rules (Auto-Generated)",
-        f"# Source: {SOURCE_URL}",
-        f"# Update Time: Automated Daily",
-        f"# Total Rules: {len(rules)}",
-        "",
-    ]
-
-    content = "\n".join(header + rules) + "\n"
-
-    os.makedirs(os.path.dirname(OUTPUT), exist_ok=True)
-    with open(OUTPUT, "w", encoding="utf-8") as f:
-        f.write(content)
-
-    print(f"✅ 生成 {OUTPUT} 成功（共 {len(rules)} 条规则）")
+    write_rules(rules)
 
 
 if __name__ == "__main__":

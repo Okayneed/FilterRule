@@ -1,4 +1,7 @@
-#手动维护
+# goJP Rules (Manually Maintained)
+# Maintained by: manual editing (no auto-script)
+# Last Updated: User-driven (manual edits only)
+# Total Rules: 5
 host-suffix, dmm.co.jp
 host-suffix, dmm.com
 host-keyword, ladybo

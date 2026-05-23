@@ -1,6 +1,7 @@
 # Telegram Rules (Manually Maintained)
+# Maintained by: manual editing (no auto-script)
+# Last Updated: User-driven (manual edits only)
 # Sources: v2fly/domain-list-community + blackmatrix7/ios_rule_script + manual additions
-# Total Rules: 41
 
 ; --- Domains (host) ---
 host, api.imem.app

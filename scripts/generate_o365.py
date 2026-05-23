@@ -1,11 +1,71 @@
 import requests
 import json
 import os
+from datetime import datetime, timezone
 
 # 微软官方 Office 365 中国版接口
 URL = "https://endpoints.office.com/endpoints/China?clientrequestid=b10c5ed1-bad1-445f-b386-b919946339a7"
-# 输出文件名
 OUTPUT_FILE = "list/o365_cn.list"
+SCRIPT_NAME = "generate_o365.py"
+
+
+def read_old_rules(filepath):
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+        body_start = 0
+        for i, line in enumerate(lines):
+            if line.startswith('#') or line.strip() == '':
+                body_start = i + 1
+            else:
+                break
+        return ''.join(lines[body_start:])
+    except FileNotFoundError:
+        return None
+
+
+def build_rule_body(domains, ipv4_list):
+    """构建规则体（不含 header），用于写入和对比"""
+    lines = []
+    lines.append("; --- Domains (host-suffix) ---")
+    for domain in sorted(domains):
+        lines.append(f"host-suffix, {domain}")
+    lines.append("")
+    lines.append("; --- IPv4 Ranges (ip-cidr) ---")
+    for ip in sorted(ipv4_list, key=lambda x: int(x.split('.')[0])):
+        lines.append(f"ip-cidr, {ip}")
+    return "\n".join(lines)
+
+
+def write_rules(domains, ipv4_list):
+    now_utc = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+
+    rule_body = build_rule_body(domains, ipv4_list)
+    old_body = read_old_rules(OUTPUT_FILE)
+    if old_body is not None and old_body == rule_body:
+        status = "No Changes"
+    else:
+        status = "Updated"
+
+    header = [
+        f"# Office 365 China (21Vianet) (Auto-Generated)",
+        f"# Maintained by: scripts/{SCRIPT_NAME}",
+        f"# Last Updated: {now_utc}",
+        f"# Source: Microsoft Official Endpoint",
+        f"# Total Domains: {len(domains)}",
+        f"# Total IPv4: {len(ipv4_list)}",
+        f"# Status: {status}",
+        "",
+    ]
+
+    final_lines = header + [rule_body]
+
+    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(final_lines))
+
+    print(f"✅ 生成规则文件: {OUTPUT_FILE} (Status: {status})")
+
 
 def main():
     print("正在获取数据...")
@@ -30,7 +90,7 @@ def main():
                 clean_url = url.lstrip('*').lstrip('.')
                 if clean_url:
                     domains.add(clean_url)
-        
+
         # 提取 IP
         if 'ips' in item:
             for ip in item['ips']:
@@ -39,38 +99,8 @@ def main():
                 else:
                     ipv4_list.add(ip)
 
-    # 准备写入内容
-    lines = []
-    lines.append("# Office 365 China (21Vianet) Auto-Generated Rules")
-    lines.append("# Source: Microsoft Official Endpoint")
-    lines.append(f"# Total Domains: {len(domains)}")
-    lines.append(f"# Total IPv4: {len(ipv4_list)}")
-    lines.append("")
+    write_rules(domains, ipv4_list)
 
-    lines.append("; --- Domains (host-suffix) ---")
-    for domain in sorted(domains):
-        lines.append(f"host-suffix, {domain}")
-
-    lines.append("")
-    lines.append("; --- IPv4 Ranges (ip-cidr) ---")
-    # 简单的 IP 排序
-    for ip in sorted(ipv4_list, key=lambda x: int(x.split('.')[0])):
-        lines.append(f"ip-cidr, {ip}")
-
-    # 如果需要 IPv6，取消下面注释
-    # lines.append("")
-    # lines.append("; --- IPv6 Ranges (ip6-cidr) ---")
-    # for ip in sorted(ipv6_list):
-    #     lines.append(f"ip6-cidr, {ip}")
-
-    # 确保输出目录存在
-    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
-
-    # 写入文件
-    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-        f.write('\n'.join(lines))
-    
-    print(f"成功生成规则文件: {OUTPUT_FILE}")
 
 if __name__ == "__main__":
     main()

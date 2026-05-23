@@ -1,6 +1,9 @@
-# GFWList (Auto-Converted)
+# GFWList (Auto-Generated)
+# Maintained by: scripts/generate_gfw.py
+# Last Updated: 2026-05-23 08:39 UTC
 # Source: gfwlist/gfwlist
 # Total Rules: 3904
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw

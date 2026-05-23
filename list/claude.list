@@ -1,7 +1,9 @@
 # Claude Rules (Auto-Generated)
+# Maintained by: scripts/fetch_claude.py
+# Last Updated: 2026-05-23 08:39 UTC
 # Source: https://ip.net.coffee/claude/site.html
-# Update Time: Automated Daily
 # Total Rules: 22
+# Status: No Changes
 
 host, anthropic-com.ghost.io
 host, anthropic.auth0.com
