@@ -1,9 +1,9 @@
 import requests
 import re
 import os
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
-OUTPUT = "list/claude.list"
+OUTPUT = "list/Auto_claude.list"
 SOURCE_URL = "https://ip.net.coffee/claude/site.html"
 SCRIPT_NAME = "fetch_claude.py"
 
@@ -82,15 +82,18 @@ def read_old_rules(filepath):
                 body_start = i + 1
             else:
                 break
-        return ''.join(lines[body_start:])
+        body = ''.join(lines[body_start:])
+        if body.endswith('\n'):
+            body = body[:-1]
+        return body
     except FileNotFoundError:
         return None
 
 
 def write_rules(rules):
-    now_utc = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    now_cst = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M CST")
 
-    new_body = "\n".join(rules) + ("\n" if rules else "")
+    new_body = "\n".join(rules)
     old_body = read_old_rules(OUTPUT)
     if old_body is not None and old_body == new_body:
         status = "No Changes"
@@ -100,7 +103,7 @@ def write_rules(rules):
     header = [
         f"# Claude Rules (Auto-Generated)",
         f"# Maintained by: scripts/{SCRIPT_NAME}",
-        f"# Last Updated: {now_utc}",
+        f"# Last Updated: {now_cst}",
         f"# Source: {SOURCE_URL}",
         f"# Total Rules: {len(rules)}",
         f"# Status: {status}",

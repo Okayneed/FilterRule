@@ -1,13 +1,13 @@
 import requests
 import os
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 # 定义源和目标
 TASKS = [
     {
         "name": "Google",
         "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/google",
-        "output": "list/google.list",
+        "output": "list/Auto_google.list",
         "policy": "PROXY"
     }
 ]
@@ -79,17 +79,21 @@ def read_old_rules(filepath):
                 body_start = i + 1
             else:
                 break
-        return ''.join(lines[body_start:])
+        body = ''.join(lines[body_start:])
+        # 去掉尾部换行，确保与新生成规则体格式一致
+        if body.endswith('\n'):
+            body = body[:-1]
+        return body
     except FileNotFoundError:
         return None
 
 
 def write_rules_with_header(task, rules):
     """写入规则文件，带统一标识头"""
-    now_utc = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    now_cst = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M CST")
 
     # 生成新的规则体（用于对比，不含 header）
-    new_body = "\n".join(rules) + ("\n" if rules else "")
+    new_body = "\n".join(rules)
 
     # 对比旧文件的规则体，判断是否真的有更新
     old_body = read_old_rules(task['output'])
@@ -101,7 +105,7 @@ def write_rules_with_header(task, rules):
     header = [
         f"# {task['name']} Rules (Auto-Generated)",
         f"# Maintained by: scripts/{SCRIPT_NAME}",
-        f"# Last Updated: {now_utc}",
+        f"# Last Updated: {now_cst}",
         f"# Source: v2fly/domain-list-community",
         f"# Total Rules: {len(rules)}",
         f"# Status: {status}",

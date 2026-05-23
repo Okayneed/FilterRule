@@ -1,10 +1,10 @@
 import requests
 import base64
 import os
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 GFW_URL = "https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt"
-OUTPUT_FILE = "list/gfw.list"
+OUTPUT_FILE = "list/Auto_gfw.list"
 POLICY = "PROXY"
 SCRIPT_NAME = "generate_gfw.py"
 
@@ -54,20 +54,23 @@ def read_old_rules(filepath):
                 body_start = i + 1
             else:
                 break
-        return ''.join(lines[body_start:])
+        body = ''.join(lines[body_start:])
+        if body.endswith('\n'):
+            body = body[:-1]
+        return body
     except FileNotFoundError:
         return None
 
 
 def write_rules(domains):
-    now_utc = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    now_cst = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M CST")
 
     # 构建规则体用于对比
     rule_lines = []
     for domain in sorted(domains):
         if len(domain) > 3:
             rule_lines.append(f"host-suffix, {domain}")
-    new_body = "\n".join(rule_lines) + ("\n" if rule_lines else "")
+    new_body = "\n".join(rule_lines)
 
     old_body = read_old_rules(OUTPUT_FILE)
     if old_body is not None and old_body == new_body:
@@ -78,7 +81,7 @@ def write_rules(domains):
     header = [
         f"# GFWList (Auto-Generated)",
         f"# Maintained by: scripts/{SCRIPT_NAME}",
-        f"# Last Updated: {now_utc}",
+        f"# Last Updated: {now_cst}",
         f"# Source: gfwlist/gfwlist",
         f"# Total Rules: {len(domains)}",
         f"# Status: {status}",

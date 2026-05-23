@@ -1,11 +1,11 @@
 import requests
 import json
 import os
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 # 微软官方 Office 365 中国版接口
 URL = "https://endpoints.office.com/endpoints/China?clientrequestid=b10c5ed1-bad1-445f-b386-b919946339a7"
-OUTPUT_FILE = "list/o365_cn.list"
+OUTPUT_FILE = "list/Auto_o365_cn.list"
 SCRIPT_NAME = "generate_o365.py"
 
 
@@ -19,7 +19,10 @@ def read_old_rules(filepath):
                 body_start = i + 1
             else:
                 break
-        return ''.join(lines[body_start:])
+        body = ''.join(lines[body_start:])
+        if body.endswith('\n'):
+            body = body[:-1]
+        return body
     except FileNotFoundError:
         return None
 
@@ -32,13 +35,13 @@ def build_rule_body(domains, ipv4_list):
         lines.append(f"host-suffix, {domain}")
     lines.append("")
     lines.append("; --- IPv4 Ranges (ip-cidr) ---")
-    for ip in sorted(ipv4_list, key=lambda x: int(x.split('.')[0])):
+    for ip in sorted(ipv4_list, key=lambda x: [int(o) for o in x.replace('/', '.').split('.')[:4]]):
         lines.append(f"ip-cidr, {ip}")
     return "\n".join(lines)
 
 
 def write_rules(domains, ipv4_list):
-    now_utc = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    now_cst = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M CST")
 
     rule_body = build_rule_body(domains, ipv4_list)
     old_body = read_old_rules(OUTPUT_FILE)
@@ -50,7 +53,7 @@ def write_rules(domains, ipv4_list):
     header = [
         f"# Office 365 China (21Vianet) (Auto-Generated)",
         f"# Maintained by: scripts/{SCRIPT_NAME}",
-        f"# Last Updated: {now_utc}",
+        f"# Last Updated: {now_cst}",
         f"# Source: Microsoft Official Endpoint",
         f"# Total Domains: {len(domains)}",
         f"# Total IPv4: {len(ipv4_list)}",

@@ -1,9 +1,9 @@
 # Google Rules (Auto-Generated)
 # Maintained by: scripts/generate_proxy_apps.py
-# Last Updated: 2026-05-23 08:39 UTC
+# Last Updated: 2026-05-23 16:52 CST
 # Source: v2fly/domain-list-community
 # Total Rules: 645
-# Status: Updated
+# Status: No Changes
 
 host, 265.com
 host, 2mdn-cn.net

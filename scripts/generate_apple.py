@@ -1,6 +1,6 @@
 import requests
 import os
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 # v2fly 社区维护的权威列表
 SOURCES = [
@@ -10,7 +10,7 @@ SOURCES = [
     "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/apple-cn"
 ]
 
-OUTPUT_FILE = "list/apple_cn.list"
+OUTPUT_FILE = "list/Auto_apple_cn.list"
 SCRIPT_NAME = "generate_apple.py"
 
 
@@ -35,15 +35,18 @@ def read_old_rules(filepath):
                 body_start = i + 1
             else:
                 break
-        return ''.join(lines[body_start:])
+        body = ''.join(lines[body_start:])
+        if body.endswith('\n'):
+            body = body[:-1]
+        return body
     except FileNotFoundError:
         return None
 
 
 def write_rules(rules):
-    now_utc = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    now_cst = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M CST")
 
-    new_body = "\n".join(rules) + ("\n" if rules else "")
+    new_body = "\n".join(rules)
     old_body = read_old_rules(OUTPUT_FILE)
     if old_body is not None and old_body == new_body:
         status = "No Changes"
@@ -53,7 +56,7 @@ def write_rules(rules):
     header = [
         f"# Apple & iCloud China (Auto-Generated)",
         f"# Maintained by: scripts/{SCRIPT_NAME}",
-        f"# Last Updated: {now_utc}",
+        f"# Last Updated: {now_cst}",
         f"# Source: v2fly/domain-list-community",
         f"# Total Rules: {len(rules)}",
         f"# Status: {status}",
