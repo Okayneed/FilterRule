@@ -1,7 +1,7 @@
 # Manual Settings (Manually Maintained)
 # Maintained by: manual editing (no auto-script)
 # Last Updated: User-driven (manual edits only)
-# Total Rules: 33
+# Total Rules: 32
 host-suffix, aistudio.google.com, Fast_All
 host-suffix, sec.gov, Fast_All
 host-suffix, yfsp.tv, Fast_All
@@ -30,7 +30,6 @@ HOST, notebooklm.google.com, Only_US
 HOST-SUFFIX, gov.my, Fast_All
 HOST-SUFFIX, spglobal.cn, Fast_All
 HOST-SUFFIX, jpmorgan.com, Fast_All
-HOST-SUFFIX, co.jp, Only_JP
 HOST-SUFFIX, ladyboystar.com, Fast_All
 
 HOST-SUFFIX, johntronx.com, Only_JP

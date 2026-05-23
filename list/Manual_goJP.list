@@ -1,9 +1,8 @@
 # goJP Rules (Manually Maintained)
 # Maintained by: manual editing (no auto-script)
 # Last Updated: User-driven (manual edits only)
-# Total Rules: 5
+# Total Rules: 4
 host-suffix, dmm.co.jp
 host-suffix, dmm.com
 host-keyword, ladybo
 geoip, jp
-HOST-SUFFIX, dola.com
