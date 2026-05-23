@@ -1,0 +1,27 @@
+# Claude Rules (Auto-Generated)
+# Source: https://ip.net.coffee/claude/site.html
+# Update Time: Automated Daily
+# Total Rules: 22
+
+host, anthropic-com.ghost.io
+host, anthropic.auth0.com
+host, anthropic.com.cdn.cloudflare.net
+host, browser-intake-us5-datadoghq.com
+host, cdn.usefathom.com
+host, servd-anthropic-website.b-cdn.net
+host-suffix, anthropic.com
+host-suffix, clau.de
+host-suffix, claude.ai
+host-suffix, claude.com
+host-suffix, claudemcpclient.com
+host-suffix, claudemcpcontent.com
+host-suffix, claudeusercontent.com
+host-suffix, intercom.io
+host-suffix, intercomcdn.com
+host-suffix, sentry.io
+host-suffix, statsigapi.net
+host-keyword, datadog
+host-keyword, sift
+ip-cidr, 160.79.104.0/21
+ip6-cidr, 2607:6bc0::/32
+ip-asn, 399358
