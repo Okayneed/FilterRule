@@ -15,25 +15,25 @@ host-suffix, 51ifind.com, Direct
 host-suffix, icanhazip.com, Direct
 #------同花顺终端
 host-suffix, svc.cloud.microsoft, Direct
-HOST-SUFFIX, tempm.com, Proxy
-HOST-SUFFIX, cld.bz, Proxy
-HOST-SUFFIX, nympho.com, Proxy
-HOST-SUFFIX, netflixgc.net, Proxy
-HOST-SUFFIX, globalsight.ai, Proxy
-HOST-SUFFIX, surrit.com, Proxy
-HOST-SUFFIX, av-wiki.net, Proxy
+HOST-SUFFIX, tempm.com, Fast_All
+HOST-SUFFIX, cld.bz, Fast_All
+HOST-SUFFIX, nympho.com, Fast_All
+HOST-SUFFIX, netflixgc.net, Fast_All
+HOST-SUFFIX, globalsight.ai, Fast_All
+HOST-SUFFIX, surrit.com, Fast_All
+HOST-SUFFIX, av-wiki.net, Fast_All
 
 HOST, notebooklm.google.com, Only_US
-HOST-SUFFIX, gov.my, Proxy
-HOST-SUFFIX, spglobal.cn, Proxy
-HOST-SUFFIX, jpmorgan.com, Proxy
+HOST-SUFFIX, gov.my, Fast_All
+HOST-SUFFIX, spglobal.cn, Fast_All
+HOST-SUFFIX, jpmorgan.com, Fast_All
 HOST-SUFFIX, co.jp, Only_JP
-HOST-SUFFIX, ladyboystar.com, Proxy
+HOST-SUFFIX, ladyboystar.com, Fast_All
 
 HOST-SUFFIX, johntronx.com, Only_JP
-HOST-SUFFIX, 178.com, Proxy
+HOST-SUFFIX, 178.com, Fast_All
 HOST-SUFFIX, generativelanguage.googleapis.com, Only_US
-HOST-SUFFIX, nodeseek.com, Proxy
-HOST-SUFFIX, vircs.com, Proxy
-HOST-SUFFIX, v2ex.com, Proxy
-HOST-SUFFIX, tgirlshouse.com, Proxy
+HOST-SUFFIX, nodeseek.com, Fast_All
+HOST-SUFFIX, vircs.com, Fast_All
+HOST-SUFFIX, v2ex.com, Fast_All
+HOST-SUFFIX, tgirlshouse.com, Fast_All
