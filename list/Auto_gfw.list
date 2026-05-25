@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-05-25 06:58 CST
+# Last Updated: 2026-05-26 07:04 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 3904
-# Status: No Changes
+# Total Rules: 3905
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -2241,6 +2241,7 @@ host-suffix, mos.ru
 host-suffix, mosavi.io
 host-suffix, movements.org
 host-suffix, moviefap.com
+host-suffix, mozilla.ai
 host-suffix, mpettis.com
 host-suffix, mpfinance.com
 host-suffix, mpinews.com
