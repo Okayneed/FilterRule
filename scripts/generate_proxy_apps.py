@@ -7,15 +7,16 @@ TASKS = [
     {
         "name": "Google",
         "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/google",
-        "output": "loon-rule/Auto_google.list",
-        "policy": "PROXY"
+        "output_qx": "list/Auto_google.list",
+        "output_loon": "loon-rule/Auto_google.list",
     }
 ]
 
 SCRIPT_NAME = "generate_proxy_apps.py"
 
 
-def parse_v2fly(url, policy):
+def parse_v2fly(url):
+    """返回结构化规则列表: [(type, value), ...] type: 'domain'|'suffix'|'cidr'"""
     try:
         resp = requests.get(url, timeout=15)
         resp.raise_for_status()
@@ -25,54 +26,66 @@ def parse_v2fly(url, policy):
         return []
 
     rules = []
+    seen = set()
 
     for line in lines:
-        # 1. 基础清洗：去空格，去注释
         line = line.strip()
         if not line or line.startswith('#'):
             continue
 
-        # 2. 【关键修复】 去除行内属性 (例如 @cn) 和行内注释
-        # v2fly 格式通常是 "domain.com @cn" 或 "domain.com # comment"
-        # 我们只取空格前的第一部分
         parts = line.split()
         clean_content = parts[0]
 
-        # 3. 跳过 include 指令
         if clean_content.startswith('include:'):
             continue
 
-        # 4. 处理 IP-CIDR
         if clean_content.startswith('ip-cidr'):
-            # 格式可能是 ip-cidr,1.2.3.4/24 或 ip-cidr:1.2.3.4/24
-            # 无论哪种，我们只需要提取 IP 部分
-            # 重新分割一下原始行以确保提取正确
             ip_parts = line.replace(',', ' ').replace(':', ' ').split()
             if len(ip_parts) >= 2:
-                ip = ip_parts[1]
-                rules.append(f"IP-CIDR,{ip}")
+                key = ('cidr', ip_parts[1])
+                if key not in seen:
+                    seen.add(key)
+                    rules.append(key)
             continue
 
-        # 5. 处理域名
-        # 格式可能为: "google.com" 或 "full:www.google.com"
         if ':' in clean_content:
             type_tag, value = clean_content.split(':', 1)
             if type_tag == 'full':
-                rules.append(f"DOMAIN,{value}")
-            # 忽略 regexp 和其他类型
+                key = ('domain', value)
+                if key not in seen:
+                    seen.add(key)
+                    rules.append(key)
         else:
-            # 默认为域名后缀
-            rules.append(f"DOMAIN-SUFFIX,{clean_content}")
+            key = ('suffix', clean_content)
+            if key not in seen:
+                seen.add(key)
+                rules.append(key)
 
-    return sorted(list(set(rules)))
+    return rules
+
+
+def fmt_qx(rule):
+    typ, val = rule
+    if typ == 'domain':
+        return f"host, {val}"
+    elif typ == 'cidr':
+        return f"ip-cidr, {val}"
+    return f"host-suffix, {val}"
+
+
+def fmt_loon(rule):
+    typ, val = rule
+    if typ == 'domain':
+        return f"DOMAIN,{val}"
+    elif typ == 'cidr':
+        return f"IP-CIDR,{val}"
+    return f"DOMAIN-SUFFIX,{val}"
 
 
 def read_old_rules(filepath):
-    """读取旧文件的规则体（跳过所有 # 开头的头注释行），用于对比是否更新"""
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
             lines = f.readlines()
-        # 跳过开头的注释行（#开头）和空行
         body_start = 0
         for i, line in enumerate(lines):
             if line.startswith('#') or line.strip() == '':
@@ -80,7 +93,6 @@ def read_old_rules(filepath):
             else:
                 break
         body = ''.join(lines[body_start:])
-        # 去掉尾部换行，确保与新生成规则体格式一致
         if body.endswith('\n'):
             body = body[:-1]
         return body
@@ -88,44 +100,43 @@ def read_old_rules(filepath):
         return None
 
 
-def write_rules_with_header(task, rules):
-    """写入规则文件，带统一标识头"""
+def write_dual(task, rules):
     now_cst = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M CST")
 
-    # 生成新的规则体（用于对比，不含 header）
-    new_body = "\n".join(rules)
-
-    # 对比旧文件的规则体，判断是否真的有更新
-    old_body = read_old_rules(task['output'])
-    if old_body is not None and old_body == new_body:
-        status = "No Changes"
-    else:
-        status = "Updated"
-
-    header = [
-        f"# {task['name']} Rules (Auto-Generated)",
-        f"# Maintained by: scripts/{SCRIPT_NAME}",
-        f"# Last Updated: {now_cst}",
-        f"# Source: v2fly/domain-list-community",
-        f"# Total Rules: {len(rules)}",
-        f"# Status: {status}",
-        "",
+    outputs = [
+        (task['output_qx'], fmt_qx, "QX"),
+        (task['output_loon'], fmt_loon, "Loon"),
     ]
 
-    final_content = "\n".join(header + rules)
+    for filepath, fmt_func, label in outputs:
+        rule_lines = [fmt_func(r) for r in sorted(rules)]
+        new_body = "\n".join(rule_lines)
 
-    os.makedirs(os.path.dirname(task['output']), exist_ok=True)
-    with open(task['output'], 'w', encoding='utf-8') as f:
-        f.write(final_content)
+        old_body = read_old_rules(filepath)
+        status = "No Changes" if (old_body is not None and old_body == new_body) else "Updated"
 
-    print(f"✅ 生成 {task['output']} 成功 (Status: {status})")
+        header = [
+            f"# {task['name']} Rules (Auto-Generated)",
+            f"# Maintained by: scripts/{SCRIPT_NAME}",
+            f"# Last Updated: {now_cst}",
+            f"# Source: v2fly/domain-list-community",
+            f"# Total Rules: {len(rules)}",
+            f"# Status: {status}",
+            "",
+        ]
+
+        os.makedirs(os.path.dirname(filepath), exist_ok=True)
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write('\n'.join(header + rule_lines))
+
+        print(f"✅ [{label}] {filepath}  ({status})")
 
 
 def main():
     for task in TASKS:
         print(f"正在处理 {task['name']} ...")
-        rules = parse_v2fly(task['url'], task['policy'])
-        write_rules_with_header(task, rules)
+        rules = parse_v2fly(task['url'])
+        write_dual(task, rules)
 
 
 if __name__ == "__main__":

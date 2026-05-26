@@ -6,8 +6,6 @@ import os
 import re
 from collections import defaultdict
 
-LIST_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'loon-rule')
-
 def parse_rules(filepath):
     """Parse a list file and return (rules, errors)."""
     rules = []  # [(line_raw, rule_type, target, policy, file_line)]
@@ -44,16 +42,16 @@ def normalize_cidr6(cidr):
     """Normalize IPv6 CIDR for comparison."""
     return cidr.strip().lower()
 
-def audits():
-    """Run full audit."""
-    filenames = sorted(f for f in os.listdir(LIST_DIR) if f.endswith('.list'))
+def audits(list_dir):
+    """Run full audit on the given directory."""
+    filenames = sorted(f for f in os.listdir(list_dir) if f.endswith('.list'))
     
     all_rules = {}  # filename -> [(raw, type, target, policy, line)]
     all_errors = {}
     total_rules = 0
     
     for fn in filenames:
-        filepath = os.path.join(LIST_DIR, fn)
+        filepath = os.path.join(list_dir, fn)
         rules, errors = parse_rules(filepath)
         all_rules[fn] = rules
         all_errors[fn] = errors
@@ -268,4 +266,10 @@ def audits():
 
 
 if __name__ == '__main__':
-    audits()
+    base = os.path.dirname(os.path.dirname(__file__))
+    for dirname in ('list', 'loon-rule'):
+        list_dir = os.path.join(base, dirname)
+        print(f"\n{'='*60}")
+        print(f"📁 审计目录: {dirname}/")
+        print(f"{'='*60}")
+        audits(list_dir)

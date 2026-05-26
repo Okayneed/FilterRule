@@ -3,9 +3,23 @@ import re
 import os
 from datetime import datetime, timezone, timedelta
 
-OUTPUT = "loon-rule/Auto_claude.list"
 SOURCE_URL = "https://ip.net.coffee/claude/site.html"
 SCRIPT_NAME = "fetch_claude.py"
+
+OUTPUTS = [
+    {"file": "list/Auto_claude.list",      "fmt": "qx"},
+    {"file": "loon-rule/Auto_claude.list", "fmt": "loon"},
+]
+
+# Clash type → QX type mapping (Loon uses same as Clash, no mapping needed)
+QX_MAP = {
+    "DOMAIN": "host",
+    "DOMAIN-SUFFIX": "host-suffix",
+    "DOMAIN-KEYWORD": "host-keyword",
+    "IP-CIDR": "ip-cidr",
+    "IP-CIDR6": "ip6-cidr",
+    "IP-ASN": "ip-asn",
+}
 
 
 def fetch_page(url: str) -> str:
@@ -19,12 +33,12 @@ def fetch_page(url: str) -> str:
 
 
 def extract_rules(text: str):
+    """返回结构化规则列表: [(clash_type, value), ...]"""
     rules = []
     seen = set()
 
     for line in text.splitlines():
         line = line.strip()
-
         if not line or line.startswith("#") or line.startswith("//"):
             continue
 
@@ -36,26 +50,27 @@ def extract_rules(text: str):
         rest = match.group(2)
         value = rest.split(",")[0].strip()
 
-        key = f"{rule_type},{value}"
+        key = (rule_type, value)
         if key in seen:
             continue
         seen.add(key)
+        rules.append(key)
 
-        rules.append(f"{rule_type},{value}")
+    type_order = {"DOMAIN": 0, "DOMAIN-SUFFIX": 1, "DOMAIN-KEYWORD": 2,
+                  "IP-CIDR": 3, "IP-CIDR6": 4, "IP-ASN": 5}
+    rules.sort(key=lambda r: (type_order.get(r[0], 99), r[1]))
+    return rules
 
-    def sort_key(rule):
-        type_order = {
-            "DOMAIN": 0,
-            "DOMAIN-SUFFIX": 1,
-            "DOMAIN-KEYWORD": 2,
-            "IP-CIDR": 3,
-            "IP-CIDR6": 4,
-            "IP-ASN": 5,
-        }
-        rule_type, _, val = rule.partition(",")
-        return (type_order.get(rule_type.strip(), 99), val.strip())
 
-    return sorted(rules, key=sort_key)
+def fmt_qx(rule):
+    typ, val = rule
+    qx_type = QX_MAP.get(typ, typ.lower())
+    return f"{qx_type}, {val}"
+
+
+def fmt_loon(rule):
+    typ, val = rule
+    return f"{typ},{val}"
 
 
 def read_old_rules(filepath):
@@ -79,30 +94,29 @@ def read_old_rules(filepath):
 def write_rules(rules):
     now_cst = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M CST")
 
-    new_body = "\n".join(rules)
-    old_body = read_old_rules(OUTPUT)
-    if old_body is not None and old_body == new_body:
-        status = "No Changes"
-    else:
-        status = "Updated"
+    for output in OUTPUTS:
+        fmt_func = fmt_qx if output["fmt"] == "qx" else fmt_loon
+        rule_lines = [fmt_func(r) for r in rules]
+        new_body = "\n".join(rule_lines)
 
-    header = [
-        f"# Claude Rules (Auto-Generated)",
-        f"# Maintained by: scripts/{SCRIPT_NAME}",
-        f"# Last Updated: {now_cst}",
-        f"# Source: {SOURCE_URL}",
-        f"# Total Rules: {len(rules)}",
-        f"# Status: {status}",
-        "",
-    ]
+        old_body = read_old_rules(output["file"])
+        status = "No Changes" if (old_body is not None and old_body == new_body) else "Updated"
 
-    lines = header + rules
+        header = [
+            f"# Claude Rules (Auto-Generated)",
+            f"# Maintained by: scripts/{SCRIPT_NAME}",
+            f"# Last Updated: {now_cst}",
+            f"# Source: {SOURCE_URL}",
+            f"# Total Rules: {len(rules)}",
+            f"# Status: {status}",
+            "",
+        ]
 
-    os.makedirs(os.path.dirname(OUTPUT), exist_ok=True)
-    with open(OUTPUT, 'w', encoding='utf-8') as f:
-        f.write("\n".join(lines) + "\n")
+        os.makedirs(os.path.dirname(output["file"]), exist_ok=True)
+        with open(output["file"], 'w', encoding='utf-8') as f:
+            f.write("\n".join(header + rule_lines) + "\n")
 
-    print(f"✅ 生成 {OUTPUT} 成功（共 {len(rules)} 条规则, Status: {status})")
+        print(f"✅ {output['file']}  ({status})")
 
 
 def main():
