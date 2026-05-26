@@ -10,7 +10,7 @@ SOURCES = [
     "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/apple-cn"
 ]
 
-OUTPUT_FILE = "list/Auto_apple_cn.list"
+OUTPUT_FILE = "loon-rule/Auto_apple_cn.list"
 SCRIPT_NAME = "generate_apple.py"
 
 
@@ -100,11 +100,11 @@ def main():
                 type_tag, value = domain_raw.split(':', 1)
                 if type_tag == 'full':
                     # full 对应 host
-                    domains.add(f"host, {value}")
+                    domains.add(f"DOMAIN, {value}")
                 # 忽略 regexp (QX 不好直接转)
             else:
                 # 默认为 domain-suffix
-                domains.add(f"host-suffix, {domain_raw}")
+                domains.add(f"DOMAIN-SUFFIX, {domain_raw}")
 
     write_rules(sorted(domains))
 

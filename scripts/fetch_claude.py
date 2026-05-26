@@ -3,19 +3,9 @@ import re
 import os
 from datetime import datetime, timezone, timedelta
 
-OUTPUT = "list/Auto_claude.list"
+OUTPUT = "loon-rule/Auto_claude.list"
 SOURCE_URL = "https://ip.net.coffee/claude/site.html"
 SCRIPT_NAME = "fetch_claude.py"
-
-# Clash 类型 → Quantumult X 类型 映射
-TYPE_MAP = {
-    "DOMAIN": "host",
-    "DOMAIN-SUFFIX": "host-suffix",
-    "DOMAIN-KEYWORD": "host-keyword",
-    "IP-CIDR": "ip-cidr",
-    "IP-CIDR6": "ip6-cidr",
-    "IP-ASN": "ip-asn",
-}
 
 
 def fetch_page(url: str) -> str:
@@ -42,32 +32,28 @@ def extract_rules(text: str):
         if not match:
             continue
 
-        clash_type = match.group(1)
+        rule_type = match.group(1)
         rest = match.group(2)
         value = rest.split(",")[0].strip()
 
-        qx_type = TYPE_MAP.get(clash_type)
-        if not qx_type:
-            continue
-
-        key = f"{qx_type},{value}"
+        key = f"{rule_type},{value}"
         if key in seen:
             continue
         seen.add(key)
 
-        rules.append(f"{qx_type}, {value}")
+        rules.append(f"{rule_type},{value}")
 
     def sort_key(rule):
         type_order = {
-            "host": 0,
-            "host-suffix": 1,
-            "host-keyword": 2,
-            "ip-cidr": 3,
-            "ip6-cidr": 4,
-            "ip-asn": 5,
+            "DOMAIN": 0,
+            "DOMAIN-SUFFIX": 1,
+            "DOMAIN-KEYWORD": 2,
+            "IP-CIDR": 3,
+            "IP-CIDR6": 4,
+            "IP-ASN": 5,
         }
-        qx_type, _, val = rule.partition(",")
-        return (type_order.get(qx_type.strip(), 99), val.strip())
+        rule_type, _, val = rule.partition(",")
+        return (type_order.get(rule_type.strip(), 99), val.strip())
 
     return sorted(rules, key=sort_key)
 

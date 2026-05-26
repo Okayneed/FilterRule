@@ -4,7 +4,7 @@ import os
 from datetime import datetime, timezone, timedelta
 
 GFW_URL = "https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt"
-OUTPUT_FILE = "list/Auto_gfw.list"
+OUTPUT_FILE = "loon-rule/Auto_gfw.list"
 POLICY = "PROXY"
 SCRIPT_NAME = "generate_gfw.py"
 
@@ -69,7 +69,7 @@ def write_rules(domains):
     rule_lines = []
     for domain in sorted(domains):
         if len(domain) > 3:
-            rule_lines.append(f"host-suffix, {domain}")
+            rule_lines.append(f"DOMAIN-SUFFIX,{domain}")
     new_body = "\n".join(rule_lines)
 
     old_body = read_old_rules(OUTPUT_FILE)

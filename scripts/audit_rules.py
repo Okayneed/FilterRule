@@ -6,7 +6,7 @@ import os
 import re
 from collections import defaultdict
 
-LIST_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'list')
+LIST_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'loon-rule')
 
 def parse_rules(filepath):
     """Parse a list file and return (rules, errors)."""
@@ -132,8 +132,8 @@ def audits():
     
     for fn in filenames:
         for raw, rt, tgt, pol, ln in all_rules[fn]:
-            # Only check domain-type rules (host, host-suffix, host-keyword)
-            if rt not in ('host', 'host-suffix', 'host-keyword', 'domain', 'domain-suffix', 'domain-keyword'):
+            # Only check domain-type rules
+            if rt not in ('domain', 'domain-suffix', 'domain-keyword'):
                 continue
             
             # Determine policy

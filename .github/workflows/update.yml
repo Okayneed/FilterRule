@@ -42,7 +42,7 @@ jobs:
           git config --local user.name "GitHub Action"
           
           # 将所有生成的 list 文件加入暂存区
-          git add list/Auto_o365_cn.list list/Auto_apple_cn.list list/Auto_google.list list/Auto_gfw.list list/Auto_claude.list list/Manual_*.list
+          git add loon-rule/Auto_o365_cn.list loon-rule/Auto_apple_cn.list loon-rule/Auto_google.list loon-rule/Auto_gfw.list loon-rule/Auto_claude.list loon-rule/Manual_*.list
           
           # 检查是否有文件变动，有变动才提交，没变动则跳过
           if [ -n "$(git status --porcelain)" ]; then

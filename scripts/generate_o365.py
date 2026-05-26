@@ -5,7 +5,7 @@ from datetime import datetime, timezone, timedelta
 
 # 微软官方 Office 365 中国版接口
 URL = "https://endpoints.office.com/endpoints/China?clientrequestid=b10c5ed1-bad1-445f-b386-b919946339a7"
-OUTPUT_FILE = "list/Auto_o365_cn.list"
+OUTPUT_FILE = "loon-rule/Auto_o365_cn.list"
 SCRIPT_NAME = "generate_o365.py"
 
 
@@ -32,11 +32,11 @@ def build_rule_body(domains, ipv4_list):
     lines = []
     lines.append("; --- Domains (host-suffix) ---")
     for domain in sorted(domains):
-        lines.append(f"host-suffix, {domain}")
+        lines.append(f"DOMAIN-SUFFIX,{domain}")
     lines.append("")
     lines.append("; --- IPv4 Ranges (ip-cidr) ---")
     for ip in sorted(ipv4_list, key=lambda x: [int(o) for o in x.replace('/', '.').split('.')[:4]]):
-        lines.append(f"ip-cidr, {ip}")
+        lines.append(f"IP-CIDR,{ip}")
     return "\n".join(lines)
 
 
