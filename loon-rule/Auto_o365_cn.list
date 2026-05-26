@@ -1,12 +1,12 @@
 # Office 365 China (21Vianet) (Auto-Generated)
 # Maintained by: scripts/generate_o365.py
-# Last Updated: 2026-05-23 16:52 CST
+# Last Updated: 2026-05-27 07:10 CST
 # Source: Microsoft Official Endpoint
 # Total Domains: 45
 # Total IPv4: 55
-# Status: No Changes
+# Status: Updated
 
-; --- Domains (host-suffix) ---
+; --- Domains (DOMAIN-SUFFIX) ---
 DOMAIN-SUFFIX,aadrm.cn
 DOMAIN-SUFFIX,activation.sls.microsoft.com
 DOMAIN-SUFFIX,attachments.office365-net.cn
@@ -53,7 +53,7 @@ DOMAIN-SUFFIX,teams.microsoftonline.cn
 DOMAIN-SUFFIX,windowsazure.cn
 DOMAIN-SUFFIX,wns.windows.com
 
-; --- IPv4 Ranges (ip-cidr) ---
+; --- IPv4 Ranges (IP-CIDR) ---
 IP-CIDR,23.236.126.0/24
 IP-CIDR,40.72.70.0/23
 IP-CIDR,40.72.120.0/22

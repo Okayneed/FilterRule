@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-05-23 16:52 CST
+# Last Updated: 2026-05-27 07:10 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 3904
-# Status: No Changes
+# Total Rules: 3905
+# Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
 DOMAIN-SUFFIX,1-apple.com.tw
@@ -2241,6 +2241,7 @@ DOMAIN-SUFFIX,mos.ru
 DOMAIN-SUFFIX,mosavi.io
 DOMAIN-SUFFIX,movements.org
 DOMAIN-SUFFIX,moviefap.com
+DOMAIN-SUFFIX,mozilla.ai
 DOMAIN-SUFFIX,mpettis.com
 DOMAIN-SUFFIX,mpfinance.com
 DOMAIN-SUFFIX,mpinews.com
