@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-05-27 07:10 CST
+# Last Updated: 2026-05-28 07:17 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 3905
+# Total Rules: 3906
 # Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
@@ -899,6 +899,7 @@ DOMAIN-SUFFIX,doublethinklab.org
 DOMAIN-SUFFIX,douchi.space
 DOMAIN-SUFFIX,dougscripts.com
 DOMAIN-SUFFIX,doujincafe.com
+DOMAIN-SUFFIX,dowjones.io
 DOMAIN-SUFFIX,download.dappcdn.com
 DOMAIN-SUFFIX,dpool.top
 DOMAIN-SUFFIX,dpp.org.tw

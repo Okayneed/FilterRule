@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-05-27 07:10 CST
+# Last Updated: 2026-05-28 07:17 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 3905
-# Status: No Changes
+# Total Rules: 3906
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -899,6 +899,7 @@ host-suffix, doublethinklab.org
 host-suffix, douchi.space
 host-suffix, dougscripts.com
 host-suffix, doujincafe.com
+host-suffix, dowjones.io
 host-suffix, download.dappcdn.com
 host-suffix, dpool.top
 host-suffix, dpp.org.tw
