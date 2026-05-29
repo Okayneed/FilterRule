@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-05-29 07:18 CST
+# Last Updated: 2026-05-30 07:14 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 3906
-# Status: No Changes
+# Total Rules: 3910
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -246,6 +246,7 @@ host-suffix, arte.tv
 host-suffix, artstation.com
 host-suffix, arvanstorage.ir
 host-suffix, arweave.org
+host-suffix, as.mr
 host-suffix, asacp.org
 host-suffix, asiaharvest.org
 host-suffix, asianage.com
@@ -306,6 +307,7 @@ host-suffix, bandwagonhost.com
 host-suffix, bangdream.space
 host-suffix, bangkokpost.com
 host-suffix, bangumi.moe
+host-suffix, bangumi.tv
 host-suffix, bangyoulater.com
 host-suffix, bankmobilevibe.com
 host-suffix, bannedbook.org
@@ -356,6 +358,7 @@ host-suffix, bettween.com
 host-suffix, betvictor.com
 host-suffix, bfnn.org
 host-suffix, bfsh.hk
+host-suffix, bgm.tv
 host-suffix, bgme.me
 host-suffix, bgvpn.com
 host-suffix, biblesforamerica.org
@@ -597,6 +600,7 @@ host-suffix, chenpokongvip.com
 host-suffix, chenshan20042005.wordpress.com
 host-suffix, cherrysave.com
 host-suffix, chhongbi.org
+host-suffix, chii.in
 host-suffix, china-mmm.net
 host-suffix, china-week.com
 host-suffix, china101.com
@@ -689,7 +693,6 @@ host-suffix, cn.theaustralian.com.au
 host-suffix, cn.uptodown.com
 host-suffix, cna.com.tw
 host-suffix, cnbbnews.wordpress.com
-host-suffix, cnbc.com
 host-suffix, cnbeta.com.tw
 host-suffix, cnd.org
 host-suffix, cnnews.chosun.com
@@ -1221,6 +1224,7 @@ host-suffix, gcr.io
 host-suffix, gdaily.org
 host-suffix, geek-art.net
 host-suffix, gekikame.com
+host-suffix, gencraft.com
 host-suffix, generated.photos
 host-suffix, genius.com
 host-suffix, geph.io
@@ -1623,6 +1627,7 @@ host-suffix, heyuedi.com
 host-suffix, hicairo.com
 host-suffix, hiccears.com
 host-suffix, hidden-advent.org
+host-suffix, hiddify.com
 host-suffix, hide.me
 host-suffix, hideipvpn.com
 host-suffix, hideman.net
@@ -2956,7 +2961,6 @@ host-suffix, social.edu.ci
 host-suffix, socialblade.com
 host-suffix, socks-proxy.net
 host-suffix, sockslist.net
-host-suffix, softether-download.com
 host-suffix, softether.co.jp
 host-suffix, softether.org
 host-suffix, softfamous.com
@@ -3482,6 +3486,7 @@ host-suffix, vaticannews.va
 host-suffix, vatn.org
 host-suffix, vcf-online.org
 host-suffix, vcfbuilder.org
+host-suffix, veed.io
 host-suffix, vegas.williamhill.com
 host-suffix, vegasred.com
 host-suffix, venetianmacao.com
@@ -3813,7 +3818,6 @@ host-suffix, yespornplease.com
 host-suffix, yfsp.tv
 host-suffix, yhcw.net
 host-suffix, yibaochina.com
-host-suffix, yidio.com
 host-suffix, yigeni.com
 host-suffix, yipub.com
 host-suffix, yizhihongxing.com
