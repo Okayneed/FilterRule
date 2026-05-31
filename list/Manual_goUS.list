@@ -15,3 +15,8 @@ DOMAIN-KEYWORD,colab
 DOMAIN-KEYWORD,developerprofiles
 DOMAIN-KEYWORD,generativelanguage
 DOMAIN-SUFFIX,pi.ai
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,notebooklm.google
+DOMAIN,notebooklm.google.com
+DOMAIN-SUFFIX,generativelanguage.googleapis.com

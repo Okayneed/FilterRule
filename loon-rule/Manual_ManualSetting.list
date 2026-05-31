@@ -6,9 +6,6 @@ DOMAIN-SUFFIX,aistudio.google.com,Fast_All
 DOMAIN-SUFFIX,sec.gov,Fast_All
 DOMAIN-SUFFIX,yfsp.tv,Fast_All
 DOMAIN-SUFFIX,iyf.tv,Fast_All
-DOMAIN-SUFFIX,openai.com,Only_US
-DOMAIN-SUFFIX,chatgpt.com,Only_US
-DOMAIN-SUFFIX,notebooklm.google,Only_US
 DOMAIN-SUFFIX,api2.moe233.app,Not_HK
 DOMAIN-SUFFIX,think-cell.com,Fast_All
 #------同花顺终端
@@ -26,15 +23,12 @@ DOMAIN-SUFFIX,globalsight.ai,Fast_All
 DOMAIN-SUFFIX,surrit.com,Fast_All
 DOMAIN-SUFFIX,av-wiki.net,Fast_All
 
-DOMAIN,notebooklm.google.com,Only_US
 DOMAIN-SUFFIX,gov.my,Fast_All
 DOMAIN-SUFFIX,spglobal.cn,Fast_All
 DOMAIN-SUFFIX,jpmorgan.com,Fast_All
 DOMAIN-SUFFIX,ladyboystar.com,Fast_All
 
-DOMAIN-SUFFIX,johntronx.com,Only_JP
 DOMAIN-SUFFIX,178.com,Fast_All
-DOMAIN-SUFFIX,generativelanguage.googleapis.com,Only_US
 DOMAIN-SUFFIX,nodeseek.com,Fast_All
 DOMAIN-SUFFIX,vircs.com,Fast_All
 DOMAIN-SUFFIX,v2ex.com,Fast_All

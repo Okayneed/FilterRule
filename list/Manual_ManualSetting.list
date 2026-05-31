@@ -6,9 +6,6 @@ host-suffix, aistudio.google.com, Fast_All
 host-suffix, sec.gov, Fast_All
 host-suffix, yfsp.tv, Fast_All
 host-suffix, iyf.tv, Fast_All
-host-suffix, openai.com, Only_US
-host-suffix, chatgpt.com, Only_US
-host-suffix, notebooklm.google, Only_US
 host-suffix, api2.moe233.app, Not_HK
 host-suffix, think-cell.com, Fast_All
 #------同花顺终端
@@ -26,15 +23,12 @@ HOST-SUFFIX, globalsight.ai, Fast_All
 HOST-SUFFIX, surrit.com, Fast_All
 HOST-SUFFIX, av-wiki.net, Fast_All
 
-HOST, notebooklm.google.com, Only_US
 HOST-SUFFIX, gov.my, Fast_All
 HOST-SUFFIX, spglobal.cn, Fast_All
 HOST-SUFFIX, jpmorgan.com, Fast_All
 HOST-SUFFIX, ladyboystar.com, Fast_All
 
-HOST-SUFFIX, johntronx.com, Only_JP
 HOST-SUFFIX, 178.com, Fast_All
-HOST-SUFFIX, generativelanguage.googleapis.com, Only_US
 HOST-SUFFIX, nodeseek.com, Fast_All
 HOST-SUFFIX, vircs.com, Fast_All
 HOST-SUFFIX, v2ex.com, Fast_All
