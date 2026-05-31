@@ -7,13 +7,6 @@ host-suffix, sec.gov, Fast_All
 host-suffix, yfsp.tv, Fast_All
 host-suffix, iyf.tv, Fast_All
 host-suffix, think-cell.com, Fast_All
-#------同花顺终端
-host-suffix, 10jqka.com.cn, Direct
-host-suffix, ipify.org, Direct
-host-suffix, 51ifind.com, Direct
-host-suffix, icanhazip.com, Direct
-#------同花顺终端
-host-suffix, svc.cloud.microsoft, Direct
 HOST-SUFFIX, tempm.com, Fast_All
 HOST-SUFFIX, cld.bz, Fast_All
 HOST-SUFFIX, nympho.com, Fast_All

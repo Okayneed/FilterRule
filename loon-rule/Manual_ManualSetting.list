@@ -7,13 +7,6 @@ DOMAIN-SUFFIX,sec.gov,Fast_All
 DOMAIN-SUFFIX,yfsp.tv,Fast_All
 DOMAIN-SUFFIX,iyf.tv,Fast_All
 DOMAIN-SUFFIX,think-cell.com,Fast_All
-#------同花顺终端
-DOMAIN-SUFFIX,10jqka.com.cn,DIRECT
-DOMAIN-SUFFIX,ipify.org,DIRECT
-DOMAIN-SUFFIX,51ifind.com,DIRECT
-DOMAIN-SUFFIX,icanhazip.com,DIRECT
-#------同花顺终端
-DOMAIN-SUFFIX,svc.cloud.microsoft,DIRECT
 DOMAIN-SUFFIX,tempm.com,Fast_All
 DOMAIN-SUFFIX,cld.bz,Fast_All
 DOMAIN-SUFFIX,nympho.com,Fast_All
