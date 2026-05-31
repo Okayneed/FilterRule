@@ -6,7 +6,6 @@ host-suffix, aistudio.google.com, Fast_All
 host-suffix, sec.gov, Fast_All
 host-suffix, yfsp.tv, Fast_All
 host-suffix, iyf.tv, Fast_All
-host-suffix, api2.moe233.app, Not_HK
 host-suffix, think-cell.com, Fast_All
 #------同花顺终端
 host-suffix, 10jqka.com.cn, Direct
@@ -33,6 +32,3 @@ HOST-SUFFIX, nodeseek.com, Fast_All
 HOST-SUFFIX, vircs.com, Fast_All
 HOST-SUFFIX, v2ex.com, Fast_All
 HOST-SUFFIX, tgirlshouse.com, Fast_All
-HOST-SUFFIX, missav.ai, Not_HK
-HOST-SUFFIX, fourhoi.com, Not_HK
-HOST-SUFFIX, surrit.com, Not_HK
