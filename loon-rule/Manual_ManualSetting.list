@@ -2,7 +2,6 @@
 # Maintained by: manual editing (no auto-script)
 # Last Updated: User-driven (manual edits only)
 # Total Rules: 32
-DOMAIN-SUFFIX,aistudio.google.com,Fast_All
 DOMAIN-SUFFIX,sec.gov,Fast_All
 DOMAIN-SUFFIX,yfsp.tv,Fast_All
 DOMAIN-SUFFIX,iyf.tv,Fast_All

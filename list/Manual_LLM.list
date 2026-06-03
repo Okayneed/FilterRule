@@ -1,0 +1,51 @@
+# LLM / AI 大模型厂商规则 (Manually Maintained)
+# Maintained by: manual editing (no auto-script)
+# Last Updated: 2026-06-03
+# Covers: Anthropic (Claude), OpenAI (ChatGPT), Google (Gemini/Bard/DeepMind/NotebookLM), Inflection (Pi), etc.
+
+# === Anthropic / Claude ===
+host, anthropic-com.ghost.io
+host, anthropic.auth0.com
+host, anthropic.com.cdn.cloudflare.net
+host, browser-intake-us5-datadoghq.com
+host, cdn.usefathom.com
+host, servd-anthropic-website.b-cdn.net
+host-suffix, anthropic.com
+host-suffix, clau.de
+host-suffix, claude.ai
+host-suffix, claude.com
+host-suffix, claudemcpclient.com
+host-suffix, claudemcpcontent.com
+host-suffix, claudeusercontent.com
+host-suffix, intercom.io
+host-suffix, intercomcdn.com
+host-suffix, sentry.io
+host-suffix, statsigapi.net
+host-keyword, datadog
+host-keyword, sift
+ip-cidr, 160.79.104.0/21
+ip6-cidr, 2607:6bc0::/32
+ip-asn, 399358
+
+# === Google AI (Gemini / Bard / DeepMind / MakerSuite / NotebookLM) ===
+host-suffix, aistudio.google.com
+host, ai.google.dev
+host, alkalimakersuite-pa.clients6.google.com
+host, makersuite.google.com
+host-suffix, bard.google.com
+host-suffix, deepmind.com
+host-suffix, deepmind.google
+host-suffix, gemini.google.com
+host-suffix, generativeai.google
+host-suffix, proactivebackend-pa.googleapis.com
+host-keyword, generativelanguage
+host-suffix, notebooklm.google
+host, notebooklm.google.com
+host-suffix, generativelanguage.googleapis.com
+
+# === OpenAI ===
+host-suffix, openai.com
+host-suffix, chatgpt.com
+
+# === Inflection (Pi) ===
+host-suffix, pi.ai

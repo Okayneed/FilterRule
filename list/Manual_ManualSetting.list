@@ -2,7 +2,6 @@
 # Maintained by: manual editing (no auto-script)
 # Last Updated: User-driven (manual edits only)
 # Total Rules: 32
-host-suffix, aistudio.google.com, Fast_All
 host-suffix, sec.gov, Fast_All
 host-suffix, yfsp.tv, Fast_All
 host-suffix, iyf.tv, Fast_All
