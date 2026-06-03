@@ -1,9 +1,9 @@
 # Google Rules (Auto-Generated)
 # Maintained by: scripts/generate_proxy_apps.py
-# Last Updated: 2026-06-03 07:46 CST
+# Last Updated: 2026-06-04 07:44 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 645
-# Status: No Changes
+# Total Rules: 642
+# Status: Updated
 
 host, 265.com
 host, 2mdn-cn.net
@@ -118,7 +118,6 @@ host-suffix, 1ucrs.com
 host-suffix, 2mdn-cn.net
 host-suffix, 2mdn.net
 host-suffix, 466453.com
-host-suffix, abc.xyz
 host-suffix, adgoogle.net
 host-suffix, admeld.com
 host-suffix, admob-cn.com
@@ -499,7 +498,6 @@ host-suffix, gstatic.com
 host-suffix, gstaticcnapps.cn
 host-suffix, gsuite.com
 host-suffix, guge
-host-suffix, gv.com
 host-suffix, gvt0.com
 host-suffix, gvt1-cn.com
 host-suffix, gvt1.com
@@ -598,6 +596,7 @@ host-suffix, stxmosquitoproject.com
 host-suffix, stxmosquitoproject.net
 host-suffix, stxmosquitoproject.org
 host-suffix, synergyse.com
+host-suffix, tenor.com
 host-suffix, tensorflow.org
 host-suffix, tfhub.dev
 host-suffix, thecleversense.com
@@ -614,13 +613,11 @@ host-suffix, useplannr.com
 host-suffix, usvimosquito.com
 host-suffix, usvimosquitoproject.com
 host-suffix, velostrata.com
-host-suffix, verily.com
 host-suffix, verilylifesciences.com
 host-suffix, verilystudyhub.com
 host-suffix, verilystudywatch.com
 host-suffix, verilystudywatch.org
 host-suffix, wallet.com
-host-suffix, waymo.com
 host-suffix, waze.com
 host-suffix, web.app
 host-suffix, web.dev
