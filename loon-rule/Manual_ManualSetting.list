@@ -1,7 +1,7 @@
 # Manual Settings (Manually Maintained)
 # Maintained by: manual editing (no auto-script)
 # Last Updated: User-driven (manual edits only)
-# Total Rules: 32
+# Total Rules: 33
 DOMAIN-SUFFIX,sec.gov,Fast_All
 DOMAIN-SUFFIX,yfsp.tv,Fast_All
 DOMAIN-SUFFIX,iyf.tv,Fast_All
@@ -24,4 +24,5 @@ DOMAIN-SUFFIX,nodeseek.com,Fast_All
 DOMAIN-SUFFIX,vircs.com,Fast_All
 DOMAIN-SUFFIX,v2ex.com,Fast_All
 DOMAIN-SUFFIX,tgirlshouse.com,Fast_All
+AND,((DOMAIN,nat.qq.pw),(DEST-PORT,25560)),Fast_All
 
