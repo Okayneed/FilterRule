@@ -1,9 +1,9 @@
 # Claude Rules (Auto-Generated)
 # Maintained by: scripts/fetch_claude.py
-# Last Updated: 2026-06-04 07:44 CST
+# Last Updated: 2026-06-05 07:10 CST
 # Source: https://ip.net.coffee/claude/site.html
 # Total Rules: 22
-# Status: Updated
+# Status: No Changes
 
 DOMAIN,anthropic-com.ghost.io
 DOMAIN,anthropic.auth0.com
