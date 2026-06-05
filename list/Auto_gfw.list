@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-06-05 07:10 CST
+# Last Updated: 2026-06-06 07:11 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 3910
-# Status: No Changes
+# Total Rules: 3911
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -2500,7 +2500,6 @@ host-suffix, pachosting.com
 host-suffix, pacom.mil
 host-suffix, pacopacomama.com
 host-suffix, page.link
-host-suffix, pages.dev
 host-suffix, paimon.moe
 host-suffix, pancakeswap.finance
 host-suffix, pandafan.pub
@@ -3083,6 +3082,7 @@ host-suffix, supervpn.net
 host-suffix, surfeasy.com
 host-suffix, surfshark.com
 host-suffix, surrenderat20.net
+host-suffix, suyingtv.com
 host-suffix, swagbucks.com
 host-suffix, swapspace.co
 host-suffix, swissinfo.ch
@@ -3707,6 +3707,7 @@ host-suffix, wowgirls.com
 host-suffix, wowhead.com
 host-suffix, wowporn.com
 host-suffix, wp.com
+host-suffix, wplace.live
 host-suffix, wpoforum.com
 host-suffix, writesonic.com
 host-suffix, wsj.com
