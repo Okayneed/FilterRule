@@ -1,9 +1,9 @@
 # Apple & iCloud China (Auto-Generated)
 # Maintained by: scripts/generate_apple.py
-# Last Updated: 2026-06-07 07:05 CST
+# Last Updated: 2026-06-08 07:06 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 969
-# Status: No Changes
+# Total Rules: 967
+# Status: Updated
 
 DOMAIN,a1.mzstatic.com
 DOMAIN,a2.mzstatic.com
@@ -54,6 +54,7 @@ DOMAIN,cl1.apple.com
 DOMAIN,cl2-cdn.origin-apple.com.akadns.net
 DOMAIN,cl2-cn.apple.com
 DOMAIN,cl2.apple.com
+DOMAIN,cl2.apple.com.edgekey.net.globalredir.akadns.net
 DOMAIN,cl3-cdn.origin-apple.com.akadns.net
 DOMAIN,cl3.apple.com
 DOMAIN,cl4-cdn.origin-apple.com.akadns.net
@@ -84,6 +85,7 @@ DOMAIN,fides-pol.apple.com
 DOMAIN,gs-loc-cn.apple.com
 DOMAIN,gs-loc.apple.com
 DOMAIN,gsp10-ssl-cn.ls.apple.com
+DOMAIN,gsp11-cn.ls.apple.com
 DOMAIN,gsp12-cn.ls.apple.com
 DOMAIN,gsp13-cn.ls.apple.com
 DOMAIN,gsp4-cn.ls.apple.com
@@ -104,8 +106,6 @@ DOMAIN,gspe85-cn-ssl.ls.apple.com
 DOMAIN,guzzoni-apple-com.v.aaplimg.com
 DOMAIN,guzzoni.apple.com
 DOMAIN,guzzoni.smoot.apple.com
-DOMAIN,icloud-cdn.icloud.com.akadns.net
-DOMAIN,icloud.cdn-apple.com
 DOMAIN,images.apple.com.edgekey.net.globalredir.akadns.net
 DOMAIN,inappcheck-cn.itunes-apple.com.akadns.net
 DOMAIN,inappcheck-lb.itunes-apple.com.akadns.net
@@ -159,7 +159,6 @@ DOMAIN,oscdn.origin-apple.com.akadns.net
 DOMAIN,osxapps.itunes.apple.com
 DOMAIN,osxapps.itunes.g.aaplimg.com
 DOMAIN,pancake.apple.com
-DOMAIN,pancake.cdn-apple.com.akadns.net
 DOMAIN,pba0.apple.com
 DOMAIN,pd-nk.itunes.apple.com
 DOMAIN,pd.itunes.apple.com
@@ -169,7 +168,6 @@ DOMAIN,probe.siri.apple.com
 DOMAIN,prod-support.apple-support.akadns.net
 DOMAIN,publicassets.cdn-apple.com
 DOMAIN,push-apple.com.akadns.net
-DOMAIN,reserve-prime.apple.com
 DOMAIN,s.mzstatic.com
 DOMAIN,s1.mzstatic.com
 DOMAIN,s2.mzstatic.com

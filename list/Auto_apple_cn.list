@@ -1,9 +1,9 @@
 # Apple & iCloud China (Auto-Generated)
 # Maintained by: scripts/generate_apple.py
-# Last Updated: 2026-06-07 07:05 CST
+# Last Updated: 2026-06-08 07:06 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 969
-# Status: No Changes
+# Total Rules: 967
+# Status: Updated
 
 host, a1.mzstatic.com
 host, a2.mzstatic.com
@@ -54,6 +54,7 @@ host, cl1.apple.com
 host, cl2-cdn.origin-apple.com.akadns.net
 host, cl2-cn.apple.com
 host, cl2.apple.com
+host, cl2.apple.com.edgekey.net.globalredir.akadns.net
 host, cl3-cdn.origin-apple.com.akadns.net
 host, cl3.apple.com
 host, cl4-cdn.origin-apple.com.akadns.net
@@ -84,6 +85,7 @@ host, fides-pol.apple.com
 host, gs-loc-cn.apple.com
 host, gs-loc.apple.com
 host, gsp10-ssl-cn.ls.apple.com
+host, gsp11-cn.ls.apple.com
 host, gsp12-cn.ls.apple.com
 host, gsp13-cn.ls.apple.com
 host, gsp4-cn.ls.apple.com
@@ -104,8 +106,6 @@ host, gspe85-cn-ssl.ls.apple.com
 host, guzzoni-apple-com.v.aaplimg.com
 host, guzzoni.apple.com
 host, guzzoni.smoot.apple.com
-host, icloud-cdn.icloud.com.akadns.net
-host, icloud.cdn-apple.com
 host, images.apple.com.edgekey.net.globalredir.akadns.net
 host, inappcheck-cn.itunes-apple.com.akadns.net
 host, inappcheck-lb.itunes-apple.com.akadns.net
@@ -159,7 +159,6 @@ host, oscdn.origin-apple.com.akadns.net
 host, osxapps.itunes.apple.com
 host, osxapps.itunes.g.aaplimg.com
 host, pancake.apple.com
-host, pancake.cdn-apple.com.akadns.net
 host, pba0.apple.com
 host, pd-nk.itunes.apple.com
 host, pd.itunes.apple.com
@@ -169,7 +168,6 @@ host, probe.siri.apple.com
 host, prod-support.apple-support.akadns.net
 host, publicassets.cdn-apple.com
 host, push-apple.com.akadns.net
-host, reserve-prime.apple.com
 host, s.mzstatic.com
 host, s1.mzstatic.com
 host, s2.mzstatic.com
