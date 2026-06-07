@@ -28,3 +28,4 @@ AND,((DOMAIN,nat.qq.pw),(DEST-PORT,25560)),Fast_All
 
 DOMAIN-SUFFIX,informa.com,Fast_All
 DOMAIN-SUFFIX,johntronx.com,Fast_All
+DOMAIN-SUFFIX,missav.ai,Fast_All
