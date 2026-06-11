@@ -1,11 +1,10 @@
 # Google Rules (Auto-Generated)
 # Maintained by: scripts/generate_proxy_apps.py
-# Last Updated: 2026-06-11 07:25 CST
+# Last Updated: 2026-06-12 07:23 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 642
-# Status: No Changes
+# Total Rules: 641
+# Status: Updated
 
-host, 265.com
 host, 2mdn-cn.net
 host, 2mdn.net
 host, admob-cn.com
@@ -31,7 +30,6 @@ host, clickserver.googleads.com
 host, clientservices.googleapis.com
 host, cn.widevine.com
 host, connectivitycheck.gstatic.com
-host, crashlyticsreports-pa.googleapis.com
 host, csi.gstatic.com
 host, dartsearch-cn.net
 host, dg-meta.video.google.com
@@ -103,7 +101,6 @@ host, staging-databe.floonet.goog
 host, staging.databe.floonet.goog
 host, tac.googleapis.com
 host, tools.google.com
-host, update.crashlytics.com
 host, update.googleapis.com
 host, wear.googleapis.com
 host, www-google-analytics.l.google.com
@@ -111,10 +108,12 @@ host, www-googletagmanager.l.google.com
 host, www.destinationurl.com
 host, www.gstatic.com
 host, www.pxcc.com
+host, www.recaptcha-cn.net
 host, www.recaptcha.net
 host-suffix, 0emm.com
 host-suffix, 1e100.net
 host-suffix, 1ucrs.com
+host-suffix, 265.com
 host-suffix, 2mdn-cn.net
 host-suffix, 2mdn.net
 host-suffix, 466453.com
