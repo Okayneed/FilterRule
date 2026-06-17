@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-06-17 07:23 CST
+# Last Updated: 2026-06-18 07:25 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 3911
-# Status: No Changes
+# Total Rules: 3912
+# Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
 DOMAIN-SUFFIX,1-apple.com.tw
@@ -2927,6 +2927,7 @@ DOMAIN-SUFFIX,sinoants.com
 DOMAIN-SUFFIX,sinoca.com
 DOMAIN-SUFFIX,sinocast.com
 DOMAIN-SUFFIX,sinoinsider.com
+DOMAIN-SUFFIX,sinyalee.com
 DOMAIN-SUFFIX,sis001.com
 DOMAIN-SUFFIX,site.new
 DOMAIN-SUFFIX,sitekreator.com
