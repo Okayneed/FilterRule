@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-06-18 07:25 CST
+# Last Updated: 2026-06-19 07:46 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 3912
+# Total Rules: 3915
 # Status: Updated
 
 host-suffix, 000webhost.com
@@ -87,6 +87,7 @@ host-suffix, about.gitlab.com
 host-suffix, about.me
 host-suffix, abplive.com
 host-suffix, acast.com
+host-suffix, accountboy.com
 host-suffix, accountkit.com
 host-suffix, acevpn.com
 host-suffix, acg.mn
@@ -2237,6 +2238,7 @@ host-suffix, monitorchina.org
 host-suffix, monocloud.me
 host-suffix, monster.com
 host-suffix, moodyz.com
+host-suffix, moomoo.com
 host-suffix, moon.fm
 host-suffix, moonbbs.com
 host-suffix, moonbingo.com
@@ -3777,6 +3779,7 @@ host-suffix, xn--noss43i.com
 host-suffix, xn--oiq.cc
 host-suffix, xn--p8j9a0d9c9a.xn--q9jyb4c
 host-suffix, xn--u2u927b.com
+host-suffix, xn--vuqv2cf7wzyig79c.com
 host-suffix, xnpool.com
 host-suffix, xnxx.com
 host-suffix, xpud.org
