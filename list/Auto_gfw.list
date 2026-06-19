@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-06-19 07:46 CST
+# Last Updated: 2026-06-20 06:59 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 3915
+# Total Rules: 4000
 # Status: Updated
 
 host-suffix, 000webhost.com
@@ -19,6 +19,7 @@ host-suffix, 1688.com.au
 host-suffix, 173ng.com
 host-suffix, 18board.com
 host-suffix, 18comic.org
+host-suffix, 18mh.net
 host-suffix, 1984bbs.com
 host-suffix, 1991way.com
 host-suffix, 1e100.net
@@ -74,6 +75,7 @@ host-suffix, 9bis.net
 host-suffix, 9cache.com
 host-suffix, 9gag.com
 host-suffix, 9news.com.au
+host-suffix, 9oju31.launches.appsflyersdk.com
 host-suffix, a-normal-day.com
 host-suffix, a248.e.akamai.net
 host-suffix, aave.com
@@ -196,13 +198,18 @@ host-suffix, aoxvpn.com
 host-suffix, apartmentratings.com
 host-suffix, apartments.com
 host-suffix, apat1989.org
+host-suffix, api-gl.lbkrs.com
 host-suffix, api-secure.recaptcha.net
 host-suffix, api-verify.recaptcha.net
 host-suffix, api.ai
+host-suffix, api.futunn.com
+host-suffix, api.lbkrs.com
+host-suffix, api.moomoobull.com
 host-suffix, api.palworldgame.com
 host-suffix, api.pureapk.com
 host-suffix, api.recaptcha.net
 host-suffix, api.steampowered.com
+host-suffix, api5.futunn.com
 host-suffix, apiary.io
 host-suffix, apigee.com
 host-suffix, apk.support
@@ -370,6 +377,7 @@ host-suffix, bigjapanesesex.com
 host-suffix, bignews.org
 host-suffix, bigone.com
 host-suffix, bild.de
+host-suffix, bilinovel.com
 host-suffix, binance.com
 host-suffix, binance.org
 host-suffix, binancezh.cc
@@ -560,6 +568,7 @@ host-suffix, cdjp.org
 host-suffix, cdn-images.mailchimp.com
 host-suffix, cdn-telegram.org
 host-suffix, cdn.arstechnica.net
+host-suffix, cdn.futustatic.com
 host-suffix, cdn.jwplayer.com
 host-suffix, cdn.printfriendly.com
 host-suffix, cdn.seatguru.com
@@ -581,6 +590,7 @@ host-suffix, centerforhumanreprod.com
 host-suffix, centralnation.com
 host-suffix, certificate-transparency.org
 host-suffix, cfr.org
+host-suffix, cg.play-analytics.com
 host-suffix, change.org
 host-suffix, changp.com
 host-suffix, channelnewsasia.com
@@ -905,6 +915,7 @@ host-suffix, dougscripts.com
 host-suffix, doujincafe.com
 host-suffix, dowjones.io
 host-suffix, download.dappcdn.com
+host-suffix, download.futunn.com
 host-suffix, dpool.top
 host-suffix, dpp.org.tw
 host-suffix, dpr.info
@@ -1192,7 +1203,36 @@ host-suffix, funkyimg.com
 host-suffix, furbo.org
 host-suffix, furinkan.com
 host-suffix, furrybar.com
+host-suffix, futu.cn
+host-suffix, futu.com
+host-suffix, futu.link
+host-suffix, futu0.com
+host-suffix, futu1.com
+host-suffix, futu2.com
+host-suffix, futu3.com
+host-suffix, futu4.com
+host-suffix, futu5.com
+host-suffix, futu6.com
+host-suffix, futu7.com
+host-suffix, futu8.com
+host-suffix, futu9.com
+host-suffix, futuau.com
+host-suffix, futubull.cn
+host-suffix, futuchain.com
+host-suffix, futuesop.com
+host-suffix, futufin.com
+host-suffix, futuhk.com
+host-suffix, futuhk2.com
+host-suffix, futuhkapp.com
+host-suffix, futuhn.com
+host-suffix, futuholdings.com
+host-suffix, futuinc.com
+host-suffix, futuniuniu.com
+host-suffix, futunn.com
 host-suffix, futuremessage.org
+host-suffix, futustatic.com
+host-suffix, fututrade.com
+host-suffix, fututrustee.com
 host-suffix, fw.cm
 host-suffix, fxcm-chinese.com
 host-suffix, fxnetworks.com
@@ -1864,6 +1904,7 @@ host-suffix, itasoftware.com
 host-suffix, itch.io
 host-suffix, itemfix.com
 host-suffix, itiger.com
+host-suffix, itigerup.com
 host-suffix, itshidden.com
 host-suffix, iuhrdf.org
 host-suffix, ivacy.com
@@ -1995,11 +2036,14 @@ host-suffix, landofhope.tv
 host-suffix, lantern.io
 host-suffix, laogai.org
 host-suffix, laogairesearch.org
+host-suffix, laohu8.com
 host-suffix, laqingdan.net
 host-suffix, larsgeorge.com
 host-suffix, lastfm.es
 host-suffix, lausan.hk
 host-suffix, lbank.info
+host-suffix, lbctrl.com
+host-suffix, lbkrs.com
 host-suffix, ldplayer.net
 host-suffix, ldplayer.tw
 host-suffix, le-vpn.com
@@ -2065,6 +2109,15 @@ host-suffix, localdomain.ws
 host-suffix, lockestek.com
 host-suffix, login.target.com
 host-suffix, logos.com.hk
+host-suffix, longbridge.cloud
+host-suffix, longbridge.com
+host-suffix, longbridge.global
+host-suffix, longbridge.hk
+host-suffix, longbridge.sg
+host-suffix, longbridgeapp.com
+host-suffix, longbridgehk.com
+host-suffix, longportapp.cn
+host-suffix, longportapp.com
 host-suffix, longtermly.net
 host-suffix, longtoes.com
 host-suffix, lookpic.com
@@ -2239,6 +2292,8 @@ host-suffix, monocloud.me
 host-suffix, monster.com
 host-suffix, moodyz.com
 host-suffix, moomoo.com
+host-suffix, moomooequity.com
+host-suffix, moomootrustee.com
 host-suffix, moon.fm
 host-suffix, moonbbs.com
 host-suffix, moonbingo.com
@@ -2465,6 +2520,13 @@ host-suffix, ooni.io
 host-suffix, ooni.org
 host-suffix, open.firstory.me
 host-suffix, openai.com
+host-suffix, openapi-quote.longbridge.cn
+host-suffix, openapi-quote.longbridge.com
+host-suffix, openapi-trade.longbridge.cn
+host-suffix, openapi-trade.longbridge.com
+host-suffix, openapi.futunn.com
+host-suffix, openapi.longbridge.cn
+host-suffix, openapi.longbridge.com
 host-suffix, openart.ai
 host-suffix, opencritic.com
 host-suffix, opendemocracy.net
@@ -2711,12 +2773,15 @@ host-suffix, qiwen.lu
 host-suffix, qoos.com
 host-suffix, qq.co.za
 host-suffix, qstatus.com
+host-suffix, qtcard.futunn.com
+host-suffix, qtcardfthk.futufin.com
 host-suffix, qtrac.eu
 host-suffix, questvisual.com
 host-suffix, quitccp.org
 host-suffix, quiz.directory
 host-suffix, quora.com
 host-suffix, quoracdn.net
+host-suffix, quote.longbridge.global
 host-suffix, qz.com
 host-suffix, r-pool.net
 host-suffix, r0.ru
@@ -2848,6 +2913,10 @@ host-suffix, savetibetstore.org
 host-suffix, saveuighur.org
 host-suffix, sbti.unun.dev
 host-suffix, schema.org
+host-suffix, schwab.co.uk
+host-suffix, schwab.com
+host-suffix, schwab.com.cn
+host-suffix, schwab.com.hk
 host-suffix, scmp.com
 host-suffix, scramble.io
 host-suffix, scratch.mit.edu
@@ -2882,6 +2951,7 @@ host-suffix, sex8.cc
 host-suffix, sexinsex.net
 host-suffix, sfshibao.com
 host-suffix, sftuk.org
+host-suffix, sgqt0j.launches.appsflyersdk.com
 host-suffix, shadeyouvpn.com
 host-suffix, shadowsocks.be
 host-suffix, shadowsocks.com.hk
@@ -2906,6 +2976,7 @@ host-suffix, shodanhq.com
 host-suffix, shooshtime.com
 host-suffix, shopee.tw
 host-suffix, shopping.yahoo.co.jp
+host-suffix, shortconn.im.qcloud.com
 host-suffix, showwe.tw
 host-suffix, shutterstock.com
 host-suffix, shwchurch.org
@@ -3082,6 +3153,7 @@ host-suffix, sunporno.com
 host-suffix, supchina.com
 host-suffix, superpages.com
 host-suffix, supervpn.net
+host-suffix, support.futunn.com
 host-suffix, surfeasy.com
 host-suffix, surfshark.com
 host-suffix, surrenderat20.net
@@ -3258,6 +3330,12 @@ host-suffix, tibettelegraph.com
 host-suffix, tibettimes.net
 host-suffix, tibettruth.com
 host-suffix, tibetwrites.org
+host-suffix, tigerbbs.cn
+host-suffix, tigerbbs.com
+host-suffix, tigerbrokers.com
+host-suffix, tigerbrokers.net
+host-suffix, tigerbrokers.nz
+host-suffix, tigerfintech.com
 host-suffix, tigervpn.com
 host-suffix, tiktok.com
 host-suffix, tiktokcdn-eu.com
@@ -3311,6 +3389,9 @@ host-suffix, totalvpn.com
 host-suffix, tou.tv
 host-suffix, tpi.org.tw
 host-suffix, tracfone.com
+host-suffix, trade.futunn.com
+host-suffix, trade.longportapp.com
+host-suffix, tradeup.com
 host-suffix, tradingview.com
 host-suffix, translate.goog
 host-suffix, transparency.org
@@ -3603,6 +3684,7 @@ host-suffix, wav.tv
 host-suffix, waveprotocol.org
 host-suffix, waybig.com
 host-suffix, waymo.com
+host-suffix, wbrks.com
 host-suffix, wd.bible
 host-suffix, wealth.com.tw
 host-suffix, wearn.com
@@ -3756,6 +3838,7 @@ host-suffix, xfxssr.me
 host-suffix, xgmyd.com
 host-suffix, xhamster.com
 host-suffix, xiaohexie.com
+host-suffix, xiaohu8.com
 host-suffix, xiaolan.me
 host-suffix, xiaoma.org
 host-suffix, xiaomi.eu
@@ -3890,6 +3973,8 @@ host-suffix, zhanlve.org
 host-suffix, zhao.1984.city
 host-suffix, zhengjian.org
 host-suffix, zhengwunet.org
+host-suffix, zhijianfengyi.cn
+host-suffix, zhijianfengyi.com
 host-suffix, zhizhu.top
 host-suffix, zhongguotese.net
 host-suffix, zhongzidi.com
