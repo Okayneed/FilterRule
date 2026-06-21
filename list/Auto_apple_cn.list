@@ -1,9 +1,9 @@
 # Apple & iCloud China (Auto-Generated)
 # Maintained by: scripts/generate_apple.py
-# Last Updated: 2026-06-21 07:10 CST
+# Last Updated: 2026-06-22 07:14 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 967
-# Status: No Changes
+# Total Rules: 968
+# Status: Updated
 
 host, a1.mzstatic.com
 host, a2.mzstatic.com
@@ -144,6 +144,7 @@ host, itunesconnect.apple.com
 host, js-cdn.music.apple.com
 host, km.support.apple.com
 host, maps.apple.com
+host, mensura.cdn-apple.com
 host, mesu-cdn.apple.com.akadns.net
 host, mesu-china.apple.com.akadns.net
 host, mesu.apple.com
