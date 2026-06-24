@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-06-24 07:09 CST
+# Last Updated: 2026-06-25 07:04 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4000
-# Status: No Changes
+# Total Rules: 4001
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -1270,6 +1270,7 @@ host-suffix, generated.photos
 host-suffix, genius.com
 host-suffix, geph.io
 host-suffix, get.app
+host-suffix, get.dappcdn.com
 host-suffix, get.dev
 host-suffix, get.how
 host-suffix, get.page
