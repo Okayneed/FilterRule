@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-06-25 07:04 CST
+# Last Updated: 2026-06-26 07:19 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4001
+# Total Rules: 4002
 # Status: Updated
 
 host-suffix, 000webhost.com
@@ -759,6 +759,7 @@ host-suffix, crazypool.org
 host-suffix, crazyshit.com
 host-suffix, crbug.com
 host-suffix, crchina.org
+host-suffix, creader.com
 host-suffix, creaders.net
 host-suffix, creativelab5.com
 host-suffix, cristyli.com

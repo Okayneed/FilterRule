@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-06-25 07:04 CST
+# Last Updated: 2026-06-26 07:19 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4001
+# Total Rules: 4002
 # Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
@@ -759,6 +759,7 @@ DOMAIN-SUFFIX,crazypool.org
 DOMAIN-SUFFIX,crazyshit.com
 DOMAIN-SUFFIX,crbug.com
 DOMAIN-SUFFIX,crchina.org
+DOMAIN-SUFFIX,creader.com
 DOMAIN-SUFFIX,creaders.net
 DOMAIN-SUFFIX,creativelab5.com
 DOMAIN-SUFFIX,cristyli.com
