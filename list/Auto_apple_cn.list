@@ -1,9 +1,9 @@
 # Apple & iCloud China (Auto-Generated)
 # Maintained by: scripts/generate_apple.py
-# Last Updated: 2026-06-27 07:07 CST
+# Last Updated: 2026-06-28 07:03 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 968
-# Status: No Changes
+# Total Rules: 973
+# Status: Updated
 
 host, a1.mzstatic.com
 host, a2.mzstatic.com
@@ -275,6 +275,7 @@ host-suffix, apple-icloud.cn
 host-suffix, apple-imac.com
 host-suffix, apple-inc.net
 host-suffix, apple-livephotoskit.com
+host-suffix, apple-mapkit.com
 host-suffix, apple-maps.cn
 host-suffix, apple-online.com
 host-suffix, apple-pay.com
@@ -511,6 +512,7 @@ host-suffix, applepremiumresellers.com.au
 host-suffix, applereach.com
 host-suffix, applereach.net
 host-suffix, apples-msk.ru
+host-suffix, appleschoolcontent.com
 host-suffix, applescreensavers.com
 host-suffix, applescript.info
 host-suffix, appleshare.info
@@ -591,7 +593,9 @@ host-suffix, appstoreapple.cn
 host-suffix, appule.com
 host-suffix, appye.com
 host-suffix, apyle.com
+host-suffix, apzones.com
 host-suffix, asto.re
+host-suffix, axm-usercontent-apple.com
 host-suffix, beddit.tv
 host-suffix, bestiphonestuff.com
 host-suffix, braeburncapital.com
@@ -673,6 +677,7 @@ host-suffix, ibooksauthor.com
 host-suffix, ichat.co.in
 host-suffix, icloud-apple.cn
 host-suffix, icloud-content.com
+host-suffix, icloud-content.com.cn
 host-suffix, icloud-isupport.com
 host-suffix, icloud-sandbox.com
 host-suffix, icloud.ch

@@ -1,9 +1,9 @@
 # Google Rules (Auto-Generated)
 # Maintained by: scripts/generate_proxy_apps.py
-# Last Updated: 2026-06-27 07:07 CST
+# Last Updated: 2026-06-28 07:03 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 641
-# Status: No Changes
+# Total Rules: 642
+# Status: Updated
 
 host, 2mdn-cn.net
 host, 2mdn.net
@@ -169,6 +169,7 @@ host-suffix, chrome.com
 host-suffix, chromebook.com
 host-suffix, chromecast.com
 host-suffix, chromeos.dev
+host-suffix, chromestatus.com
 host-suffix, chromium.org
 host-suffix, chronicle.security
 host-suffix, chroniclesec.com

@@ -1,9 +1,9 @@
 # Google Rules (Auto-Generated)
 # Maintained by: scripts/generate_proxy_apps.py
-# Last Updated: 2026-06-27 07:07 CST
+# Last Updated: 2026-06-28 07:03 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 641
-# Status: No Changes
+# Total Rules: 642
+# Status: Updated
 
 DOMAIN,2mdn-cn.net
 DOMAIN,2mdn.net
@@ -169,6 +169,7 @@ DOMAIN-SUFFIX,chrome.com
 DOMAIN-SUFFIX,chromebook.com
 DOMAIN-SUFFIX,chromecast.com
 DOMAIN-SUFFIX,chromeos.dev
+DOMAIN-SUFFIX,chromestatus.com
 DOMAIN-SUFFIX,chromium.org
 DOMAIN-SUFFIX,chronicle.security
 DOMAIN-SUFFIX,chroniclesec.com
