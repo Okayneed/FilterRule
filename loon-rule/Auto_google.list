@@ -1,9 +1,9 @@
 # Google Rules (Auto-Generated)
 # Maintained by: scripts/generate_proxy_apps.py
-# Last Updated: 2026-06-28 07:03 CST
+# Last Updated: 2026-06-29 07:03 CST
 # Source: v2fly/domain-list-community
 # Total Rules: 642
-# Status: Updated
+# Status: No Changes
 
 DOMAIN,2mdn-cn.net
 DOMAIN,2mdn.net
