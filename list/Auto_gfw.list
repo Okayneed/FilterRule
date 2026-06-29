@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-06-29 07:03 CST
+# Last Updated: 2026-06-30 06:59 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4019
-# Status: No Changes
+# Total Rules: 4020
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -1031,6 +1031,7 @@ host-suffix, expatshield.com
 host-suffix, expecthim.com
 host-suffix, expekt.com
 host-suffix, exploader.net
+host-suffix, expressnews.com
 host-suffix, expressvpn.com
 host-suffix, exrates.me
 host-suffix, extmatrix.com
