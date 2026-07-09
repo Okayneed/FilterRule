@@ -1,9 +1,9 @@
 # Apple & iCloud China (Auto-Generated)
 # Maintained by: scripts/generate_apple.py
-# Last Updated: 2026-07-09 07:09 CST
+# Last Updated: 2026-07-10 07:12 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 932
-# Status: No Changes
+# Total Rules: 913
+# Status: Updated
 
 DOMAIN,a1.mzstatic.com
 DOMAIN,a2.mzstatic.com
@@ -13,12 +13,10 @@ DOMAIN,a5.mzstatic.com
 DOMAIN,adcdownload.apple.com
 DOMAIN,adcdownload.apple.com.akadns.net
 DOMAIN,amp-api-edge.apps.apple.com
-DOMAIN,amp-api-edge.music.apple.com
 DOMAIN,amp-api-search-edge.apps.apple.com
 DOMAIN,amp-api-updates.apps.apple.com
 DOMAIN,amp-api.apps.apple.com
 DOMAIN,amp-api.media.apple.com
-DOMAIN,amp-api.music.apple.com
 DOMAIN,api-edge.apps.apple.com
 DOMAIN,app-site-association.cdn-apple.com
 DOMAIN,appldnld.apple.com
@@ -26,7 +24,6 @@ DOMAIN,appldnld.g.aaplimg.com
 DOMAIN,apple.com.akadns.net
 DOMAIN,appleid.cdn-apple.com
 DOMAIN,apps.mzstatic.com
-DOMAIN,auth.music.apple.com
 DOMAIN,cdn-cn.apple-mapkit.com
 DOMAIN,cdn-cn1.apple-mapkit.com
 DOMAIN,cdn-cn2.apple-mapkit.com
@@ -119,7 +116,6 @@ DOMAIN,is4-ssl.mzstatic.com
 DOMAIN,is4.mzstatic.com
 DOMAIN,is5-ssl.mzstatic.com
 DOMAIN,is5.mzstatic.com
-DOMAIN,js-cdn.music.apple.com
 DOMAIN,km.support.apple.com
 DOMAIN,maps.apple.com
 DOMAIN,mensura.cdn-apple.com
@@ -127,13 +123,10 @@ DOMAIN,mesu-cdn.apple.com.akadns.net
 DOMAIN,mesu-china.apple.com.akadns.net
 DOMAIN,mesu.apple.com
 DOMAIN,ml.cdn-apple.com
-DOMAIN,music.apple.com
-DOMAIN,musicstatus.music.apple.com
 DOMAIN,oscdn.apple.com
 DOMAIN,oscdn.origin-apple.com.akadns.net
 DOMAIN,pancake.apple.com
 DOMAIN,pba0.apple.com
-DOMAIN,play.music.apple.com
 DOMAIN,probe.siri.apple.com
 DOMAIN,prod-support.apple-support.akadns.net
 DOMAIN,publicassets.cdn-apple.com
@@ -151,7 +144,6 @@ DOMAIN,sequoia.apple.com
 DOMAIN,sh-pod2-smp-device.apple.com
 DOMAIN,shazam-insights.cdn-apple.com
 DOMAIN,smp-device-content.apple.com
-DOMAIN,speedysub.music.apple.com
 DOMAIN,static.gc.apple.com
 DOMAIN,stocks-sparkline-lb.apple.com.akadns.net
 DOMAIN,stocks-sparkline.apple.com
@@ -414,14 +406,6 @@ DOMAIN-SUFFIX,applelink.com
 DOMAIN-SUFFIX,applemagickeyboard.com
 DOMAIN-SUFFIX,applemalaysia.com.my
 DOMAIN-SUFFIX,applemasters.info
-DOMAIN-SUFFIX,applemusic.berlin
-DOMAIN-SUFFIX,applemusic.co
-DOMAIN-SUFFIX,applemusic.com
-DOMAIN-SUFFIX,applemusic.com.au
-DOMAIN-SUFFIX,applemusic.hamburg
-DOMAIN-SUFFIX,applemusic.wang
-DOMAIN-SUFFIX,applemusicconnect.com
-DOMAIN-SUFFIX,applemusicfestival.com
 DOMAIN-SUFFIX,applemx-icloud.com
 DOMAIN-SUFFIX,applenews.berlin
 DOMAIN-SUFFIX,applenews.hamburg
@@ -465,7 +449,6 @@ DOMAIN-SUFFIX,applepaysupplies.info
 DOMAIN-SUFFIX,applepaysupplies.net
 DOMAIN-SUFFIX,applepaysupplies.tv
 DOMAIN-SUFFIX,applepencil.net
-DOMAIN-SUFFIX,applepodcasts.com
 DOMAIN-SUFFIX,applepremiumreseller.com.au
 DOMAIN-SUFFIX,applepremiumresellers.com.au
 DOMAIN-SUFFIX,applereach.com
@@ -876,7 +859,6 @@ DOMAIN-SUFFIX,macreach.net
 DOMAIN-SUFFIX,me.com
 DOMAIN-SUFFIX,mobileme.dk
 DOMAIN-SUFFIX,mr-apple.com.tw
-DOMAIN-SUFFIX,musickit.net
 DOMAIN-SUFFIX,myappleid.com
 DOMAIN-SUFFIX,myicloud.net
 DOMAIN-SUFFIX,myipod.net
@@ -922,7 +904,6 @@ DOMAIN-SUFFIX,wwapple.net
 DOMAIN-SUFFIX,www-sms-apple.com
 DOMAIN-SUFFIX,wwwapple.com
 DOMAIN-SUFFIX,wwwapple.net
-DOMAIN-SUFFIX,wwwapplemusic.com
 DOMAIN-SUFFIX,wwwicloud.com
 DOMAIN-SUFFIX,wwwipodlounge.com
 DOMAIN-SUFFIX,wwwlapple.com

@@ -1,9 +1,9 @@
 # Apple & iCloud China (Auto-Generated)
 # Maintained by: scripts/generate_apple.py
-# Last Updated: 2026-07-09 07:09 CST
+# Last Updated: 2026-07-10 07:12 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 932
-# Status: No Changes
+# Total Rules: 913
+# Status: Updated
 
 host, a1.mzstatic.com
 host, a2.mzstatic.com
@@ -13,12 +13,10 @@ host, a5.mzstatic.com
 host, adcdownload.apple.com
 host, adcdownload.apple.com.akadns.net
 host, amp-api-edge.apps.apple.com
-host, amp-api-edge.music.apple.com
 host, amp-api-search-edge.apps.apple.com
 host, amp-api-updates.apps.apple.com
 host, amp-api.apps.apple.com
 host, amp-api.media.apple.com
-host, amp-api.music.apple.com
 host, api-edge.apps.apple.com
 host, app-site-association.cdn-apple.com
 host, appldnld.apple.com
@@ -26,7 +24,6 @@ host, appldnld.g.aaplimg.com
 host, apple.com.akadns.net
 host, appleid.cdn-apple.com
 host, apps.mzstatic.com
-host, auth.music.apple.com
 host, cdn-cn.apple-mapkit.com
 host, cdn-cn1.apple-mapkit.com
 host, cdn-cn2.apple-mapkit.com
@@ -119,7 +116,6 @@ host, is4-ssl.mzstatic.com
 host, is4.mzstatic.com
 host, is5-ssl.mzstatic.com
 host, is5.mzstatic.com
-host, js-cdn.music.apple.com
 host, km.support.apple.com
 host, maps.apple.com
 host, mensura.cdn-apple.com
@@ -127,13 +123,10 @@ host, mesu-cdn.apple.com.akadns.net
 host, mesu-china.apple.com.akadns.net
 host, mesu.apple.com
 host, ml.cdn-apple.com
-host, music.apple.com
-host, musicstatus.music.apple.com
 host, oscdn.apple.com
 host, oscdn.origin-apple.com.akadns.net
 host, pancake.apple.com
 host, pba0.apple.com
-host, play.music.apple.com
 host, probe.siri.apple.com
 host, prod-support.apple-support.akadns.net
 host, publicassets.cdn-apple.com
@@ -151,7 +144,6 @@ host, sequoia.apple.com
 host, sh-pod2-smp-device.apple.com
 host, shazam-insights.cdn-apple.com
 host, smp-device-content.apple.com
-host, speedysub.music.apple.com
 host, static.gc.apple.com
 host, stocks-sparkline-lb.apple.com.akadns.net
 host, stocks-sparkline.apple.com
@@ -414,14 +406,6 @@ host-suffix, applelink.com
 host-suffix, applemagickeyboard.com
 host-suffix, applemalaysia.com.my
 host-suffix, applemasters.info
-host-suffix, applemusic.berlin
-host-suffix, applemusic.co
-host-suffix, applemusic.com
-host-suffix, applemusic.com.au
-host-suffix, applemusic.hamburg
-host-suffix, applemusic.wang
-host-suffix, applemusicconnect.com
-host-suffix, applemusicfestival.com
 host-suffix, applemx-icloud.com
 host-suffix, applenews.berlin
 host-suffix, applenews.hamburg
@@ -465,7 +449,6 @@ host-suffix, applepaysupplies.info
 host-suffix, applepaysupplies.net
 host-suffix, applepaysupplies.tv
 host-suffix, applepencil.net
-host-suffix, applepodcasts.com
 host-suffix, applepremiumreseller.com.au
 host-suffix, applepremiumresellers.com.au
 host-suffix, applereach.com
@@ -876,7 +859,6 @@ host-suffix, macreach.net
 host-suffix, me.com
 host-suffix, mobileme.dk
 host-suffix, mr-apple.com.tw
-host-suffix, musickit.net
 host-suffix, myappleid.com
 host-suffix, myicloud.net
 host-suffix, myipod.net
@@ -922,7 +904,6 @@ host-suffix, wwapple.net
 host-suffix, www-sms-apple.com
 host-suffix, wwwapple.com
 host-suffix, wwwapple.net
-host-suffix, wwwapplemusic.com
 host-suffix, wwwicloud.com
 host-suffix, wwwipodlounge.com
 host-suffix, wwwlapple.com
