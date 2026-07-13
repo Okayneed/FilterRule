@@ -1,9 +1,9 @@
 # Google Rules (Auto-Generated)
 # Maintained by: scripts/generate_proxy_apps.py
-# Last Updated: 2026-07-13 06:50 CST
+# Last Updated: 2026-07-14 06:56 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 642
-# Status: No Changes
+# Total Rules: 641
+# Status: Updated
 
 DOMAIN,2mdn-cn.net
 DOMAIN,2mdn.net
@@ -230,7 +230,6 @@ DOMAIN-SUFFIX,gmodules.com
 DOMAIN-SUFFIX,gogle.com
 DOMAIN-SUFFIX,gogole.com
 DOMAIN-SUFFIX,gonglchuangl.net
-DOMAIN-SUFFIX,goo
 DOMAIN-SUFFIX,goo.gl
 DOMAIN-SUFFIX,goog
 DOMAIN-SUFFIX,googel.com
