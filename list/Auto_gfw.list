@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-07-18 06:51 CST
+# Last Updated: 2026-07-19 06:51 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4021
-# Status: No Changes
+# Total Rules: 4022
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -19,6 +19,7 @@ host-suffix, 1688.com.au
 host-suffix, 173ng.com
 host-suffix, 18board.com
 host-suffix, 18comic.org
+host-suffix, 18comic.vip
 host-suffix, 18mh.net
 host-suffix, 1984bbs.com
 host-suffix, 1991way.com

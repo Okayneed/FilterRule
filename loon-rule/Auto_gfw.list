@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-07-18 06:51 CST
+# Last Updated: 2026-07-19 06:51 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4021
-# Status: No Changes
+# Total Rules: 4022
+# Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
 DOMAIN-SUFFIX,1-apple.com.tw
@@ -19,6 +19,7 @@ DOMAIN-SUFFIX,1688.com.au
 DOMAIN-SUFFIX,173ng.com
 DOMAIN-SUFFIX,18board.com
 DOMAIN-SUFFIX,18comic.org
+DOMAIN-SUFFIX,18comic.vip
 DOMAIN-SUFFIX,18mh.net
 DOMAIN-SUFFIX,1984bbs.com
 DOMAIN-SUFFIX,1991way.com
