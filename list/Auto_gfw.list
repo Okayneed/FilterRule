@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-07-20 06:53 CST
+# Last Updated: 2026-07-21 07:01 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4022
-# Status: No Changes
+# Total Rules: 4024
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -678,6 +678,7 @@ host-suffix, civilmedia.tw
 host-suffix, civitai.com
 host-suffix, cixiaoya.club
 host-suffix, ck101.com
+host-suffix, clashyun.com
 host-suffix, classicalguitarblog.net
 host-suffix, claude.ai
 host-suffix, claude.com
@@ -3186,6 +3187,7 @@ host-suffix, synapse.org
 host-suffix, syncback.com
 host-suffix, synergyse.com
 host-suffix, syosetu.com
+host-suffix, sysub.com
 host-suffix, t-g.com
 host-suffix, t.co
 host-suffix, t.me

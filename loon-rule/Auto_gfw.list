@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-07-20 06:53 CST
+# Last Updated: 2026-07-21 07:01 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4022
-# Status: No Changes
+# Total Rules: 4024
+# Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
 DOMAIN-SUFFIX,1-apple.com.tw
@@ -678,6 +678,7 @@ DOMAIN-SUFFIX,civilmedia.tw
 DOMAIN-SUFFIX,civitai.com
 DOMAIN-SUFFIX,cixiaoya.club
 DOMAIN-SUFFIX,ck101.com
+DOMAIN-SUFFIX,clashyun.com
 DOMAIN-SUFFIX,classicalguitarblog.net
 DOMAIN-SUFFIX,claude.ai
 DOMAIN-SUFFIX,claude.com
@@ -3186,6 +3187,7 @@ DOMAIN-SUFFIX,synapse.org
 DOMAIN-SUFFIX,syncback.com
 DOMAIN-SUFFIX,synergyse.com
 DOMAIN-SUFFIX,syosetu.com
+DOMAIN-SUFFIX,sysub.com
 DOMAIN-SUFFIX,t-g.com
 DOMAIN-SUFFIX,t.co
 DOMAIN-SUFFIX,t.me
