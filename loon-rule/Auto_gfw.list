@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-07-21 07:01 CST
+# Last Updated: 2026-07-22 06:58 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4024
+# Total Rules: 4025
 # Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
@@ -3985,6 +3985,7 @@ DOMAIN-SUFFIX,zdnet.com.tw
 DOMAIN-SUFFIX,zello.com
 DOMAIN-SUFFIX,zenmate.com
 DOMAIN-SUFFIX,zenmate.com.ru
+DOMAIN-SUFFIX,zenmux.ai
 DOMAIN-SUFFIX,zerohedge.com
 DOMAIN-SUFFIX,zeronet.io
 DOMAIN-SUFFIX,zh-hans.cfsh99.com

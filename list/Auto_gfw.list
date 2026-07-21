@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-07-21 07:01 CST
+# Last Updated: 2026-07-22 06:58 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4024
+# Total Rules: 4025
 # Status: Updated
 
 host-suffix, 000webhost.com
@@ -3985,6 +3985,7 @@ host-suffix, zdnet.com.tw
 host-suffix, zello.com
 host-suffix, zenmate.com
 host-suffix, zenmate.com.ru
+host-suffix, zenmux.ai
 host-suffix, zerohedge.com
 host-suffix, zeronet.io
 host-suffix, zh-hans.cfsh99.com
