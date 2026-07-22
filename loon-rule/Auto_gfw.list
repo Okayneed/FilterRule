@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-07-22 06:58 CST
+# Last Updated: 2026-07-23 07:04 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4025
+# Total Rules: 4026
 # Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
@@ -3385,6 +3385,7 @@ DOMAIN-SUFFIX,to-porno.com
 DOMAIN-SUFFIX,togetter.com
 DOMAIN-SUFFIX,token.im
 DOMAIN-SUFFIX,tokenlon.im
+DOMAIN-SUFFIX,tokenplus.app
 DOMAIN-SUFFIX,tokyo-porn-tube.com
 DOMAIN-SUFFIX,tokyocn.com
 DOMAIN-SUFFIX,tomp3.cc

@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-07-22 06:58 CST
+# Last Updated: 2026-07-23 07:04 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4025
+# Total Rules: 4026
 # Status: Updated
 
 host-suffix, 000webhost.com
@@ -3385,6 +3385,7 @@ host-suffix, to-porno.com
 host-suffix, togetter.com
 host-suffix, token.im
 host-suffix, tokenlon.im
+host-suffix, tokenplus.app
 host-suffix, tokyo-porn-tube.com
 host-suffix, tokyocn.com
 host-suffix, tomp3.cc
