@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-07-24 06:57 CST
+# Last Updated: 2026-07-25 07:02 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4026
-# Status: No Changes
+# Total Rules: 4028
+# Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
 DOMAIN-SUFFIX,1-apple.com.tw
@@ -667,6 +667,7 @@ DOMAIN-SUFFIX,ci-en.jp
 DOMAIN-SUFFIX,cia.gov
 DOMAIN-SUFFIX,cici.com
 DOMAIN-SUFFIX,ciciai.com
+DOMAIN-SUFFIX,circle19.org
 DOMAIN-SUFFIX,cirosantilli.com
 DOMAIN-SUFFIX,citizencn.com
 DOMAIN-SUFFIX,citizenlab.ca
@@ -1988,6 +1989,7 @@ DOMAIN-SUFFIX,kanshifang.com
 DOMAIN-SUFFIX,kantie.org
 DOMAIN-SUFFIX,kaotic.com
 DOMAIN-SUFFIX,karayou.com
+DOMAIN-SUFFIX,kards.com
 DOMAIN-SUFFIX,kathmandupost.com
 DOMAIN-SUFFIX,kawaiikawaii.jp
 DOMAIN-SUFFIX,kawase.com
