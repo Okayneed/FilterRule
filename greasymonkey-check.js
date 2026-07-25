@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         代理分流规则检测器
 // @namespace    https://github.com/Okayneed/FilterRule
-// @version      1.1.0
+// @version      1.2.0
 // @description  自动检测当前域名是否命中 GitHub 托管的代理分流规则，支持 QX / LOON 格式
 // @author       Okayneed
 // @match        *://*/*
@@ -92,6 +92,19 @@
     // --- 调试 ---
     debug: false,
   };
+
+  // ======================== 代理图标 (SVG) ========================
+  // 黑线风格代理图标：圆圈 + 双向箭头，表示流量转发
+  const ICON_PROXY = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="M2 12h20"/>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    <polyline points="8 5 6 7 8 9"/>
+    <polyline points="16 19 18 17 16 15"/>
+    <polyline points="16 5 18 7 16 9"/>
+    <polyline points="8 19 6 17 8 15"/>
+  </svg>`;
 
   // ======================== 内部状态 ========================
   const STATE = {
@@ -466,16 +479,16 @@
     // 命中 / 未命中 状态颜色
     const matched = STATE.matched;
     const allFetched = STATE.allFetched;
-    let bgColor, emoji;
+    let bgColor, dotColor;
     if (!allFetched) {
-      bgColor = "#f9e2af";
-      emoji = "⏳";
+      bgColor = "#45475a";
+      dotColor = "#f9e2af";
     } else if (matched) {
-      bgColor = "#a6e3a1";
-      emoji = "✅";
+      bgColor = "#45475a";
+      dotColor = "#a6e3a1";
     } else {
-      bgColor = "#f38ba8";
-      emoji = "❌";
+      bgColor = "#45475a";
+      dotColor = "#f38ba8";
     }
 
     const icon = document.createElement("div");
@@ -492,14 +505,29 @@
     icon.style.cssText = `
       position: fixed; z-index: 2147483645;
       top: ${y}px; right: ${x}px;
-      width: 36px; height: 36px; border-radius: 50%;
-      background: ${bgColor}; color: #1e1e2e;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: ${bgColor}; color: #cdd6f4;
       display: flex; align-items: center; justify-content: center;
-      font-size: 16px; cursor: pointer;
-      box-shadow: 0 2px 12px rgba(0,0,0,.3);
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(0,0,0,.35);
       transition: transform .15s, box-shadow .15s;
       user-select: none;
     `;
+
+    // 代理 SVG 图标
+    const svgWrap = document.createElement("span");
+    svgWrap.style.cssText = "width: 20px; height: 20px; display: flex;";
+    svgWrap.innerHTML = ICON_PROXY;
+    icon.appendChild(svgWrap);
+
+    // 状态小圆点（右下角）
+    const dot = document.createElement("span");
+    dot.style.cssText = `
+      position: absolute; bottom: 2px; right: 2px;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: ${dotColor}; border: 2px solid ${bgColor};
+    `;
+    icon.appendChild(dot);
 
     // 点击展开面板
     icon.addEventListener("click", function (e) {
@@ -646,7 +674,10 @@
         padding: 10px 12px; background: #181825; border-bottom: 1px solid #313244;
         display: flex; justify-content: space-between; align-items: center; gap: 8px;
       ">
-        <span style="font-weight: 700; font-size: 12px; color: #cba6f7;">分流规则检测</span>
+        <span style="display: flex; align-items: center; gap: 6px;">
+          <span style="width: 18px; height: 18px; display: flex; color: #cba6f7;">${ICON_PROXY}</span>
+          <span style="font-weight: 700; font-size: 12px; color: #cba6f7;">分流规则检测</span>
+        </span>
         <div style="display: flex; gap: 4px;">
           <button id="rc-refresh" title="刷新规则" style="
             background: none; border: 1px solid #45475a; color: #a6adc8; cursor: pointer;
