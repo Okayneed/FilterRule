@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         代理分流规则检测器
 // @namespace    https://github.com/Okayneed/FilterRule
-// @version      1.0.0
+// @version      1.1.0
 // @description  自动检测当前域名是否命中 GitHub 托管的代理分流规则，支持 QX / LOON 格式
 // @author       Okayneed
 // @match        *://*/*
@@ -22,39 +22,40 @@
 
     // --- 规则源 ---
     // 每个源包含:
-    //   name      : 显示名称（任意字符串）
-    //   type      : "loon" | "qx"（源格式）
+    //   name      : 显示名称
+    //   type      : "loon" | "qx"
     //   rawUrl    : GitHub raw 文件地址
-    //   enabled   : 是否启用拉取
+    //   enabled   : 是否启用
+    // 注意: 为降低负载，默认仅启用 QX 规则集（LOON 规则集与 QX 保持一致，不重复对比）
     ruleSources: [
-      {
-        name: "GFW-Auto-LOON",
-        type: "loon",
-        rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/loon-rule/Auto_gfw.list",
-        enabled: true,
-      },
       {
         name: "GFW-Auto-QX",
         type: "qx",
         rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Auto_gfw.list",
+        enabled: true,
+      },
+      {
+        name: "GFW-Auto-LOON",
+        type: "loon",
+        rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/loon-rule/Auto_gfw.list",
         enabled: false,
       },
       {
-        name: "goProxy-Manual-LOON",
-        type: "loon",
-        rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/loon-rule/Manual_goProxy.list",
+        name: "goProxy-Manual-QX",
+        type: "qx",
+        rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Manual_goProxy.list",
         enabled: true,
       },
       {
-        name: "goJP-Manual-LOON",
-        type: "loon",
-        rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/loon-rule/Manual_goJP.list",
+        name: "goJP-Manual-QX",
+        type: "qx",
+        rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Manual_goJP.list",
         enabled: true,
       },
       {
-        name: "goUS-Manual-LOON",
-        type: "loon",
-        rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/loon-rule/Manual_goUS.list",
+        name: "goUS-Manual-QX",
+        type: "qx",
+        rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Manual_goUS.list",
         enabled: true,
       },
       // 在此添加更多规则源...
@@ -72,23 +73,20 @@
     // --- 默认策略名 ---
     defaultPolicy: "Proxy",
 
+    // --- 弹窗时序 ---
+    // 页面加载完成后延迟多久弹出面板（毫秒）
+    panelShowDelay: 2000,
+    // 面板显示多久后自动收起为小图标（毫秒），设为 0 则不自动收起
+    panelAutoHideDelay: 5000,
+
     // --- GitHub 写入功能 ---
     githubWrite: {
-      enabled: false,       // 总开关，默认关闭
-      owner: "Okayneed",    // 仓库所有者
-      repo: "FilterRule",   // 仓库名
-      branch: "main",       // 分支
-      // 写入的文件路径（相对于仓库根目录）
-      filePath: "loon-rule/Manual_ManualSetting.list",
-      // GitHub Personal Access Token（需 repo 权限）
-      // ⚠️ 请勿公开分享含 token 的脚本
+      enabled: false,
+      owner: "Okayneed",
+      repo: "FilterRule",
+      branch: "main",
+      filePath: "list/Manual_ManualSetting.list",
       token: "",            // <--- 填入你的 GitHub token
-    },
-
-    // --- 浮窗样式 ---
-    panel: {
-      position: "top-right",  // 固定右上角
-      width: "360px",
     },
 
     // --- 调试 ---
@@ -97,11 +95,14 @@
 
   // ======================== 内部状态 ========================
   const STATE = {
-    rules: [],           // [{type, value, source, rawLine}]
-    matched: null,       // 命中结果
+    rules: [],
+    matched: null,
     currentDomain: "",
     loading: false,
     allFetched: false,
+    panelVisible: false,
+    iconPos: { x: 0, y: 0 },   // 小图标位置（相对视口右侧/顶部）
+    hideTimer: null,
   };
 
   // ======================== 工具函数 ========================
@@ -114,7 +115,6 @@
     console.warn("[RuleChecker]", ...args);
   }
 
-  /** 获取当前页面的纯净域名（去除 www 前缀） */
   function getCleanDomain() {
     let host = window.location.hostname;
     if (host.startsWith("www.")) host = host.slice(4);
@@ -122,27 +122,6 @@
   }
 
   // ======================== 规则解析 ========================
-
-  /**
-   * 将 QX / LOON 格式统一映射为内部结构
-   * 内部结构: { type: "DOMAIN"|"DOMAIN-SUFFIX"|"DOMAIN-KEYWORD"|"IP-CIDR"|"GEOIP", value: string }
-   *
-   * QX 格式映射:
-   *   host, domain       → DOMAIN
-   *   host-suffix, domain → DOMAIN-SUFFIX
-   *   host-keyword, kw   → DOMAIN-KEYWORD
-   *   host-wildcard, .example.com → DOMAIN-SUFFIX
-   *
-   * LOON 格式映射:
-   *   DOMAIN,domain          → DOMAIN
-   *   DOMAIN-SUFFIX,domain   → DOMAIN-SUFFIX
-   *   DOMAIN-KEYWORD,kw      → DOMAIN-KEYWORD
-   *   HOST,domain            → DOMAIN
-   *   HOST-SUFFIX,domain     → DOMAIN-SUFFIX
-   *   HOST-KEYWORD,kw        → DOMAIN-KEYWORD
-   *   IP-CIDR,ip/mask        → IP-CIDR (预留)
-   *   GEOIP,code             → GEOIP (预留)
-   */
 
   const QX_MAP = {
     "host": "DOMAIN",
@@ -165,40 +144,30 @@
 
   function parseLine(line, sourceType) {
     const trimmed = line.trim();
-    // 跳过空行和注释
     if (!trimmed || trimmed.startsWith("#") || trimmed.startsWith("!") || trimmed.startsWith("//")) {
       return null;
     }
 
     const map = sourceType === "qx" ? QX_MAP : LOON_MAP;
-    // 支持 "," 或 ", " 分隔
     const idx = trimmed.indexOf(",");
     if (idx === -1) return null;
 
     const rawKey = trimmed.slice(0, idx).trim().toUpperCase();
-    // 对于 QX 格式保持小写匹配
     const key = sourceType === "qx" ? rawKey.toLowerCase() : rawKey;
     const value = trimmed.slice(idx + 1).trim();
 
     if (!value) return null;
 
-    // 映射 key
     const lookupKey = sourceType === "qx" ? key : rawKey;
     const mappedType = map[lookupKey];
-
     if (!mappedType) return null;
 
-    // QX host-wildcard 特殊处理: .example.com → 同上
     let finalValue = value;
     if (lookupKey === "host-wildcard" && finalValue.startsWith(".")) {
       finalValue = finalValue.slice(1);
     }
 
-    // IP / GEO 类型预留解析但不强制参与域名匹配
-    return {
-      type: mappedType,
-      value: finalValue,
-    };
+    return { type: mappedType, value: finalValue };
   }
 
   function parseRules(text, sourceType) {
@@ -213,12 +182,6 @@
 
   // ======================== 规则匹配 ========================
 
-  /**
-   * 匹配逻辑：
-   *   DOMAIN          → 精确匹配（忽略大小写）
-   *   DOMAIN-SUFFIX   → 后缀匹配：domain === ruleValue 或 domain.endsWith("." + ruleValue)
-   *   DOMAIN-KEYWORD  → 关键词包含
-   */
   function matchRule(domain, rule) {
     const d = domain.toLowerCase();
     const v = rule.value.toLowerCase();
@@ -276,7 +239,6 @@
       try {
         const text = await fetchRuleSource(source);
         const parsed = parseRules(text, source.type);
-        // 标记来源
         parsed.forEach((r) => {
           r.source = source.name;
           r.rawLine = `${r.type},${r.value}`;
@@ -284,7 +246,6 @@
         STATE.rules.push(...parsed);
         log(`[${source.name}] 解析到 ${parsed.length} 条规则`);
       } catch (err) {
-        // 拉取失败不中断
         warn(`[${source.name}] 拉取失败，跳过: ${err.message}`);
       }
     });
@@ -307,7 +268,7 @@
     for (const rule of STATE.rules) {
       if (matchRule(domain, rule)) {
         STATE.matched = rule;
-        break; // 取第一个命中
+        break;
       }
     }
   }
@@ -320,13 +281,11 @@
 
     const mode = CONFIG.outputMode;
     const ruleType = CONFIG.defaultRuleType;
-    const policy = CONFIG.defaultPolicy;
 
     let line;
     if (mode === "loon") {
       line = `${ruleType},${domain}`;
     } else {
-      // QX 格式
       const qxType = ruleType
         .replace("DOMAIN", "host")
         .replace("-SUFFIX", "-suffix")
@@ -334,10 +293,7 @@
       line = `${qxType}, ${domain}`;
     }
 
-    return {
-      line: line,
-      policy: policy,
-    };
+    return { line, policy: CONFIG.defaultPolicy };
   }
 
   // ======================== 复制到剪贴板 ========================
@@ -345,26 +301,17 @@
   function copySuggestedRule() {
     const suggested = generateSuggestedRule();
     if (!suggested) return;
-
-    const text = suggested.line;
-    GM_setClipboard(text, "text");
-    showToast("已复制: " + text);
-    log("复制建议规则:", text);
+    GM_setClipboard(suggested.line, "text");
+    showToast("已复制: " + suggested.line);
+    log("复制建议规则:", suggested.line);
   }
 
   // ======================== GitHub 写入（预留） ========================
 
-  /**
-   * GitHub 写入功能 - 预留函数
-   * 流程: 读取文件 → 获取 sha → 追加规则 → commit
-   * 通过 CONFIG.githubWrite.enabled 控制开关
-   */
   const GitHubWriter = {
-    /** 获取文件当前内容和 SHA */
     async getFileSha() {
       const gw = CONFIG.githubWrite;
       const url = `https://api.github.com/repos/${gw.owner}/${gw.repo}/contents/${gw.filePath}?ref=${gw.branch}`;
-
       return new Promise((resolve, reject) => {
         GM_xmlhttpRequest({
           method: "GET",
@@ -378,7 +325,7 @@
               const data = JSON.parse(resp.responseText);
               resolve({
                 sha: data.sha,
-                content: atob(data.content.replace(/\n/g, "")), // Base64 解码
+                content: atob(data.content.replace(/\n/g, "")),
               });
             } else {
               reject(new Error(`获取文件失败: HTTP ${resp.status}`));
@@ -389,7 +336,6 @@
       });
     },
 
-    /** 追加规则并提交 */
     async appendRule(ruleLine) {
       const gw = CONFIG.githubWrite;
       if (!gw.enabled || !gw.token) {
@@ -398,22 +344,15 @@
       }
 
       try {
-        // 1. 读取文件
         const { sha, content } = await this.getFileSha();
-
-        // 2. 避免重复添加
         if (content.includes(ruleLine)) {
           showToast("规则已存在，跳过添加", "warn");
-          log("规则已存在:", ruleLine);
           return;
         }
 
-        // 3. 追加规则
         const newContent = content.trimEnd() + "\n" + ruleLine + "\n";
         const encoded = btoa(unescape(encodeURIComponent(newContent)));
-
         const url = `https://api.github.com/repos/${gw.owner}/${gw.repo}/contents/${gw.filePath}`;
-        const commitMsg = `[auto] add rule: ${ruleLine}`;
 
         await new Promise((resolve, reject) => {
           GM_xmlhttpRequest({
@@ -425,7 +364,7 @@
               "Content-Type": "application/json",
             },
             data: JSON.stringify({
-              message: commitMsg,
+              message: `[auto] add rule: ${ruleLine}`,
               content: encoded,
               sha: sha,
               branch: gw.branch,
@@ -444,7 +383,6 @@
         showToast("规则已提交到 GitHub: " + ruleLine);
         log("GitHub 写入成功:", ruleLine);
 
-        // 刷新本地规则缓存（新规则直接加入）
         STATE.rules.push({
           type: CONFIG.defaultRuleType,
           value: STATE.currentDomain,
@@ -463,7 +401,6 @@
   // ======================== Toast 提示 ========================
 
   function showToast(msg, type) {
-    // 移除旧 toast
     const old = document.getElementById("rc-toast");
     if (old) old.remove();
 
@@ -485,10 +422,189 @@
     }, 2500);
   }
 
-  // ======================== 浮窗 UI ========================
+  // ======================== 浮窗 UI（收起 / 展开） ========================
+
+  /**
+   * 收起面板 → 显示可拖动小图标
+   */
+  function collapseToIcon() {
+    const panel = document.getElementById("rule-checker-panel");
+    if (panel) panel.remove();
+
+    STATE.panelVisible = false;
+    clearTimeout(STATE.hideTimer);
+    createFloatingIcon();
+  }
+
+  /**
+   * 点击小图标 → 展开面板
+   */
+  function expandPanel() {
+    const icon = document.getElementById("rc-floating-icon");
+    if (icon) {
+      // 保存 icon 位置，面板展开在附近
+      const rect = icon.getBoundingClientRect();
+      STATE.iconPos = { x: window.innerWidth - rect.right, y: rect.top };
+      icon.remove();
+    }
+
+    createPanel();
+    STATE.panelVisible = true;
+
+    // 重新启动自动收起计时
+    if (CONFIG.panelAutoHideDelay > 0) {
+      STATE.hideTimer = setTimeout(collapseToIcon, CONFIG.panelAutoHideDelay);
+    }
+  }
+
+  // ======================== 可拖动小图标 ========================
+
+  function createFloatingIcon() {
+    const old = document.getElementById("rc-floating-icon");
+    if (old) old.remove();
+
+    // 命中 / 未命中 状态颜色
+    const matched = STATE.matched;
+    const allFetched = STATE.allFetched;
+    let bgColor, emoji;
+    if (!allFetched) {
+      bgColor = "#f9e2af";
+      emoji = "⏳";
+    } else if (matched) {
+      bgColor = "#a6e3a1";
+      emoji = "✅";
+    } else {
+      bgColor = "#f38ba8";
+      emoji = "❌";
+    }
+
+    const icon = document.createElement("div");
+    icon.id = "rc-floating-icon";
+    icon.title = [
+      STATE.currentDomain || "(无域名)",
+      allFetched ? (matched ? "已命中 · 点击查看详情" : "未命中 · 点击查看详情") : "加载中...",
+    ].join("\n");
+
+    // 默认位置：右上角偏中
+    const x = STATE.iconPos.x || 8;
+    const y = STATE.iconPos.y || 120;
+
+    icon.style.cssText = `
+      position: fixed; z-index: 2147483645;
+      top: ${y}px; right: ${x}px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: ${bgColor}; color: #1e1e2e;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; cursor: pointer;
+      box-shadow: 0 2px 12px rgba(0,0,0,.3);
+      transition: transform .15s, box-shadow .15s;
+      user-select: none;
+    `;
+
+    // 点击展开面板
+    icon.addEventListener("click", function (e) {
+      // 区分拖拽和点击：移动距离 < 3px 视为点击
+      if (icon._dragged) return;
+      expandPanel();
+    });
+
+    // --- 拖动逻辑 ---
+    let dragging = false;
+    let startX, startY, startRight, startTop;
+
+    icon.addEventListener("mousedown", function (e) {
+      dragging = true;
+      icon._dragged = false;
+      startX = e.clientX;
+      startY = e.clientY;
+      startRight = parseInt(icon.style.right) || 8;
+      startTop = parseInt(icon.style.top) || 120;
+      icon.style.transition = "none";
+      e.preventDefault();
+    });
+
+    document.addEventListener("mousemove", function (e) {
+      if (!dragging) return;
+      const dx = startX - e.clientX;
+      const dy = e.clientY - startY;
+      const newRight = startRight + dx;
+      const newTop = startTop + dy;
+
+      if (Math.abs(dx) > 2 || Math.abs(dy) > 2) {
+        icon._dragged = true;
+      }
+
+      // 限制在视口内
+      const clampedTop = Math.max(4, Math.min(window.innerHeight - 44, newTop));
+      const clampedRight = Math.max(4, Math.min(window.innerWidth - 44, newRight));
+
+      icon.style.right = clampedRight + "px";
+      icon.style.top = clampedTop + "px";
+    });
+
+    document.addEventListener("mouseup", function () {
+      if (dragging) {
+        dragging = false;
+        icon.style.transition = "transform .15s, box-shadow .15s";
+        // 保存位置
+        STATE.iconPos = {
+          x: parseInt(icon.style.right) || 8,
+          y: parseInt(icon.style.top) || 120,
+        };
+      }
+    });
+
+    // 触摸支持
+    icon.addEventListener("touchstart", function (e) {
+      dragging = true;
+      icon._dragged = false;
+      const t = e.touches[0];
+      startX = t.clientX;
+      startY = t.clientY;
+      startRight = parseInt(icon.style.right) || 8;
+      startTop = parseInt(icon.style.top) || 120;
+      icon.style.transition = "none";
+    }, { passive: false });
+
+    document.addEventListener("touchmove", function (e) {
+      if (!dragging) return;
+      const t = e.touches[0];
+      const dx = startX - t.clientX;
+      const dy = t.clientY - startY;
+      if (Math.abs(dx) > 2 || Math.abs(dy) > 2) {
+        icon._dragged = true;
+      }
+      icon.style.right = Math.max(4, Math.min(window.innerWidth - 44, startRight + dx)) + "px";
+      icon.style.top = Math.max(4, Math.min(window.innerHeight - 44, startTop + dy)) + "px";
+    }, { passive: false });
+
+    document.addEventListener("touchend", function () {
+      if (dragging) {
+        dragging = false;
+        icon.style.transition = "transform .15s, box-shadow .15s";
+        STATE.iconPos = {
+          x: parseInt(icon.style.right) || 8,
+          y: parseInt(icon.style.top) || 120,
+        };
+      }
+    });
+
+    // hover 效果
+    icon.addEventListener("mouseenter", function () {
+      icon.style.transform = "scale(1.1)";
+      icon.style.boxShadow = "0 4px 20px rgba(0,0,0,.4)";
+    });
+    icon.addEventListener("mouseleave", function () {
+      icon.style.transform = "scale(1)";
+      icon.style.boxShadow = "0 2px 12px rgba(0,0,0,.3)";
+    });
+
+    document.body.appendChild(icon);
+  }
+
+  // ======================== 展开面板 ========================
 
   function createPanel() {
-    // 移除旧面板
     const old = document.getElementById("rule-checker-panel");
     if (old) old.remove();
 
@@ -496,16 +612,14 @@
     panel.id = "rule-checker-panel";
     panel.style.cssText = `
       position: fixed; top: 16px; right: 16px; z-index: 2147483646;
-      width: ${CONFIG.panel.width}; max-height: calc(100vh - 32px);
-      background: #1e1e2e; color: #cdd6f4; border-radius: 12px;
-      box-shadow: 0 8px 32px rgba(0,0,0,.4); font-family: "SF Mono", Menlo, Consolas, monospace;
-      font-size: 12px; overflow: hidden; display: flex; flex-direction: column;
-      transition: opacity .3s; user-select: none;
+      width: 270px; max-height: calc(100vh - 32px);
+      background: #1e1e2e; color: #cdd6f4; border-radius: 10px;
+      box-shadow: 0 6px 24px rgba(0,0,0,.45); font-family: -apple-system, "SF Pro Text", "Helvetica Neue", sans-serif;
+      font-size: 11px; overflow: hidden; display: flex; flex-direction: column;
+      user-select: none;
     `;
     panel.innerHTML = buildPanelHTML();
     document.body.appendChild(panel);
-
-    // 事件绑定
     bindPanelEvents(panel);
   }
 
@@ -515,91 +629,88 @@
     const suggested = !matched ? generateSuggestedRule() : null;
     const gw = CONFIG.githubWrite;
 
-    let statusClass, statusText, hitColor;
+    let statusText, hitColor;
     if (!STATE.allFetched) {
-      statusClass = "loading";
       statusText = "⏳ 规则加载中...";
       hitColor = "#f9e2af";
     } else if (matched) {
-      statusClass = "hit";
       statusText = "✅ 已命中";
       hitColor = "#a6e3a1";
     } else {
-      statusClass = "miss";
       statusText = "❌ 未命中";
       hitColor = "#f38ba8";
     }
 
     return `
-      <div class="rc-header" style="
-        padding: 12px 14px; background: #181825; border-bottom: 1px solid #313244;
-        display: flex; justify-content: space-between; align-items: center;
+      <div style="
+        padding: 10px 12px; background: #181825; border-bottom: 1px solid #313244;
+        display: flex; justify-content: space-between; align-items: center; gap: 8px;
       ">
-        <span style="font-weight: 700; font-size: 13px; color: #cba6f7;">🔍 分流规则检测</span>
-        <button id="rc-refresh" title="刷新规则" style="
-          background: none; border: 1px solid #45475a; color: #a6adc8; cursor: pointer;
-          border-radius: 6px; padding: 2px 6px; font-size: 11px;
-        ">🔄 刷新</button>
+        <span style="font-weight: 700; font-size: 12px; color: #cba6f7;">分流规则检测</span>
+        <div style="display: flex; gap: 4px;">
+          <button id="rc-refresh" title="刷新规则" style="
+            background: none; border: 1px solid #45475a; color: #a6adc8; cursor: pointer;
+            border-radius: 4px; padding: 1px 5px; font-size: 10px; line-height: 1.5;
+          ">🔄</button>
+          <button id="rc-minimize" title="收起为小图标" style="
+            background: none; border: 1px solid #45475a; color: #a6adc8; cursor: pointer;
+            border-radius: 4px; padding: 1px 5px; font-size: 10px; line-height: 1.5;
+          ">—</button>
+        </div>
       </div>
 
-      <div class="rc-body" style="padding: 12px 14px; overflow-y: auto; flex: 1;">
-        <!-- 当前域名 -->
-        <div style="margin-bottom: 10px;">
+      <div style="padding: 10px 12px; overflow-y: auto; flex: 1;">
+        <div style="margin-bottom: 8px;">
           <span style="color: #6c7086; font-size: 10px;">当前域名</span>
-          <div style="color: #89b4fa; font-weight: 600; font-size: 14px; word-break: break-all;">
+          <div style="color: #89b4fa; font-weight: 600; font-size: 12px; word-break: break-all;">
             ${domain || "-"}
           </div>
         </div>
 
-        <!-- 状态 -->
-        <div style="margin-bottom: 10px;">
+        <div style="margin-bottom: 8px;">
           <span style="color: #6c7086; font-size: 10px;">检测状态</span>
-          <div style="color: ${hitColor}; font-weight: 600; font-size: 13px;">
+          <div style="color: ${hitColor}; font-weight: 600; font-size: 12px;">
             ${statusText}
           </div>
         </div>
 
         ${matched ? `
-        <!-- 命中详情 -->
-        <div class="rc-section" style="margin-bottom: 8px; background: #181825; border-radius: 8px; padding: 10px;">
-          <div style="color: #6c7086; font-size: 10px; margin-bottom: 4px;">命中规则</div>
-          <div style="color: #a6e3a1; word-break: break-all; margin-bottom: 6px;">
+        <div style="margin-bottom: 6px; background: #181825; border-radius: 8px; padding: 8px 10px;">
+          <div style="color: #6c7086; font-size: 10px; margin-bottom: 3px;">命中规则</div>
+          <div style="color: #a6e3a1; word-break: break-all; margin-bottom: 4px; font-size: 11px;">
             ${escapeHTML(matched.rawLine)}
           </div>
-          <div style="display: flex; gap: 12px; font-size: 10px;">
-            <span><span style="color: #6c7086;">来源:</span> ${escapeHTML(matched.source)}</span>
-            <span><span style="color: #6c7086;">类型:</span> ${escapeHTML(matched.type)}</span>
+          <div style="font-size: 10px; color: #9399b2;">
+            <span>${escapeHTML(matched.source)}</span>
+            <span style="margin-left: 8px;">${escapeHTML(matched.type)}</span>
           </div>
-          <div style="font-size: 10px; margin-top: 4px;">
-            <span style="color: #6c7086;">策略:</span> ${escapeHTML(CONFIG.defaultPolicy)}
+          <div style="font-size: 10px; color: #585b70; margin-top: 2px;">
+            策略: ${escapeHTML(CONFIG.defaultPolicy)}
           </div>
         </div>
         ` : (STATE.allFetched ? `
-        <!-- 建议规则 -->
-        <div class="rc-section" style="margin-bottom: 8px; background: #181825; border-radius: 8px; padding: 10px;">
-          <div style="color: #6c7086; font-size: 10px; margin-bottom: 4px;">建议规则（${CONFIG.outputMode.toUpperCase()} 格式）</div>
-          <div class="rc-suggested" style="
-            color: #f9e2af; word-break: break-all; margin-bottom: 8px;
-            background: #11111b; padding: 6px 8px; border-radius: 4px;
+        <div style="margin-bottom: 6px; background: #181825; border-radius: 8px; padding: 8px 10px;">
+          <div style="color: #6c7086; font-size: 10px; margin-bottom: 3px;">建议规则 (${CONFIG.outputMode.toUpperCase()})</div>
+          <div style="
+            color: #f9e2af; word-break: break-all; margin-bottom: 6px;
+            background: #11111b; padding: 5px 7px; border-radius: 4px; font-size: 11px;
           ">${suggested ? escapeHTML(suggested.line) : "-"}</div>
-          <div style="display: flex; gap: 8px;">
+          <div style="display: flex; gap: 6px;">
             <button id="rc-copy" style="
-              background: #45475a; color: #cdd6f4; border: none; border-radius: 6px;
-              padding: 6px 12px; cursor: pointer; font-size: 11px; font-family: inherit;
-            ">📋 复制建议规则</button>
-            <button id="rc-submit" title="提交规则到 GitHub（需在配置中启用并填写 token）" style="
-              background: #313244; color: #6c7086; border: none; border-radius: 6px;
-              padding: 6px 12px; font-size: 11px; font-family: inherit;
+              background: #45475a; color: #cdd6f4; border: none; border-radius: 5px;
+              padding: 5px 10px; cursor: pointer; font-size: 11px; font-family: inherit;
+            ">📋 复制</button>
+            <button id="rc-submit" title="提交到 GitHub（需配置 token）" style="
+              background: #313244; color: #6c7086; border: none; border-radius: 5px;
+              padding: 5px 10px; font-size: 11px; font-family: inherit;
               ${gw.enabled && gw.token ? 'cursor: pointer; color: #cba6f7;' : 'cursor: not-allowed;'}
-            " ${gw.enabled && gw.token ? '' : 'disabled'}>🚀 提交到 GitHub</button>
+            " ${gw.enabled && gw.token ? '' : 'disabled'}>🚀 提交</button>
           </div>
         </div>
         ` : '')}
 
-        <!-- 规则来源统计 -->
-        <div style="font-size: 10px; color: #585b70; margin-top: 4px;">
-          已加载 ${STATE.rules.length} 条规则
-          ${STATE.loading ? ' · 加载中...' : ''}
+        <div style="font-size: 10px; color: #585b70; margin-top: 2px;">
+          ${STATE.rules.length} 条规则${STATE.loading ? ' · 加载中...' : ''}
         </div>
       </div>
     `;
@@ -615,10 +726,11 @@
     const btnRefresh = panel.querySelector("#rc-refresh");
     const btnCopy = panel.querySelector("#rc-copy");
     const btnSubmit = panel.querySelector("#rc-submit");
+    const btnMinimize = panel.querySelector("#rc-minimize");
 
     if (btnRefresh) {
       btnRefresh.addEventListener("click", async () => {
-        btnRefresh.textContent = "⏳ 刷新中...";
+        btnRefresh.textContent = "⏳";
         btnRefresh.disabled = true;
         STATE.allFetched = false;
         await fetchAllRules();
@@ -634,37 +746,47 @@
     if (btnSubmit) {
       btnSubmit.addEventListener("click", () => {
         const suggested = generateSuggestedRule();
-        if (suggested) {
-          GitHubWriter.appendRule(suggested.line);
-        }
+        if (suggested) GitHubWriter.appendRule(suggested.line);
       });
+    }
+
+    if (btnMinimize) {
+      btnMinimize.addEventListener("click", collapseToIcon);
     }
   }
 
   function renderPanel() {
     const panel = document.getElementById("rule-checker-panel");
-    if (panel) {
-      panel.innerHTML = buildPanelHTML();
-      bindPanelEvents(panel);
-    }
+    if (!panel) return;
+    panel.innerHTML = buildPanelHTML();
+    bindPanelEvents(panel);
   }
 
   // ======================== 初始化 ========================
 
   async function init() {
     log("脚本初始化...");
-    createPanel();
     STATE.currentDomain = getCleanDomain();
 
-    // 异步拉取规则，不阻塞页面
-    await fetchAllRules();
+    // 先拉取规则（后台进行）
+    const fetchPromise = fetchAllRules();
+
+    // 等待配置的延迟后再显示面板
+    await new Promise((r) => setTimeout(r, CONFIG.panelShowDelay));
+    await fetchPromise;
+
     checkDomain();
-    renderPanel();
+    createPanel();
+    STATE.panelVisible = true;
+
+    // 自动收起计时
+    if (CONFIG.panelAutoHideDelay > 0) {
+      STATE.hideTimer = setTimeout(collapseToIcon, CONFIG.panelAutoHideDelay);
+    }
 
     log("初始化完成");
   }
 
-  // 启动
   init();
 
 })();
