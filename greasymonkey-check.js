@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         代理分流规则检测器
 // @namespace    https://github.com/Okayneed/FilterRule
-// @version      2.5.1
+// @version      2.5.2
 // @description  检测当前网页主域名是否命中代理分流规则，并显示实际延迟
 // @author       Okayneed
 // @match        *://*/*
@@ -54,6 +54,7 @@
       token: "",
       outputMode: "loon",
       measureLatency: true,
+      forceRefresh: false,
     },
     get(key) {
       const val = GM_getValue("rc_" + key);
@@ -186,9 +187,11 @@
 
     // 并发竞速：同时请求 raw 和 CDN，谁先成功用谁
     // 使用 fetch() 而非 GM_xmlhttpRequest，走浏览器原生网络栈（经过系统代理）
-    // cache: "no-cache" 每次都向服务器验证，避免 GitHub raw 5分钟缓存导致规则不及时
+    // 日常使用默认缓存（GitHub raw max-age=300s）；提交新规则后强制绕过缓存
+    const forceRefresh = SettingsStore.get("forceRefresh");
+    const cacheMode = forceRefresh ? "reload" : "default";
     const fetches = urls.map(url =>
-      fetch(url, { signal: AbortSignal.timeout(15000), cache: "no-cache" })
+      fetch(url, { signal: AbortSignal.timeout(15000), cache: cacheMode })
         .then(r => {
           if (!r.ok) throw new Error(`HTTP ${r.status}`);
           return r.text();
@@ -218,6 +221,11 @@
       } catch (e) { warn(`[${src.name}] 跳过: ${e.message}`); }
     }));
     STATE.allFetched = true; STATE.loading = false;
+
+    // 强制刷新完成后清除标记，后续恢复默认缓存
+    if (SettingsStore.get("forceRefresh")) {
+      SettingsStore.set("forceRefresh", false);
+    }
     log(`加载完成, ${STATE.rules.length} 条`);
   }
 
@@ -297,6 +305,9 @@
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
 
         showToast("已提交: " + ruleLine);
+
+        // 标记下次拉取时强制刷新缓存
+        SettingsStore.set("forceRefresh", true);
 
         // 更新本地状态
         STATE.rules.push({ type: CONFIG.defaultRuleType, value: STATE.domain, source: `${gw.owner}/${gw.repo}`, rawLine: ruleLine });
