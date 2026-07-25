@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         代理分流规则检测器
 // @namespace    https://github.com/Okayneed/FilterRule
-// @version      2.0.0
-// @description  自动检测当前域名及页面内加载的子域名是否命中 GitHub 托管的代理分流规则
+// @version      2.1.0
+// @description  检测当前网页主域名是否命中代理分流规则，并显示实际延迟
 // @author       Okayneed
 // @match        *://*/*
 // @grant        GM_xmlhttpRequest
@@ -18,8 +18,6 @@
   // ======================== 配置区 ========================
 
   const CONFIG = {
-
-    // --- 规则源（仅 QX，LOON 保持一致不重复对比）---
     ruleSources: [
       { name: "GFW-Auto",    type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Auto_gfw.list",     enabled: true },
       { name: "goProxy",     type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Manual_goProxy.list", enabled: true },
@@ -27,22 +25,19 @@
       { name: "goUS",        type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Manual_goUS.list",    enabled: true },
     ],
 
-    // --- 默认输出模式 ---
-    outputMode: "loon",                // "loon" | "qx"
-    defaultRuleType: "DOMAIN-SUFFIX",  // "DOMAIN-SUFFIX" | "DOMAIN" | "DOMAIN-KEYWORD"
+    outputMode: "loon",
+    defaultRuleType: "DOMAIN-SUFFIX",
     defaultPolicy: "Proxy",
 
-    // --- GitHub 写入（默认开启） ---
     githubWrite: {
       enabled: true,
       owner: "Okayneed",
       repo: "FilterRule",
       branch: "main",
       filePath: "list/Manual_ManualSetting.list",
-      token: "",  // <--- 填入你的 GitHub token
+      token: "",
     },
 
-    // --- 调试 ---
     debug: false,
   };
 
@@ -54,25 +49,44 @@
     rules: [],
     loading: false,
     allFetched: false,
-    domains: [],        // [{domain, label, matched: rule|null}]
-    iconPos: { x: 8, y: 120 },
+    domain: "",
+    matched: null,      // 命中的规则，null=未命中/未检测
+    latencyMs: null,    // 延迟（毫秒）
   };
 
   // ======================== 工具函数 ========================
   function log(...args) { if (CONFIG.debug) console.log("[RuleChecker]", ...args); }
   function warn(...args) { console.warn("[RuleChecker]", ...args); }
 
-  function getCleanDomain(host) {
+  function getCleanDomain() {
+    let host = window.location.hostname;
     if (host.startsWith("www.")) host = host.slice(4);
     return host;
   }
 
-  function extractHostname(url) {
+  // ======================== 延迟测量 ========================
+  // 使用 Navigation Timing API 获取页面真实加载延迟（零额外请求）
+  function measureLatency() {
     try {
-      return new URL(url).hostname;
-    } catch (_) {
-      return "";
-    }
+      // 优先用 Navigation Timing Level 2
+      const entries = performance.getEntriesByType("navigation");
+      if (entries && entries.length > 0) {
+        const nav = entries[0];
+        // TTFB = 服务器首字节时间，最能反映代理延迟
+        const ttfb = nav.responseStart - nav.requestStart;
+        if (ttfb > 0 && ttfb < 60000) { STATE.latencyMs = Math.round(ttfb); return; }
+        // 回退：TCP 连接时间
+        const tcp = nav.connectEnd - nav.connectStart;
+        if (tcp > 0 && tcp < 60000) { STATE.latencyMs = Math.round(tcp); return; }
+      }
+      // 回退到 Level 1
+      const t = performance.timing;
+      if (t && t.responseStart > 0 && t.requestStart > 0) {
+        const ttfb = t.responseStart - t.requestStart;
+        if (ttfb > 0 && ttfb < 60000) { STATE.latencyMs = Math.round(ttfb); return; }
+      }
+    } catch (_) {}
+    STATE.latencyMs = null;
   }
 
   // ======================== 规则解析 ========================
@@ -157,58 +171,25 @@
     log(`加载完成, ${STATE.rules.length} 条`);
   }
 
-  // ======================== 域名收集与检测 ========================
-  function collectDomains() {
-    const seen = new Set();
-    const entries = [];
-
-    function add(host, label) {
-      const d = getCleanDomain(host);
-      if (!d || seen.has(d)) return;
-      seen.add(d);
-      entries.push({ domain: d, label: label, matched: findMatch(d) });
-    }
-
-    // 主域名
-    add(window.location.hostname, "主域名");
-
-    // iframe 子域名
-    document.querySelectorAll("iframe").forEach(iframe => {
-      try {
-        const src = iframe.src || iframe.getAttribute("src") || "";
-        if (src) {
-          const h = extractHostname(src);
-          if (h && h !== window.location.hostname) add(h, "iframe");
-        }
-      } catch (_) {}
-    });
-
-    STATE.domains = entries;
-  }
-
-  function hasAnyHit() {
-    return STATE.domains.some(d => d.matched !== null);
-  }
-
-  function isAllDirect() {
-    return STATE.allFetched && STATE.domains.length > 0 && STATE.domains.every(d => d.matched === null);
-  }
-
-  function isAllProxy() {
-    return STATE.allFetched && STATE.domains.length > 0 && STATE.domains.every(d => d.matched !== null);
+  // ======================== 域名检测（仅主域名） ========================
+  function checkDomain() {
+    STATE.domain = getCleanDomain();
+    STATE.matched = STATE.domain ? findMatch(STATE.domain) : null;
   }
 
   // ======================== 建议规则 ========================
-  function generateSuggestedRule(domain) {
+  function generateSuggestedRule() {
+    const d = STATE.domain;
+    if (!d) return null;
     const mode = CONFIG.outputMode, rt = CONFIG.defaultRuleType;
-    if (mode === "loon") return { line: `${rt},${domain}`, policy: CONFIG.defaultPolicy };
+    if (mode === "loon") return { line: `${rt},${d}`, policy: CONFIG.defaultPolicy };
     const qxType = rt.replace("DOMAIN","host").replace("-SUFFIX","-suffix").replace("-KEYWORD","-keyword");
-    return { line: `${qxType}, ${domain}`, policy: CONFIG.defaultPolicy };
+    return { line: `${qxType}, ${d}`, policy: CONFIG.defaultPolicy };
   }
 
   // ======================== 复制 ========================
-  function copyRule(domain) {
-    const s = generateSuggestedRule(domain);
+  function copyRule() {
+    const s = generateSuggestedRule();
     if (!s) return;
     GM_setClipboard(s.line, "text");
     showToast("已复制: " + s.line);
@@ -234,7 +215,7 @@
       });
     },
 
-    async appendRule(ruleLine, domain) {
+    async appendRule(ruleLine) {
       const gw = CONFIG.githubWrite;
       if (!gw.token) { showToast("请先在脚本配置中填入 GitHub token", "error"); return; }
 
@@ -258,9 +239,9 @@
 
         showToast("已提交: " + ruleLine);
 
-        // 更新本地
-        STATE.rules.push({ type: CONFIG.defaultRuleType, value: domain, source: `${gw.owner}/${gw.repo}`, rawLine: ruleLine });
-        collectDomains();
+        // 更新本地状态
+        STATE.rules.push({ type: CONFIG.defaultRuleType, value: STATE.domain, source: `${gw.owner}/${gw.repo}`, rawLine: ruleLine });
+        STATE.matched = STATE.rules[STATE.rules.length - 1];
         updateFloatingIcon();
         renderPanelIfOpen();
       } catch (e) {
@@ -270,9 +251,9 @@
     },
   };
 
-  function submitRule(domain) {
-    const s = generateSuggestedRule(domain);
-    if (s) GitHubWriter.appendRule(s.line, domain);
+  function submitRule() {
+    const s = generateSuggestedRule();
+    if (s) GitHubWriter.appendRule(s.line, STATE.domain);
   }
 
   // ======================== Toast ========================
@@ -285,104 +266,110 @@
     setTimeout(() => { t.style.opacity = "0"; setTimeout(() => t.remove(), 300); }, 2500);
   }
 
-  // ======================== 浮动图标 ========================
-  function getIconColor() {
-    if (!STATE.allFetched) return { bg: "#45475a", label: "#f9e2af" };
-    if (hasAnyHit()) return { bg: "#45475a", label: "#a6e3a1" };
-    return { bg: "#45475a", label: "#f38ba8" };
-  }
-
-  function getIconLetter() {
-    if (!STATE.allFetched) return "…";
-    // 主域名是否命中来决定 P/D（取主域名判断）
-    const main = STATE.domains.find(d => d.label === "主域名");
-    if (!main) return "?";
-    return main.matched ? "P" : "D";
+  // ======================== 浮动图标 + 延迟显示 ========================
+  function getIconStyle() {
+    if (!STATE.allFetched) return { color: "#f9e2af", letter: "…" };
+    if (STATE.matched) return { color: "#a6e3a1", letter: "P" };
+    return { color: "#f38ba8", letter: "D" };
   }
 
   function createFloatingIcon() {
     const old = document.getElementById("rc-floating-icon"); if (old) old.remove();
-    const { bg, label } = getIconColor();
-    const letter = getIconLetter();
-    const x = STATE.iconPos.x, y = STATE.iconPos.y;
+    const { color, letter } = getIconStyle();
+    const x = STATE.iconPos?.x || 8, y = STATE.iconPos?.y || 120;
 
-    const icon = document.createElement("div");
-    icon.id = "rc-floating-icon";
-    icon.title = (STATE.domains.map(d =>
-      `${d.label}: ${d.domain} → ${d.matched ? "PROXY" : "DIRECT"}`
-    ).join("\n")) || "加载中…";
+    const wrapper = document.createElement("div");
+    wrapper.id = "rc-floating-icon";
+    wrapper.style.cssText = `position:fixed;z-index:2147483645;top:${y}px;right:${x}px;display:flex;flex-direction:column;align-items:center;gap:2px;user-select:none;`;
 
-    icon.style.cssText = `position:fixed;z-index:2147483645;top:${y}px;right:${x}px;width:40px;height:40px;border-radius:50%;background:${bg};color:${label};display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.35);transition:transform .15s,box-shadow .15s;user-select:none;font-weight:700;font-size:18px;font-family:-apple-system,sans-serif;`;
+    // 圆形按钮
+    const circle = document.createElement("div");
+    circle.className = "rc-circle";
+    circle.style.cssText = `width:40px;height:40px;border-radius:50%;background:#45475a;color:${color};display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.35);transition:transform .15s,box-shadow .15s;font-weight:700;font-size:18px;font-family:-apple-system,sans-serif;`;
+    circle.textContent = letter;
+    circle.title = [
+      STATE.domain || "(无域名)",
+      STATE.allFetched
+        ? (STATE.matched ? `PROXY · ${STATE.matched.rawLine}` : "DIRECT")
+        : "加载中…",
+      STATE.latencyMs != null ? `延迟 ${STATE.latencyMs}ms` : "",
+    ].filter(Boolean).join("\n");
 
-    // 字母 P/D
-    const letterEl = document.createElement("span");
-    letterEl.textContent = letter;
-    letterEl.style.cssText = "position:relative;z-index:1;";
-    icon.appendChild(letterEl);
+    // 延迟文字
+    const latencyLabel = document.createElement("div");
+    latencyLabel.className = "rc-latency";
+    const latText = STATE.latencyMs != null ? `${STATE.latencyMs}ms` : "—";
+    latencyLabel.textContent = latText;
+    latencyLabel.style.cssText = `color:#a6adc8;font-size:9px;font-family:-apple-system,sans-serif;text-align:center;line-height:1;text-shadow:0 1px 4px rgba(0,0,0,.6);`;
 
-    // 点击
-    icon.addEventListener("click", function(e) {
-      if (icon._dragged) return;
+    wrapper.appendChild(circle);
+    wrapper.appendChild(latencyLabel);
+    document.body.appendChild(wrapper);
+
+    // 点击切换面板
+    circle.addEventListener("click", function(e) {
+      if (circle._dragged) return;
       togglePanel();
     });
 
     // 拖动
-    let dragging = false, startX, startY, startRight, startTop;
-    icon.addEventListener("mousedown", function(e) {
-      dragging = true; icon._dragged = false;
-      startX = e.clientX; startY = e.clientY;
-      startRight = parseInt(icon.style.right) || 8; startTop = parseInt(icon.style.top) || 120;
-      icon.style.transition = "none"; e.preventDefault();
-    });
-    document.addEventListener("mousemove", function(e) {
-      if (!dragging) return;
-      const dx = startX - e.clientX, dy = e.clientY - startY;
-      if (Math.abs(dx) > 2 || Math.abs(dy) > 2) icon._dragged = true;
-      icon.style.right = Math.max(4, Math.min(window.innerWidth - 44, startRight + dx)) + "px";
-      icon.style.top = Math.max(4, Math.min(window.innerHeight - 44, startTop + dy)) + "px";
-    });
-    document.addEventListener("mouseup", function() {
-      if (dragging) {
-        dragging = false; icon.style.transition = "transform .15s,box-shadow .15s";
-        STATE.iconPos = { x: parseInt(icon.style.right)||8, y: parseInt(icon.style.top)||120 };
-      }
-    });
-    // 触摸
-    icon.addEventListener("touchstart", function(e) {
-      dragging = true; icon._dragged = false;
-      const t = e.touches[0]; startX = t.clientX; startY = t.clientY;
-      startRight = parseInt(icon.style.right)||8; startTop = parseInt(icon.style.top)||120;
-      icon.style.transition = "none";
-    }, {passive:false});
-    document.addEventListener("touchmove", function(e) {
-      if (!dragging) return;
-      const t = e.touches[0], dx = startX - t.clientX, dy = t.clientY - startY;
-      if (Math.abs(dx)>2||Math.abs(dy)>2) icon._dragged = true;
-      icon.style.right = Math.max(4, Math.min(window.innerWidth-44, startRight+dx)) + "px";
-      icon.style.top = Math.max(4, Math.min(window.innerHeight-44, startTop+dy)) + "px";
-    }, {passive:false});
-    document.addEventListener("touchend", function() {
-      if (dragging) { dragging = false; icon.style.transition = "transform .15s,box-shadow .15s";
-        STATE.iconPos = { x: parseInt(icon.style.right)||8, y: parseInt(icon.style.top)||120 }; }
-    });
-    icon.addEventListener("mouseenter", function() { icon.style.transform="scale(1.1)"; icon.style.boxShadow="0 4px 20px rgba(0,0,0,.4)"; });
-    icon.addEventListener("mouseleave", function() { icon.style.transform="scale(1)"; icon.style.boxShadow="0 2px 12px rgba(0,0,0,.35)"; });
+    bindDrag(circle, wrapper);
+    // hover
+    circle.addEventListener("mouseenter", () => { circle.style.transform="scale(1.1)"; circle.style.boxShadow="0 4px 20px rgba(0,0,0,.4)"; });
+    circle.addEventListener("mouseleave", () => { circle.style.transform="scale(1)"; circle.style.boxShadow="0 2px 12px rgba(0,0,0,.35)"; });
+  }
 
-    document.body.appendChild(icon);
+  function bindDrag(circle, wrapper) {
+    let dragging = false, startX, startY, startRight, startTop;
+    const onDown = (cx, cy) => {
+      dragging = true; circle._dragged = false;
+      startX = cx; startY = cy;
+      startRight = parseInt(wrapper.style.right) || 8;
+      startTop = parseInt(wrapper.style.top) || 120;
+      circle.style.transition = "none";
+    };
+    const onMove = (cx, cy) => {
+      if (!dragging) return;
+      const dx = startX - cx, dy = cy - startY;
+      if (Math.abs(dx) > 2 || Math.abs(dy) > 2) circle._dragged = true;
+      wrapper.style.right = Math.max(4, Math.min(window.innerWidth - 60, startRight + dx)) + "px";
+      wrapper.style.top = Math.max(4, Math.min(window.innerHeight - 60, startTop + dy)) + "px";
+    };
+    const onUp = () => {
+      if (!dragging) return;
+      dragging = false;
+      circle.style.transition = "transform .15s,box-shadow .15s";
+      STATE.iconPos = { x: parseInt(wrapper.style.right)||8, y: parseInt(wrapper.style.top)||120 };
+    };
+
+    circle.addEventListener("mousedown", e => { onDown(e.clientX, e.clientY); e.preventDefault(); });
+    document.addEventListener("mousemove", e => onMove(e.clientX, e.clientY));
+    document.addEventListener("mouseup", onUp);
+    circle.addEventListener("touchstart", e => { const t=e.touches[0]; onDown(t.clientX, t.clientY); }, {passive:false});
+    document.addEventListener("touchmove", e => { const t=e.touches[0]; onMove(t.clientX, t.clientY); }, {passive:false});
+    document.addEventListener("touchend", onUp);
   }
 
   function updateFloatingIcon() {
     const icon = document.getElementById("rc-floating-icon");
     if (!icon) return createFloatingIcon();
-    const { bg, label } = getIconColor();
-    const letter = getIconLetter();
-    icon.style.background = bg;
-    icon.style.color = label;
-    const span = icon.querySelector("span");
-    if (span) span.textContent = letter;
-    icon.title = (STATE.domains.map(d =>
-      `${d.label}: ${d.domain} → ${d.matched ? "PROXY" : "DIRECT"}`
-    ).join("\n")) || "加载中…";
+    const { color, letter } = getIconStyle();
+    const circle = icon.querySelector(".rc-circle");
+    if (circle) {
+      circle.style.color = color;
+      circle.textContent = letter;
+      circle.title = [
+        STATE.domain || "(无域名)",
+        STATE.allFetched
+          ? (STATE.matched ? `PROXY · ${STATE.matched.rawLine}` : "DIRECT")
+          : "加载中…",
+        STATE.latencyMs != null ? `延迟 ${STATE.latencyMs}ms` : "",
+      ].filter(Boolean).join("\n");
+    }
+    const latLabel = icon.querySelector(".rc-latency");
+    if (latLabel) {
+      latLabel.textContent = STATE.latencyMs != null ? `${STATE.latencyMs}ms` : "—";
+    }
   }
 
   // ======================== 面板 ========================
@@ -392,18 +379,11 @@
     createPanel();
   }
 
-  function collapsePanel() {
-    const panel = document.getElementById("rule-checker-panel");
-    if (panel) panel.remove();
-  }
-
   function createPanel() {
     const old = document.getElementById("rule-checker-panel"); if (old) old.remove();
-    const gw = CONFIG.githubWrite;
-
     const panel = document.createElement("div");
     panel.id = "rule-checker-panel";
-    panel.style.cssText = `position:fixed;top:16px;right:16px;z-index:2147483646;width:300px;max-height:calc(100vh-32px);background:#1e1e2e;color:#cdd6f4;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.45);font-family:-apple-system,"SF Pro Text","Helvetica Neue",sans-serif;font-size:11px;overflow:hidden;display:flex;flex-direction:column;user-select:none;`;
+    panel.style.cssText = `position:fixed;top:16px;right:16px;z-index:2147483646;width:280px;max-height:calc(100vh-32px);background:#1e1e2e;color:#cdd6f4;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.45);font-family:-apple-system,"SF Pro Text","Helvetica Neue",sans-serif;font-size:11px;overflow:hidden;display:flex;flex-direction:column;user-select:none;`;
     panel.innerHTML = buildPanelHTML();
     document.body.appendChild(panel);
     bindPanelEvents(panel);
@@ -411,45 +391,65 @@
 
   function buildPanelHTML() {
     const gw = CONFIG.githubWrite;
-    let domainRows = "";
-    STATE.domains.forEach((d, i) => {
-      const hit = d.matched;
-      const color = hit ? "#a6e3a1" : "#f38ba8";
-      const status = hit ? "P" : "D";
-      const suggested = (!hit && STATE.allFetched) ? generateSuggestedRule(d.domain) : null;
-      domainRows += `
-        <div style="margin-bottom:6px;background:#181825;border-radius:8px;padding:8px 10px;border-left:3px solid ${color};">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px;">
-            <span style="font-size:10px;color:#6c7086;">${escapeHTML(d.label)}</span>
-            <span style="font-weight:700;font-size:12px;color:${color};">${status}</span>
-          </div>
-          <div style="color:#89b4fa;font-weight:600;font-size:12px;word-break:break-all;margin-bottom:2px;">${escapeHTML(d.domain)}</div>
-          ${hit ? `
-          <div style="font-size:10px;color:#9399b2;">${escapeHTML(hit.rawLine)} · ${escapeHTML(hit.source)}</div>
-          ` : (STATE.allFetched ? `
-          <div style="font-size:10px;color:#f9e2af;margin-bottom:4px;">建议: ${escapeHTML(suggested.line)}</div>
-          <div style="display:flex;gap:4px;">
-            <button class="rc-copy-btn" data-domain="${escapeHTML(d.domain)}" style="background:#45475a;color:#cdd6f4;border:none;border-radius:4px;padding:3px 8px;cursor:pointer;font-size:10px;font-family:inherit;">📋 复制</button>
-            <button class="rc-submit-btn" data-domain="${escapeHTML(d.domain)}" style="background:${gw.token?'#cba6f7':'#313244'};color:${gw.token?'#1e1e2e':'#6c7086'};border:none;border-radius:4px;padding:3px 8px;cursor:${gw.token?'pointer':'not-allowed'};font-size:10px;font-family:inherit;" ${gw.token?'':'disabled'}>🚀 提交</button>
-          </div>
-          ` : '<div style="font-size:10px;color:#6c7086;">规则加载中…</div>')}
-        </div>`;
-    });
+    const matched = STATE.matched, domain = STATE.domain;
+    const suggested = (!matched && STATE.allFetched) ? generateSuggestedRule() : null;
+
+    let statusColor, statusLetter;
+    if (!STATE.allFetched) { statusColor = "#f9e2af"; statusLetter = "…"; }
+    else if (matched) { statusColor = "#a6e3a1"; statusLetter = "P"; }
+    else { statusColor = "#f38ba8"; statusLetter = "D"; }
+
+    const latStr = STATE.latencyMs != null ? `${STATE.latencyMs}ms` : "—";
 
     return `
-      <div style="padding:10px 12px;background:#181825;border-bottom:1px solid #313244;display:flex;justify-content:space-between;align-items:center;gap:8px;">
+      <div style="padding:10px 12px;background:#181825;border-bottom:1px solid #313244;display:flex;justify-content:space-between;align-items:center;">
         <span style="display:flex;align-items:center;gap:6px;">
-          <img src="${ICON_PROXY}" style="width:18px;height:18px;">
+          <img src="${ICON_PROXY}" style="width:16px;height:16px;">
           <span style="font-weight:700;font-size:12px;color:#cba6f7;">分流规则检测</span>
         </span>
         <div style="display:flex;gap:4px;">
-          <button id="rc-refresh" title="刷新" style="background:none;border:1px solid #45475a;color:#a6adc8;cursor:pointer;border-radius:4px;padding:1px 5px;font-size:10px;">🔄</button>
-          <button id="rc-close" title="关闭" style="background:none;border:1px solid #45475a;color:#a6adc8;cursor:pointer;border-radius:4px;padding:1px 5px;font-size:10px;">✕</button>
+          <button id="rc-refresh" style="background:none;border:1px solid #45475a;color:#a6adc8;cursor:pointer;border-radius:4px;padding:1px 5px;font-size:10px;">🔄</button>
+          <button id="rc-close" style="background:none;border:1px solid #45475a;color:#a6adc8;cursor:pointer;border-radius:4px;padding:1px 5px;font-size:10px;">✕</button>
         </div>
       </div>
+
       <div style="padding:10px 12px;overflow-y:auto;flex:1;">
-        ${domainRows || '<div style="color:#6c7086;font-size:11px;">未检测到域名</div>'}
-        <div style="font-size:10px;color:#585b70;margin-top:4px;">${STATE.rules.length} 条规则${STATE.loading?' · 加载中…':''}</div>
+        <!-- 域名 + 状态 -->
+        <div style="margin-bottom:8px;background:#181825;border-radius:8px;padding:8px 10px;border-left:3px solid ${statusColor};">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px;">
+            <span style="font-size:10px;color:#6c7086;">主域名</span>
+            <span style="font-weight:700;font-size:14px;color:${statusColor};">${statusLetter}</span>
+          </div>
+          <div style="color:#89b4fa;font-weight:600;font-size:12px;word-break:break-all;">${escapeHTML(domain || "-")}</div>
+
+          <!-- 延迟 -->
+          <div style="display:flex;gap:8px;margin-top:4px;font-size:10px;">
+            <span style="color:#6c7086;">延迟</span>
+            <span style="color:#a6adc8;">${latStr}</span>
+            ${STATE.latencyMs != null ? `<span style="color:#585b70;">(TTFB)</span>` : ""}
+          </div>
+        </div>
+
+        ${matched ? `
+        <!-- 命中详情 -->
+        <div style="margin-bottom:6px;background:#181825;border-radius:8px;padding:8px 10px;">
+          <div style="color:#6c7086;font-size:10px;margin-bottom:3px;">命中规则</div>
+          <div style="color:#a6e3a1;word-break:break-all;font-size:11px;">${escapeHTML(matched.rawLine)}</div>
+          <div style="font-size:10px;color:#9399b2;margin-top:2px;">${escapeHTML(matched.source)} · ${escapeHTML(matched.type)}</div>
+        </div>
+        ` : (STATE.allFetched ? `
+        <!-- 未命中 → 建议规则 -->
+        <div style="margin-bottom:6px;background:#181825;border-radius:8px;padding:8px 10px;">
+          <div style="color:#6c7086;font-size:10px;margin-bottom:3px;">建议规则 (${CONFIG.outputMode.toUpperCase()})</div>
+          <div style="color:#f9e2af;word-break:break-all;margin-bottom:6px;background:#11111b;padding:5px 7px;border-radius:4px;font-size:11px;">${suggested ? escapeHTML(suggested.line) : "-"}</div>
+          <div style="display:flex;gap:6px;">
+            <button id="rc-copy" style="background:#45475a;color:#cdd6f4;border:none;border-radius:5px;padding:5px 10px;cursor:pointer;font-size:11px;font-family:inherit;">📋 复制</button>
+            <button id="rc-submit" style="background:${gw.token?'#cba6f7':'#313244'};color:${gw.token?'#1e1e2e':'#6c7086'};border:none;border-radius:5px;padding:5px 10px;font-size:11px;font-family:inherit;cursor:${gw.token?'pointer':'not-allowed'};" ${gw.token?'':'disabled'}>🚀 提交</button>
+          </div>
+        </div>
+        ` : '<div style="color:#6c7086;font-size:11px;">规则加载中…</div>')}
+
+        <div style="font-size:10px;color:#585b70;margin-top:4px;">${STATE.rules.length} 条规则</div>
       </div>`;
   }
 
@@ -462,18 +462,16 @@
       this.textContent = "⏳"; this.disabled = true;
       STATE.allFetched = false;
       await fetchAllRules();
-      collectDomains();
+      checkDomain();
+      measureLatency();
       updateFloatingIcon();
       renderPanelIfOpen();
     });
-    panel.querySelector("#rc-close")?.addEventListener("click", collapsePanel);
-
-    panel.querySelectorAll(".rc-copy-btn").forEach(btn => {
-      btn.addEventListener("click", function() { copyRule(this.dataset.domain); });
+    panel.querySelector("#rc-close")?.addEventListener("click", () => {
+      panel.remove();
     });
-    panel.querySelectorAll(".rc-submit-btn").forEach(btn => {
-      btn.addEventListener("click", function() { submitRule(this.dataset.domain); });
-    });
+    panel.querySelector("#rc-copy")?.addEventListener("click", copyRule);
+    panel.querySelector("#rc-submit")?.addEventListener("click", submitRule);
   }
 
   function renderPanelIfOpen() {
@@ -483,36 +481,17 @@
     bindPanelEvents(panel);
   }
 
-  // ======================== iframe 监听 ========================
-  function watchIframes() {
-    const observer = new MutationObserver(() => {
-      collectDomains();
-      updateFloatingIcon();
-      renderPanelIfOpen();
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
-    // 也监听 iframe 的 src 变化
-    setInterval(() => {
-      const prev = STATE.domains.length;
-      collectDomains();
-      if (STATE.domains.length !== prev) {
-        updateFloatingIcon();
-        renderPanelIfOpen();
-      }
-    }, 3000);
-  }
-
   // ======================== 初始化 ========================
   async function init() {
     log("脚本初始化...");
-    collectDomains();
+    STATE.domain = getCleanDomain();
+    measureLatency();
     createFloatingIcon();
 
     await fetchAllRules();
-    collectDomains();
+    checkDomain();
     updateFloatingIcon();
 
-    watchIframes();
     log("初始化完成");
   }
 
