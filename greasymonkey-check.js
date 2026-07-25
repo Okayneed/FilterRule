@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         代理分流规则检测器
 // @namespace    https://github.com/Okayneed/FilterRule
-// @version      2.1.2
+// @version      2.2.0
 // @description  检测当前网页主域名是否命中代理分流规则，并显示实际延迟
 // @author       Okayneed
 // @match        *://*/*
@@ -15,6 +15,23 @@
 
 (function () {
   'use strict';
+
+  // ======================== Safari · Google 重定向 ========================
+  // 仅对 iPhone Safari 生效，将 google.cn 搜索自动跳转到 google.com
+  (function safariGoogleRedirect() {
+    const ua = navigator.userAgent;
+    const isIPhoneSafari = /iPhone/.test(ua) && /Safari/.test(ua) && !/CriOS|FxiOS|OPiOS|mercury/.test(ua);
+    if (!isIPhoneSafari) return;
+
+    if (window.location.hostname !== "www.google.cn") return;
+    if (!window.location.pathname.startsWith("/search")) return;
+
+    const q = new URL(window.location.href).searchParams.get("q");
+    if (!q) return;
+
+    const target = "https://www.google.com/search?q=" + encodeURIComponent(q);
+    window.location.replace(target);
+  })();
 
   // ======================== 配置区 ========================
 
@@ -400,20 +417,45 @@
   }
 
   // ======================== 面板 ========================
+  let _panelBlurHandler = null;
+
+  function closePanel() {
+    const panel = document.getElementById("rule-checker-panel");
+    if (panel) panel.remove();
+    if (_panelBlurHandler) {
+      document.removeEventListener("mousedown", _panelBlurHandler, true);
+      _panelBlurHandler = null;
+    }
+  }
+
   function togglePanel() {
     const panel = document.getElementById("rule-checker-panel");
-    if (panel) { panel.remove(); return; }
+    if (panel) { closePanel(); return; }
     createPanel();
   }
 
   function createPanel() {
-    const old = document.getElementById("rule-checker-panel"); if (old) old.remove();
+    closePanel(); // 先清理旧面板和旧监听
     const panel = document.createElement("div");
     panel.id = "rule-checker-panel";
     panel.style.cssText = `position:fixed;top:16px;right:16px;z-index:2147483646;width:280px;max-height:calc(100vh-32px);background:#1e1e2e;color:#cdd6f4;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.45);font-family:-apple-system,"SF Pro Text","Helvetica Neue",sans-serif;font-size:11px;overflow:hidden;display:flex;flex-direction:column;user-select:none;`;
     panel.innerHTML = buildPanelHTML();
     document.body.appendChild(panel);
     bindPanelEvents(panel);
+
+    // 点击面板/图标以外区域时自动关闭
+    _panelBlurHandler = function(e) {
+      const icon = document.getElementById("rc-floating-icon");
+      const p = document.getElementById("rule-checker-panel");
+      if (!p) return; // 已关闭
+      if (p.contains(e.target)) return;        // 点在面板内
+      if (icon && icon.contains(e.target)) return; // 点在浮动图标上
+      closePanel();
+    };
+    // 延迟绑定，避免打开面板的那次点击立即触发关闭
+    setTimeout(() => {
+      document.addEventListener("mousedown", _panelBlurHandler, true);
+    }, 0);
   }
 
   function buildPanelHTML() {
@@ -494,9 +536,7 @@
       updateFloatingIcon();
       renderPanelIfOpen();
     });
-    panel.querySelector("#rc-close")?.addEventListener("click", () => {
-      panel.remove();
-    });
+    panel.querySelector("#rc-close")?.addEventListener("click", closePanel);
     panel.querySelector("#rc-copy")?.addEventListener("click", copyRule);
     panel.querySelector("#rc-submit")?.addEventListener("click", submitRule);
   }
