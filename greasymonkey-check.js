@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         代理分流规则检测器
 // @namespace    https://github.com/Okayneed/FilterRule
-// @version      2.4.2
+// @version      2.5.0
 // @description  检测当前网页主域名是否命中代理分流规则，并显示实际延迟
 // @author       Okayneed
 // @match        *://*/*
@@ -48,18 +48,36 @@
     debug: false,
   };
 
-  // ======================== Token 管理（本地安全存储） ========================
-  const TokenStore = {
-    KEY: "github_token_20260725",
-    get() { return GM_getValue(this.KEY, ""); },
-    set(token) { GM_setValue(this.KEY, token); showToast("Token 已保存到本地", "success"); },
-    has() { return !!this.get(); },
+  // ======================== 设置存储（Stay 通过 iCloud 跨设备同步） ========================
+  const SettingsStore = {
+    DEFAULTS: {
+      token: "",
+      outputMode: "loon",
+      measureLatency: true,
+    },
+    get(key) {
+      const val = GM_getValue("rc_" + key);
+      return val !== undefined && val !== null ? val : this.DEFAULTS[key];
+    },
+    set(key, value) { GM_setValue("rc_" + key, value); },
+    getAll() {
+      const all = {};
+      for (const k of Object.keys(this.DEFAULTS)) { all[k] = this.get(k); }
+      return all;
+    },
+    load() {
+      CONFIG.githubWrite.token = this.get("token");
+      CONFIG.outputMode = this.get("outputMode");
+    },
+    save(settings) {
+      for (const [k, v] of Object.entries(settings)) {
+        this.set(k, v);
+        if (k === "token") CONFIG.githubWrite.token = v;
+        if (k === "outputMode") CONFIG.outputMode = v;
+      }
+    },
   };
-
-  // 初始化时从本地存储读取 token
-  if (TokenStore.has()) {
-    CONFIG.githubWrite.token = TokenStore.get();
-  }
+  SettingsStore.load();
 
   // ======================== 图标 ========================
   const ICON_PROXY = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAARQ0lEQVR4nO1dfawdRRU/e+97D2wL5QGC5ctCP4SCIQbDh8hHImBipAp9Cd/IH0ojCqmo0aB/IBqDJiYiARMFNUWUEDUoYksCQtEiRqBi2mJFoaEt2ALtg9JC37v3rpn4+yWHyc5+3Lt77+zt/JLN3bu7Mzs758zMOWfOmREJCAgICAgICAjY6xBVmFdcYt4BnqIhIiP4LXIvoOY9AInaUddGReRdOH9LRKYzng+oKQM0RaSN84Ui8gkROVtE5ovIOK7vEJHnReQREfmtiGxISBtQQxgCGswTkeVo6XHG8baI/FxEFlh5BNQMJNxlaOEksOnqW2jZHRxtXJtWz02KyBVWXgE1AQl2vUX4To4eoGMxwhetPAM8Bwl1KQjI1h4XPNqKES618g7wFA0IikeLyE4QMY34HALSmKCNvOYi76Amegy20F+obj+NsK7/+mAed1vvCPAMbJlGep9Kadma0DtxJN2ze4oppRmEXmBAaOS4twRGniT9PcZza/HcQhzmfD3uJZmE28jzwhzlCBgQSJSVSvizW34HhD4wIf1BIrJOqYU6LfNaYb0rwDMLoWmlzzm6c/43lkCDfZAuwrnB4oy0/8I79DsDPACJsb+IbFPjth7DOeYfogiv05vjUCUTJKXfhnfodwb0EVldr03YslF1/gE9MsBumHDFEuYitOJZInIq7o0pgo7h2ql4pmMRmnlN4h0BNRcCD3YIgeszhMCV1rsCPFQDH8Vv7Lh/nIg8JiITIjIHxwSuHed4D/N6JEc5AgYEEsXM8+9RLb5XQxB7hD3IW78rwDPQTLu8AlPwcusddUbkOIZmMugoCGydEiaDOsjrqBpOBkVg2BEczRyELvq8d2ALXVLCdDCFvyVW3j6joYjnwhi0nQNEZDbOx3LkOXDmz8uN9OX7rIjcjmutnBxN4psPNrhGRH7ouX9gpOYxtCPrfhBs...";
@@ -254,8 +272,7 @@
       if (!gw.token) {
         const input = prompt("请输入 GitHub Personal Access Token（需 repo 权限）：\n\n去 https://github.com/settings/tokens 生成 classic token");
         if (!input) { showToast("已取消", "warn"); return; }
-        TokenStore.set(input.trim());
-        CONFIG.githubWrite.token = TokenStore.get();
+        SettingsStore.save({ token: input.trim() });
         if (!CONFIG.githubWrite.token) return;
       }
 
@@ -409,6 +426,7 @@
 
   // ======================== 面板 ========================
   let _panelBlurHandler = null;
+  let _panelView = "main"; // "main" | "settings"
 
   function closePanel() {
     const panel = document.getElementById("rule-checker-panel");
@@ -450,6 +468,7 @@
   }
 
   function buildPanelHTML() {
+    if (_panelView === "settings") return buildSettingsHTML();
     const gw = CONFIG.githubWrite;
     const matched = STATE.matched, domain = STATE.domain;
     const suggested = (!matched && STATE.allFetched) ? generateSuggestedRule() : null;
@@ -468,6 +487,7 @@
           <span style="font-weight:700;font-size:12px;color:#cba6f7;">分流规则检测</span>
         </span>
         <div style="display:flex;gap:4px;">
+          <button id="rc-settings" style="background:none;border:1px solid #45475a;color:#a6adc8;cursor:pointer;border-radius:4px;padding:1px 5px;font-size:10px;">⚙️</button>
           <button id="rc-refresh" style="background:none;border:1px solid #45475a;color:#a6adc8;cursor:pointer;border-radius:4px;padding:1px 5px;font-size:10px;">🔄</button>
           <button id="rc-close" style="background:none;border:1px solid #45475a;color:#a6adc8;cursor:pointer;border-radius:4px;padding:1px 5px;font-size:10px;">✕</button>
         </div>
@@ -517,7 +537,59 @@
     const el = document.createElement("span"); el.textContent = str; return el.innerHTML;
   }
 
+  function buildSettingsHTML() {
+    const s = SettingsStore.getAll();
+    return `
+      <div style="padding:10px 12px;background:#181825;border-bottom:1px solid #313244;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-weight:700;font-size:12px;color:#cba6f7;">⚙️ 设置</span>
+        <button id="rc-settings-back" style="background:none;border:1px solid #45475a;color:#a6adc8;cursor:pointer;border-radius:4px;padding:1px 5px;font-size:10px;">← 返回</button>
+      </div>
+      <div style="padding:12px;overflow-y:auto;flex:1;">
+        <!-- Token -->
+        <div style="margin-bottom:12px;">
+          <div style="color:#6c7086;font-size:10px;margin-bottom:4px;">GitHub Token</div>
+          <input id="rc-set-token" type="password" value="${escapeHTML(s.token)}" placeholder="ghp_xxx…" style="width:100%;box-sizing:border-box;background:#11111b;border:1px solid #313244;border-radius:5px;color:#cdd6f4;padding:6px 8px;font-size:11px;font-family:monospace;">
+          <div style="color:#585b70;font-size:9px;margin-top:3px;">需要 repo 权限。通过 Stay/iCloud 跨设备同步。</div>
+        </div>
+
+        <!-- 输出格式 -->
+        <div style="margin-bottom:12px;">
+          <div style="color:#6c7086;font-size:10px;margin-bottom:4px;">建议规则输出格式</div>
+          <div style="display:flex;gap:8px;">
+            <label style="display:flex;align-items:center;gap:4px;cursor:pointer;font-size:11px;color:#cdd6f4;">
+              <input type="radio" name="rc-outmode" value="loon" ${s.outputMode==="loon"?"checked":""}> LOON
+            </label>
+            <label style="display:flex;align-items:center;gap:4px;cursor:pointer;font-size:11px;color:#cdd6f4;">
+              <input type="radio" name="rc-outmode" value="qx" ${s.outputMode==="qx"?"checked":""}> QX
+            </label>
+          </div>
+        </div>
+
+        <!-- 延迟测量 -->
+        <div style="margin-bottom:14px;">
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:11px;color:#cdd6f4;">
+            <input id="rc-set-latency" type="checkbox" ${s.measureLatency?"checked":""}> 显示页面延迟
+          </label>
+        </div>
+
+        <button id="rc-save-settings" style="width:100%;background:#cba6f7;color:#1e1e2e;border:none;border-radius:6px;padding:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;">💾 保存设置</button>
+      </div>`;
+  }
+
   function bindPanelEvents(panel) {
+    if (_panelView === "settings") {
+      panel.querySelector("#rc-settings-back")?.addEventListener("click", () => { _panelView = "main"; renderPanelIfOpen(); });
+      panel.querySelector("#rc-save-settings")?.addEventListener("click", () => {
+        const token = panel.querySelector("#rc-set-token")?.value?.trim() || "";
+        const outMode = panel.querySelector("input[name='rc-outmode']:checked")?.value || "loon";
+        const measureLatency = panel.querySelector("#rc-set-latency")?.checked ?? true;
+        SettingsStore.save({ token, outputMode: outMode, measureLatency });
+        showToast("设置已保存", "success");
+        _panelView = "main"; renderPanelIfOpen();
+      });
+      return;
+    }
+    panel.querySelector("#rc-settings")?.addEventListener("click", () => { _panelView = "settings"; renderPanelIfOpen(); });
     panel.querySelector("#rc-refresh")?.addEventListener("click", async function() {
       this.textContent = "⏳"; this.disabled = true;
       STATE.allFetched = false;
@@ -539,11 +611,17 @@
     bindPanelEvents(panel);
   }
 
+  function openSettings() {
+    _panelView = "settings";
+    const panel = document.getElementById("rule-checker-panel");
+    if (panel) { renderPanelIfOpen(); } else { createPanel(); }
+  }
+
   // ======================== 初始化 ========================
   async function init() {
     log("脚本初始化...");
     STATE.domain = getCleanDomain();
-    measureLatency();
+    if (SettingsStore.get("measureLatency")) measureLatency();
     createFloatingIcon();
 
     await fetchAllRules();
