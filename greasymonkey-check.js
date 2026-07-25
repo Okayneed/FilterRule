@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         代理分流规则检测器
 // @namespace    https://github.com/Okayneed/FilterRule
-// @version      2.1.1
+// @version      2.1.2
 // @description  检测当前网页主域名是否命中代理分流规则，并显示实际延迟
 // @author       Okayneed
 // @match        *://*/*
@@ -9,6 +9,7 @@
 // @grant        GM_setClipboard
 // @connect      raw.githubusercontent.com
 // @connect      api.github.com
+// @connect      cdn.jsdelivr.net
 // @run-at       document-end
 // ==/UserScript==
 
@@ -140,16 +141,32 @@
 
   // ======================== 规则拉取 ========================
   function fetchRuleSource(source) {
+    // 从 raw URL 自动生成 jsDelivr CDN 回退地址（国内可访问）
+    const cdnUrl = source.rawUrl.replace(
+      /^https:\/\/raw\.githubusercontent\.com\/([^\/]+)\/([^\/]+)\/([^\/]+)\/(.+)$/,
+      "https://cdn.jsdelivr.net/gh/$1/$2@$3/$4"
+    );
+    const urls = cdnUrl !== source.rawUrl ? [source.rawUrl, cdnUrl] : [source.rawUrl];
+
     return new Promise((resolve, reject) => {
-      GM_xmlhttpRequest({
-        method: "GET", url: source.rawUrl, timeout: 15000,
-        onload(r) {
-          if (r.status >= 200 && r.status < 300) { log(`[${source.name}] OK, ${r.responseText.length}B`); resolve(r.responseText); }
-          else { warn(`[${source.name}] HTTP ${r.status}`); reject(new Error(`HTTP ${r.status}`)); }
-        },
-        onerror(e) { warn(`[${source.name}] 网络错误`); reject(e); },
-        ontimeout() { warn(`[${source.name}] 超时`); reject(new Error("timeout")); },
-      });
+      function tryUrl(idx) {
+        if (idx >= urls.length) { reject(new Error("所有源均不可达")); return; }
+        GM_xmlhttpRequest({
+          method: "GET", url: urls[idx], timeout: 10000,
+          onload(r) {
+            if (r.status >= 200 && r.status < 300) {
+              log(`[${source.name}] OK (${idx===0?'raw':'cdn'}), ${r.responseText.length}B`);
+              resolve(r.responseText);
+            } else {
+              warn(`[${source.name}] HTTP ${r.status} from ${idx===0?'raw':'cdn'}`);
+              tryUrl(idx + 1);
+            }
+          },
+          onerror()  { warn(`[${source.name}] 网络错误 (${idx===0?'raw':'cdn'})`); tryUrl(idx + 1); },
+          ontimeout() { warn(`[${source.name}] 超时 (${idx===0?'raw':'cdn'})`); tryUrl(idx + 1); },
+        });
+      }
+      tryUrl(0);
     });
   }
 
