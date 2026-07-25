@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         代理分流规则检测器
 // @namespace    https://github.com/Okayneed/FilterRule
-// @version      2.5.0
+// @version      2.5.1
 // @description  检测当前网页主域名是否命中代理分流规则，并显示实际延迟
 // @author       Okayneed
 // @match        *://*/*
@@ -186,8 +186,9 @@
 
     // 并发竞速：同时请求 raw 和 CDN，谁先成功用谁
     // 使用 fetch() 而非 GM_xmlhttpRequest，走浏览器原生网络栈（经过系统代理）
+    // cache: "no-cache" 每次都向服务器验证，避免 GitHub raw 5分钟缓存导致规则不及时
     const fetches = urls.map(url =>
-      fetch(url, { signal: AbortSignal.timeout(15000) })
+      fetch(url, { signal: AbortSignal.timeout(15000), cache: "no-cache" })
         .then(r => {
           if (!r.ok) throw new Error(`HTTP ${r.status}`);
           return r.text();
@@ -548,8 +549,8 @@
         <!-- Token -->
         <div style="margin-bottom:12px;">
           <div style="color:#6c7086;font-size:10px;margin-bottom:4px;">GitHub Token</div>
-          <input id="rc-set-token" type="password" value="${escapeHTML(s.token)}" placeholder="ghp_xxx…" style="width:100%;box-sizing:border-box;background:#11111b;border:1px solid #313244;border-radius:5px;color:#cdd6f4;padding:6px 8px;font-size:11px;font-family:monospace;">
-          <div style="color:#585b70;font-size:9px;margin-top:3px;">需要 repo 权限。通过 Stay/iCloud 跨设备同步。</div>
+          <input id="rc-set-token" type="password" autocomplete="current-password" value="${escapeHTML(s.token)}" placeholder="ghp_xxx…" style="width:100%;box-sizing:border-box;background:#11111b;border:1px solid #313244;border-radius:5px;color:#cdd6f4;padding:6px 8px;font-size:11px;font-family:monospace;">
+          <div style="color:#585b70;font-size:9px;margin-top:3px;">点击输入框 → Safari 自动弹出钥匙串填充。跨设备通过 iCloud 钥匙串同步。<br>首次：Safari 设置 → 密码 → 添加密码（网站填 github.com，密码填 token），之后即可自动填充。</div>
         </div>
 
         <!-- 输出格式 -->
