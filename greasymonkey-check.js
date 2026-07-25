@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         代理分流规则检测器
 // @namespace    https://github.com/Okayneed/FilterRule
-// @version      2.7.0
+// @version      2.7.1
 // @description  检测当前网页主域名是否命中代理分流规则，并显示实际延迟
 // @author       Okayneed
 // @match        *://*/*
@@ -495,7 +495,7 @@
     closePanel(); // 先清理旧面板和旧监听
     const panel = document.createElement("div");
     panel.id = "rule-checker-panel";
-    panel.style.cssText = `position:fixed;top:16px;right:16px;z-index:2147483646;width:280px;max-height:calc(100vh-32px);background:#1e1e2e;color:#cdd6f4;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.45);font-family:-apple-system,"SF Pro Text","Helvetica Neue",sans-serif;font-size:11px;overflow:hidden;display:flex;flex-direction:column;user-select:none;`;
+    panel.style.cssText = `position:fixed;top:16px;right:16px;z-index:2147483646;width:370px;max-height:calc(100vh-32px);background:#1e1e2e;color:#cdd6f4;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.45);font-family:-apple-system,"SF Pro Text","Helvetica Neue",sans-serif;font-size:13px;overflow:hidden;display:flex;flex-direction:column;user-select:none;`;
     panel.innerHTML = buildPanelHTML();
     document.body.appendChild(panel);
     bindPanelEvents(panel);
@@ -596,7 +596,7 @@
         <!-- Token（通过 GitHub Pages iframe 对接 iCloud 钥匙串，统一匹配 okayneed.github.io 域名） -->
         <div style="margin-bottom:12px;">
           <div style="color:#6c7086;font-size:10px;margin-bottom:4px;">GitHub Token</div>
-          <div style="position:relative;height:32px;">
+          <div style="position:relative;height:38px;">
             <iframe id="rc-token-iframe" src="https://okayneed.github.io/FilterRule/token-prompt.html"
               style="width:100%;height:100%;border:none;border-radius:5px;overflow:hidden;"
               sandbox="allow-scripts allow-forms allow-same-origin"
