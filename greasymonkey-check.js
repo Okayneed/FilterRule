@@ -1,11 +1,13 @@
 // ==UserScript==
 // @name         代理分流规则检测器
 // @namespace    https://github.com/Okayneed/FilterRule
-// @version      2.4.0
+// @version      2.4.2
 // @description  检测当前网页主域名是否命中代理分流规则，并显示实际延迟
 // @author       Okayneed
 // @match        *://*/*
 // @grant        GM_setClipboard
+// @grant        GM_setValue
+// @grant        GM_getValue
 // @run-at       document-end
 // ==/UserScript==
 
@@ -45,6 +47,19 @@
 
     debug: false,
   };
+
+  // ======================== Token 管理（本地安全存储） ========================
+  const TokenStore = {
+    KEY: "github_token_20260725",
+    get() { return GM_getValue(this.KEY, ""); },
+    set(token) { GM_setValue(this.KEY, token); showToast("Token 已保存到本地", "success"); },
+    has() { return !!this.get(); },
+  };
+
+  // 初始化时从本地存储读取 token
+  if (TokenStore.has()) {
+    CONFIG.githubWrite.token = TokenStore.get();
+  }
 
   // ======================== 图标 ========================
   const ICON_PROXY = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAARQ0lEQVR4nO1dfawdRRU/e+97D2wL5QGC5ctCP4SCIQbDh8hHImBipAp9Cd/IH0ojCqmo0aB/IBqDJiYiARMFNUWUEDUoYksCQtEiRqBi2mJFoaEt2ALtg9JC37v3rpn4+yWHyc5+3Lt77+zt/JLN3bu7Mzs758zMOWfOmREJCAgICAgICAjY6xBVmFdcYt4BnqIhIiP4LXIvoOY9AInaUddGReRdOH9LRKYzng+oKQM0RaSN84Ui8gkROVtE5ovIOK7vEJHnReQREfmtiGxISBtQQxgCGswTkeVo6XHG8baI/FxEFlh5BNQMJNxlaOEksOnqW2jZHRxtXJtWz02KyBVWXgE1AQl2vUX4To4eoGMxwhetPAM8Bwl1KQjI1h4XPNqKES618g7wFA0IikeLyE4QMY34HALSmKCNvOYi76Amegy20F+obj+NsK7/+mAed1vvCPAMbJlGep9Kadma0DtxJN2ze4oppRmEXmBAaOS4twRGniT9PcZza/HcQhzmfD3uJZmE28jzwhzlCBgQSJSVSvizW34HhD4wIf1BIrJOqYU6LfNaYb0rwDMLoWmlzzm6c/43lkCDfZAuwrnB4oy0/8I79DsDPACJsb+IbFPjth7DOeYfogiv05vjUCUTJKXfhnfodwb0EVldr03YslF1/gE9MsBumHDFEuYitOJZInIq7o0pgo7h2ql4pmMRmnlN4h0BNRcCD3YIgeszhMCV1rsCPFQDH8Vv7Lh/nIg8JiITIjIHxwSuHed4D/N6JEc5AgYEEsXM8+9RLb5XQxB7hD3IW78rwDPQTLu8AlPwcusddUbkOIZmMugoCGydEiaDOsjrqBpOBkVg2BEczRyELvq8d2ALXVLCdDCFvyVW3j6joYjnwhi0nQNEZDbOx3LkOXDmz8uN9OX7rIjcjmutnBxN4psPNrhGRH7ouX9gpOYxtCPrfhBs...";
@@ -236,7 +251,13 @@
 
     async appendRule(ruleLine) {
       const gw = CONFIG.githubWrite;
-      if (!gw.token) { showToast("请先在脚本配置中填入 GitHub token", "error"); return; }
+      if (!gw.token) {
+        const input = prompt("请输入 GitHub Personal Access Token（需 repo 权限）：\n\n去 https://github.com/settings/tokens 生成 classic token");
+        if (!input) { showToast("已取消", "warn"); return; }
+        TokenStore.set(input.trim());
+        CONFIG.githubWrite.token = TokenStore.get();
+        if (!CONFIG.githubWrite.token) return;
+      }
 
       try {
         const { sha, content } = await this.getFileSha();
