@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         代理分流规则检测器
 // @namespace    https://github.com/Okayneed/FilterRule
-// @version      2.6.0
+// @version      2.7.0
 // @description  检测当前网页主域名是否命中代理分流规则，并显示实际延迟
 // @author       Okayneed
 // @match        *://*/*
@@ -474,6 +474,7 @@
   // ======================== 面板 ========================
   let _panelBlurHandler = null;
   let _panelView = "main"; // "main" | "settings"
+  let _pendingToken = null; // 从 iframe postMessage 收到的 token
 
   function closePanel() {
     const panel = document.getElementById("rule-checker-panel");
@@ -592,11 +593,19 @@
         <button id="rc-settings-back" style="background:none;border:1px solid #45475a;color:#a6adc8;cursor:pointer;border-radius:4px;padding:1px 5px;font-size:10px;">← 返回</button>
       </div>
       <div style="padding:12px;overflow-y:auto;flex:1;">
-        <!-- Token -->
+        <!-- Token（通过 GitHub Pages iframe 对接 iCloud 钥匙串，统一匹配 okayneed.github.io 域名） -->
         <div style="margin-bottom:12px;">
           <div style="color:#6c7086;font-size:10px;margin-bottom:4px;">GitHub Token</div>
-          <input id="rc-set-token" type="password" autocomplete="current-password" value="${escapeHTML(s.token)}" placeholder="ghp_xxx…" style="width:100%;box-sizing:border-box;background:#11111b;border:1px solid #313244;border-radius:5px;color:#cdd6f4;padding:6px 8px;font-size:11px;font-family:monospace;">
-          <div style="color:#585b70;font-size:9px;margin-top:3px;">点击输入框 → Safari 自动弹出钥匙串填充。跨设备通过 iCloud 钥匙串同步。<br>首次：Safari 设置 → 密码 → 添加密码（网站填 github.com，密码填 token），之后即可自动填充。</div>
+          <div style="position:relative;height:32px;">
+            <iframe id="rc-token-iframe" src="https://okayneed.github.io/FilterRule/token-prompt.html"
+              style="width:100%;height:100%;border:none;border-radius:5px;overflow:hidden;"
+              sandbox="allow-scripts allow-forms allow-same-origin"
+              title="Token 输入"></iframe>
+          </div>
+          <div style="color:#585b70;font-size:9px;margin-top:3px;">
+            点输入框 → Safari 弹出钥匙串（匹配 okayneed.github.io）。<br>
+            <b>首次使用</b>：<a href="https://okayneed.github.io/FilterRule/token-prompt.html" target="_blank" style="color:#89b4fa;">打开此页面</a> → 输入 token → Safari 提示存储密码 → 此后自动填充。iCloud 钥匙串跨设备同步。
+          </div>
         </div>
 
         <!-- 输出格式 -->
@@ -627,10 +636,11 @@
     if (_panelView === "settings") {
       panel.querySelector("#rc-settings-back")?.addEventListener("click", () => { _panelView = "main"; renderPanelIfOpen(); });
       panel.querySelector("#rc-save-settings")?.addEventListener("click", () => {
-        const token = panel.querySelector("#rc-set-token")?.value?.trim() || "";
+        const token = _pendingToken || SettingsStore.get("token");
         const outMode = panel.querySelector("input[name='rc-outmode']:checked")?.value || "loon";
         const measureLatency = panel.querySelector("#rc-set-latency")?.checked ?? true;
         SettingsStore.save({ token, outputMode: outMode, measureLatency });
+        _pendingToken = null;
         showToast("设置已保存", "success");
         _panelView = "main"; renderPanelIfOpen();
       });
@@ -667,6 +677,14 @@
   // ======================== 初始化 ========================
   async function init() {
     log("脚本初始化...");
+
+    // 监听来自 GitHub Pages iframe 的 token 回传
+    window.addEventListener("message", function(e) {
+      if (e.data && e.data.type === "rc-token" && typeof e.data.token === "string") {
+        _pendingToken = e.data.token.trim();
+      }
+    });
+
     STATE.domain = getCleanDomain();
     if (SettingsStore.get("measureLatency")) measureLatency();
     createFloatingIcon();
