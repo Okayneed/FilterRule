@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         代理分流规则检测器
 // @namespace    https://github.com/Okayneed/FilterRule
-// @version      2.2.2
+// @version      2.3.0
 // @description  检测当前网页主域名是否命中代理分流规则，并显示实际延迟
 // @author       Okayneed
 // @match        *://*/*
@@ -141,32 +141,42 @@
 
   // ======================== 规则拉取 ========================
   function fetchRuleSource(source) {
-    // 从 raw URL 自动生成 jsDelivr CDN 回退地址（国内可访问）
     const cdnUrl = source.rawUrl.replace(
       /^https:\/\/raw\.githubusercontent\.com\/([^\/]+)\/([^\/]+)\/([^\/]+)\/(.+)$/,
       "https://cdn.jsdelivr.net/gh/$1/$2@$3/$4"
     );
     const urls = cdnUrl !== source.rawUrl ? [source.rawUrl, cdnUrl] : [source.rawUrl];
 
+    // 并发竞速：同时请求 raw 和 CDN，谁先成功用谁
     return new Promise((resolve, reject) => {
-      function tryUrl(idx) {
-        if (idx >= urls.length) { reject(new Error("所有源均不可达")); return; }
+      const errors = [];
+      let settled = false;
+
+      urls.forEach((url, idx) => {
+        const label = idx === 0 ? "raw" : "cdn";
         GM_xmlhttpRequest({
-          method: "GET", url: urls[idx], timeout: 10000,
+          method: "GET", url, timeout: 15000,
           onload(r) {
+            if (settled) return;
             if (r.status >= 200 && r.status < 300) {
-              log(`[${source.name}] OK (${idx===0?'raw':'cdn'}), ${r.responseText.length}B`);
+              settled = true;
+              log(`[${source.name}] OK (${label}), ${r.responseText.length}B`);
               resolve(r.responseText);
             } else {
-              warn(`[${source.name}] HTTP ${r.status} from ${idx===0?'raw':'cdn'}`);
-              tryUrl(idx + 1);
+              errors.push(`[${source.name}] HTTP ${r.status} (${label})`);
+              if (errors.length >= urls.length && !settled) reject(new Error(errors.join("; ")));
             }
           },
-          onerror()  { warn(`[${source.name}] 网络错误 (${idx===0?'raw':'cdn'})`); tryUrl(idx + 1); },
-          ontimeout() { warn(`[${source.name}] 超时 (${idx===0?'raw':'cdn'})`); tryUrl(idx + 1); },
+          onerror() {
+            errors.push(`[${source.name}] 网络错误 (${label})`);
+            if (errors.length >= urls.length && !settled) reject(new Error(errors.join("; ")));
+          },
+          ontimeout() {
+            errors.push(`[${source.name}] 超时 (${label})`);
+            if (errors.length >= urls.length && !settled) reject(new Error(errors.join("; ")));
+          },
         });
-      }
-      tryUrl(0);
+      });
     });
   }
 
