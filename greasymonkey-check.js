@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         代理分流规则检测器
 // @namespace    https://github.com/Okayneed/FilterRule
-// @version      1.2.0
+// @version      1.3.0
 // @description  自动检测当前域名是否命中 GitHub 托管的代理分流规则，支持 QX / LOON 格式
 // @author       Okayneed
 // @match        *://*/*
@@ -93,18 +93,9 @@
     debug: false,
   };
 
-  // ======================== 代理图标 (SVG) ========================
-  // 黑线风格代理图标：圆圈 + 双向箭头，表示流量转发
-  const ICON_PROXY = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="10"/>
-    <path d="M2 12h20"/>
-    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-    <polyline points="8 5 6 7 8 9"/>
-    <polyline points="16 19 18 17 16 15"/>
-    <polyline points="16 5 18 7 16 9"/>
-    <polyline points="8 19 6 17 8 15"/>
-  </svg>`;
+  // ======================== 代理图标 (PNG) ========================
+  // flaticon proxy icon #6864443 — 盾牌+网络 风格
+  const ICON_PROXY = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAARQ0lEQVR4nO1dfawdRRU/e+97D2wL5QGC5ctCP4SCIQbDh8hHImBipAp9Cd/IH0ojCqmo0aB/IBqDJiYiARMFNUWUEDUoYksCQtEiRqBi2mJFoaEt2ALtg9JC37v3rpn4+yWHyc5+3Lt77+zt/JLN3bu7Mzs758zMOWfOmREJCAgICAgICAjY6xBVmFdcYt4BnqIhIiP4LXIvoOY9AInaUddGReRdOH9LRKYzng+oKQM0RaSN84Ui8gkROVtE5ovIOK7vEJHnReQREfmtiGxISBtQQxgCGswTkeVo6XHG8baI/FxEFlh5BNQMJNxlaOEksOnqW2jZHRxtXJtWz02KyBVWXgE1AQl2vUX4To4eoGMxwhetPAM8Bwl1KQjI1h4XPNqKES618g7wFA0IikeLyE4QMY34HALSmKCNvOYi76Amegy20F+obj+NsK7/+mAed1vvCPAMbJlGep9Kadma0DtxJN2ze4oppRmEXmBAaOS4twRGniT9PcZza/HcQhzmfD3uJZmE28jzwhzlCBgQSJSVSvizW34HhD4wIf1BIrJOqYU6LfNaYb0rwDMLoWmlzzm6c/43lkCDfZAuwrnB4oy0/8I79DsDPACJsb+IbFPjth7DOeYfogiv05vjUCUTJKXfhnfodwb0EVldr03YslF1/gE9MsBumHDFEuYitOJZInIq7o0pgo7h2ql4pmMRmnlN4h0BNRcCD3YIgeszhMCV1rsCPFQDH8Vv7Lh/nIg8JiITIjIHxwSuHed4D/N6JEc5AgYEEsXM8+9RLb5XQxB7hD3IW78rwDPQTLu8AlPwcusddUbkOIZmMugoCGydEiaDOsjrqBpOBkVg2BEczRyELvq8d2ALXVLCdDCFvyVW3j6joYjnwhi0nQNEZDbOx3LkOXDmz8uN9OX7rIjcjmutnBxN4psPNrhGRH7ouX9gpOYxtCPrfhBs...";
 
   // ======================== 内部状态 ========================
   const STATE = {
@@ -514,11 +505,11 @@
       user-select: none;
     `;
 
-    // 代理 SVG 图标
-    const svgWrap = document.createElement("span");
-    svgWrap.style.cssText = "width: 20px; height: 20px; display: flex;";
-    svgWrap.innerHTML = ICON_PROXY;
-    icon.appendChild(svgWrap);
+    // 代理图标
+    const imgWrap = document.createElement("img");
+    imgWrap.src = ICON_PROXY;
+    imgWrap.style.cssText = "width: 20px; height: 20px;";
+    icon.appendChild(imgWrap);
 
     // 状态小圆点（右下角）
     const dot = document.createElement("span");
@@ -675,7 +666,7 @@
         display: flex; justify-content: space-between; align-items: center; gap: 8px;
       ">
         <span style="display: flex; align-items: center; gap: 6px;">
-          <span style="width: 18px; height: 18px; display: flex; color: #cba6f7;">${ICON_PROXY}</span>
+          <img src="${ICON_PROXY}" style="width: 18px; height: 18px;">
           <span style="font-weight: 700; font-size: 12px; color: #cba6f7;">分流规则检测</span>
         </span>
         <div style="display: flex; gap: 4px;">
