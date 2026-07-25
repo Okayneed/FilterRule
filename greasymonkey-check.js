@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         代理分流规则检测器
 // @namespace    https://github.com/Okayneed/FilterRule
-// @version      2.7.1
+// @version      2.8.0
 // @description  检测当前网页主域名是否命中代理分流规则，并显示实际延迟
 // @author       Okayneed
 // @match        *://*/*
@@ -80,6 +80,23 @@
     },
   };
   SettingsStore.load();
+
+  // ======================== 响应式尺寸 ========================
+  // 解决手机看桌面版网页时 viewport 缩小导致固定 px 值过小的问题
+  function getResponsiveSizes() {
+    const innerW = window.innerWidth;
+    const screenW = screen.width;
+    // 检测移动端：小屏幕 或 触摸+中等屏幕
+    const isMobile = innerW < 768 || (("ontouchstart" in window) && innerW < 1024);
+    // 缩放补偿：桌面版网页在手机上被缩小时，innerW >> screenW
+    const zoomComp = (isMobile && screenW > 0) ? Math.max(1, innerW / screenW) : 1;
+
+    return {
+      panelWidth:   Math.min(Math.round(370 * zoomComp), Math.round(innerW * 0.94)),
+      iconSize:     Math.round(44 * zoomComp),
+      baseFontSize: Math.round(11 * zoomComp),
+    };
+  }
 
   // ======================== 图标 ========================
   const ICON_PROXY = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAARQ0lEQVR4nO1dfawdRRU/e+97D2wL5QGC5ctCP4SCIQbDh8hHImBipAp9Cd/IH0ojCqmo0aB/IBqDJiYiARMFNUWUEDUoYksCQtEiRqBi2mJFoaEt2ALtg9JC37v3rpn4+yWHyc5+3Lt77+zt/JLN3bu7Mzs758zMOWfOmREJCAgICAgICAjY6xBVmFdcYt4BnqIhIiP4LXIvoOY9AInaUddGReRdOH9LRKYzng+oKQM0RaSN84Ui8gkROVtE5ovIOK7vEJHnReQREfmtiGxISBtQQxgCGswTkeVo6XHG8baI/FxEFlh5BNQMJNxlaOEksOnqW2jZHRxtXJtWz02KyBVWXgE1AQl2vUX4To4eoGMxwhetPAM8Bwl1KQjI1h4XPNqKES618g7wFA0IikeLyE4QMY34HALSmKCNvOYi76Amegy20F+obj+NsK7/+mAed1vvCPAMbJlGep9Kadma0DtxJN2ze4oppRmEXmBAaOS4twRGniT9PcZza/HcQhzmfD3uJZmE28jzwhzlCBgQSJSVSvizW34HhD4wIf1BIrJOqYU6LfNaYb0rwDMLoWmlzzm6c/43lkCDfZAuwrnB4oy0/8I79DsDPACJsb+IbFPjth7DOeYfogiv05vjUCUTJKXfhnfodwb0EVldr03YslF1/gE9MsBumHDFEuYitOJZInIq7o0pgo7h2ql4pmMRmnlN4h0BNRcCD3YIgeszhMCV1rsCPFQDH8Vv7Lh/nIg8JiITIjIHxwSuHed4D/N6JEc5AgYEEsXM8+9RLb5XQxB7hD3IW78rwDPQTLu8AlPwcusddUbkOIZmMugoCGydEiaDOsjrqBpOBkVg2BEczRyELvq8d2ALXVLCdDCFvyVW3j6joYjnwhi0nQNEZDbOx3LkOXDmz8uN9OX7rIjcjmutnBxN4psPNrhGRH7ouX9gpOYxtCPrfhBs...";
@@ -382,6 +399,10 @@
     const old = document.getElementById("rc-floating-icon"); if (old) old.remove();
     const { color, letter } = getIconStyle();
     const x = STATE.iconPos?.x || 8, y = STATE.iconPos?.y || 120;
+    const sz = getResponsiveSizes();
+    const iconPx = sz.iconSize;
+    const letterSize = Math.round(iconPx * 0.4);
+    const latSize = Math.round(iconPx * 0.2);
 
     const wrapper = document.createElement("div");
     wrapper.id = "rc-floating-icon";
@@ -391,8 +412,8 @@
     const circle = document.createElement("div");
     circle.className = "rc-circle";
     const latText = STATE.latencyMs != null ? `${STATE.latencyMs}ms` : "—";
-    circle.style.cssText = `width:44px;height:44px;border-radius:50%;background:#45475a;color:${color};display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.35);transition:transform .15s,box-shadow .15s;font-family:-apple-system,sans-serif;line-height:1;gap:0;`;
-    circle.innerHTML = `<span style="font-weight:700;font-size:18px;">${letter}</span><span class="rc-latency" style="font-size:9px;opacity:.85;margin-top:-1px;">${latText}</span>`;
+    circle.style.cssText = `width:${iconPx}px;height:${iconPx}px;border-radius:50%;background:#45475a;color:${color};display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.35);transition:transform .15s,box-shadow .15s;font-family:-apple-system,sans-serif;line-height:1;gap:0;`;
+    circle.innerHTML = `<span style="font-weight:700;font-size:${letterSize}px;">${letter}</span><span class="rc-latency" style="font-size:${latSize}px;opacity:.85;margin-top:-1px;">${latText}</span>`;
     circle.title = [
       STATE.domain || "(无域名)",
       STATE.allFetched
@@ -411,14 +432,15 @@
     });
 
     // 拖动
-    bindDrag(circle, wrapper);
+    bindDrag(circle, wrapper, iconPx);
     // hover
     circle.addEventListener("mouseenter", () => { circle.style.transform="scale(1.1)"; circle.style.boxShadow="0 4px 20px rgba(0,0,0,.4)"; });
     circle.addEventListener("mouseleave", () => { circle.style.transform="scale(1)"; circle.style.boxShadow="0 2px 12px rgba(0,0,0,.35)"; });
   }
 
-  function bindDrag(circle, wrapper) {
+  function bindDrag(circle, wrapper, iconSize) {
     let dragging = false, startX, startY, startRight, startTop;
+    const margin = iconSize + 16;
     const onDown = (cx, cy) => {
       dragging = true; circle._dragged = false;
       startX = cx; startY = cy;
@@ -430,8 +452,8 @@
       if (!dragging) return;
       const dx = startX - cx, dy = cy - startY;
       if (Math.abs(dx) > 2 || Math.abs(dy) > 2) circle._dragged = true;
-      wrapper.style.right = Math.max(4, Math.min(window.innerWidth - 60, startRight + dx)) + "px";
-      wrapper.style.top = Math.max(4, Math.min(window.innerHeight - 60, startTop + dy)) + "px";
+      wrapper.style.right = Math.max(4, Math.min(window.innerWidth - margin, startRight + dx)) + "px";
+      wrapper.style.top = Math.max(4, Math.min(window.innerHeight - margin, startTop + dy)) + "px";
     };
     const onUp = () => {
       if (!dragging) return;
@@ -493,9 +515,10 @@
 
   function createPanel() {
     closePanel(); // 先清理旧面板和旧监听
+    const sz = getResponsiveSizes();
     const panel = document.createElement("div");
     panel.id = "rule-checker-panel";
-    panel.style.cssText = `position:fixed;top:16px;right:16px;z-index:2147483646;width:370px;max-height:calc(100vh-32px);background:#1e1e2e;color:#cdd6f4;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.45);font-family:-apple-system,"SF Pro Text","Helvetica Neue",sans-serif;font-size:13px;overflow:hidden;display:flex;flex-direction:column;user-select:none;`;
+    panel.style.cssText = `position:fixed;top:16px;right:16px;z-index:2147483646;width:${sz.panelWidth}px;max-height:calc(100vh-32px);background:#1e1e2e;color:#cdd6f4;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.45);font-family:-apple-system,"SF Pro Text","Helvetica Neue",sans-serif;font-size:${sz.baseFontSize}px;overflow:hidden;display:flex;flex-direction:column;user-select:none;`;
     panel.innerHTML = buildPanelHTML();
     document.body.appendChild(panel);
     bindPanelEvents(panel);
