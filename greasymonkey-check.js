@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         代理分流规则检测器
 // @namespace    https://github.com/Okayneed/FilterRule
-// @version      2.2.1
+// @version      2.2.2
 // @description  检测当前网页主域名是否命中代理分流规则，并显示实际延迟
 // @author       Okayneed
 // @match        *://*/*
@@ -307,13 +307,14 @@
 
     const wrapper = document.createElement("div");
     wrapper.id = "rc-floating-icon";
-    wrapper.style.cssText = `position:fixed;z-index:2147483645;top:${y}px;right:${x}px;display:flex;flex-direction:column;align-items:center;gap:2px;user-select:none;`;
+    wrapper.style.cssText = `position:fixed;z-index:2147483645;top:${y}px;right:${x}px;user-select:none;`;
 
-    // 圆形按钮
+    // 圆形按钮：内部同时显示状态字母 + 延迟
     const circle = document.createElement("div");
     circle.className = "rc-circle";
-    circle.style.cssText = `width:40px;height:40px;border-radius:50%;background:#45475a;color:${color};display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.35);transition:transform .15s,box-shadow .15s;font-weight:700;font-size:18px;font-family:-apple-system,sans-serif;`;
-    circle.textContent = letter;
+    const latText = STATE.latencyMs != null ? `${STATE.latencyMs}ms` : "—";
+    circle.style.cssText = `width:44px;height:44px;border-radius:50%;background:#45475a;color:${color};display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.35);transition:transform .15s,box-shadow .15s;font-family:-apple-system,sans-serif;line-height:1;gap:0;`;
+    circle.innerHTML = `<span style="font-weight:700;font-size:18px;">${letter}</span><span class="rc-latency" style="font-size:9px;opacity:.85;margin-top:-1px;">${latText}</span>`;
     circle.title = [
       STATE.domain || "(无域名)",
       STATE.allFetched
@@ -322,15 +323,7 @@
       STATE.latencyMs != null ? `延迟 ${STATE.latencyMs}ms` : "",
     ].filter(Boolean).join("\n");
 
-    // 延迟文字
-    const latencyLabel = document.createElement("div");
-    latencyLabel.className = "rc-latency";
-    const latText = STATE.latencyMs != null ? `${STATE.latencyMs}ms` : "—";
-    latencyLabel.textContent = latText;
-    latencyLabel.style.cssText = `color:#a6adc8;font-size:9px;font-family:-apple-system,sans-serif;text-align:center;line-height:1;text-shadow:0 1px 4px rgba(0,0,0,.6);`;
-
     wrapper.appendChild(circle);
-    wrapper.appendChild(latencyLabel);
     document.body.appendChild(wrapper);
 
     // 点击切换面板
@@ -384,7 +377,8 @@
     const circle = icon.querySelector(".rc-circle");
     if (circle) {
       circle.style.color = color;
-      circle.textContent = letter;
+      const letterSpan = circle.querySelector("span:first-child");
+      if (letterSpan) letterSpan.textContent = letter;
       circle.title = [
         STATE.domain || "(无域名)",
         STATE.allFetched
