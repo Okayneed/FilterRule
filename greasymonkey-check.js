@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         代理分流规则检测器
 // @namespace    https://github.com/Okayneed/FilterRule
-// @version      2.5.2
+// @version      2.6.0
 // @description  检测当前网页主域名是否命中代理分流规则，并显示实际延迟
 // @author       Okayneed
 // @match        *://*/*
@@ -17,7 +17,8 @@
   // ======================== 配置区 ========================
 
   const CONFIG = {
-    ruleSources: [
+    // 以下为兜底列表：GitHub API 不可用时使用
+    FALLBACK_RULE_SOURCES: [
       { name: "Auto-gfw",         type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Auto_gfw.list",          enabled: true },
       { name: "Auto-google",      type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Auto_google.list",       enabled: true },
       { name: "Auto-apple-cn",    type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Auto_apple_cn.list",     enabled: true },
@@ -206,12 +207,46 @@
     });
   }
 
+  // ======================== 动态发现规则文件 ========================
+  // 扫描 GitHub 仓库 list/ 目录，自动发现所有 .list 文件（无需 token，公开仓库）
+  async function discoverRuleFiles() {
+    const token = CONFIG.githubWrite.token;
+    const headers = { Accept: "application/vnd.github.v3+json" };
+    if (token) headers["Authorization"] = `token ${token}`;
+
+    const url = `https://api.github.com/repos/${CONFIG.githubWrite.owner}/${CONFIG.githubWrite.repo}/contents/list`;
+    try {
+      const r = await fetch(url, { headers, cache: "no-cache" });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const files = await r.json();
+      if (!Array.isArray(files)) throw new Error("非预期响应格式");
+
+      const sources = files
+        .filter(f => f.type === "file" && f.name.endsWith(".list"))
+        .map(f => ({
+          name: f.name.replace(/\.list$/, ""),
+          type: "qx",
+          rawUrl: f.download_url,
+          enabled: true,
+        }));
+
+      if (sources.length === 0) throw new Error("目录为空");
+      log(`动态发现 ${sources.length} 个规则文件`);
+      return sources;
+    } catch (e) {
+      warn(`规则发现失败，使用兜底列表: ${e.message}`);
+      return CONFIG.FALLBACK_RULE_SOURCES;
+    }
+  }
+
   async function fetchAllRules() {
     if (STATE.loading) return;
     STATE.loading = true; STATE.rules = [];
-    const enabled = CONFIG.ruleSources.filter(s => s.enabled);
-    log(`拉取 ${enabled.length} 个源...`);
-    await Promise.allSettled(enabled.map(async src => {
+
+    // 动态发现规则文件 + 兜底 fallback
+    const sources = await discoverRuleFiles();
+    log(`拉取 ${sources.length} 个源...`);
+    await Promise.allSettled(sources.map(async src => {
       try {
         const text = await fetchRuleSource(src);
         const parsed = parseRules(text, src.type);
