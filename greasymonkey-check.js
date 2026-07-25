@@ -1,15 +1,11 @@
 // ==UserScript==
 // @name         代理分流规则检测器
 // @namespace    https://github.com/Okayneed/FilterRule
-// @version      2.3.0
+// @version      2.4.0
 // @description  检测当前网页主域名是否命中代理分流规则，并显示实际延迟
 // @author       Okayneed
 // @match        *://*/*
-// @grant        GM_xmlhttpRequest
 // @grant        GM_setClipboard
-// @connect      raw.githubusercontent.com
-// @connect      api.github.com
-// @connect      cdn.jsdelivr.net
 // @run-at       document-end
 // ==/UserScript==
 
@@ -20,10 +16,18 @@
 
   const CONFIG = {
     ruleSources: [
-      { name: "GFW-Auto",    type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Auto_gfw.list",     enabled: true },
-      { name: "goProxy",     type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Manual_goProxy.list", enabled: true },
-      { name: "goJP",        type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Manual_goJP.list",    enabled: true },
-      { name: "goUS",        type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Manual_goUS.list",    enabled: true },
+      { name: "Auto-gfw",         type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Auto_gfw.list",          enabled: true },
+      { name: "Auto-google",      type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Auto_google.list",       enabled: true },
+      { name: "Auto-apple-cn",    type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Auto_apple_cn.list",     enabled: true },
+      { name: "Auto-claude",      type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Auto_claude.list",       enabled: true },
+      { name: "Auto-o365-cn",     type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Auto_o365_cn.list",      enabled: true },
+      { name: "Manual-goProxy",   type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Manual_goProxy.list",    enabled: true },
+      { name: "Manual-goJP",      type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Manual_goJP.list",       enabled: true },
+      { name: "Manual-goUS",      type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Manual_goUS.list",       enabled: true },
+      { name: "Manual-LLM",       type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Manual_LLM.list",        enabled: true },
+      { name: "Manual-NotHK",     type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Manual_NotHK.list",      enabled: true },
+      { name: "Manual-telegram",  type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Manual_telegram.list",   enabled: true },
+      { name: "Manual-Setting",   type: "qx", rawUrl: "https://raw.githubusercontent.com/Okayneed/FilterRule/main/list/Manual_ManualSetting.list", enabled: true },
     ],
 
     outputMode: "loon",
@@ -148,35 +152,20 @@
     const urls = cdnUrl !== source.rawUrl ? [source.rawUrl, cdnUrl] : [source.rawUrl];
 
     // 并发竞速：同时请求 raw 和 CDN，谁先成功用谁
-    return new Promise((resolve, reject) => {
-      const errors = [];
-      let settled = false;
+    // 使用 fetch() 而非 GM_xmlhttpRequest，走浏览器原生网络栈（经过系统代理）
+    const fetches = urls.map(url =>
+      fetch(url, { signal: AbortSignal.timeout(15000) })
+        .then(r => {
+          if (!r.ok) throw new Error(`HTTP ${r.status}`);
+          return r.text();
+        })
+    );
 
-      urls.forEach((url, idx) => {
-        const label = idx === 0 ? "raw" : "cdn";
-        GM_xmlhttpRequest({
-          method: "GET", url, timeout: 15000,
-          onload(r) {
-            if (settled) return;
-            if (r.status >= 200 && r.status < 300) {
-              settled = true;
-              log(`[${source.name}] OK (${label}), ${r.responseText.length}B`);
-              resolve(r.responseText);
-            } else {
-              errors.push(`[${source.name}] HTTP ${r.status} (${label})`);
-              if (errors.length >= urls.length && !settled) reject(new Error(errors.join("; ")));
-            }
-          },
-          onerror() {
-            errors.push(`[${source.name}] 网络错误 (${label})`);
-            if (errors.length >= urls.length && !settled) reject(new Error(errors.join("; ")));
-          },
-          ontimeout() {
-            errors.push(`[${source.name}] 超时 (${label})`);
-            if (errors.length >= urls.length && !settled) reject(new Error(errors.join("; ")));
-          },
-        });
-      });
+    return Promise.any(fetches).then(text => {
+      log(`[${source.name}] OK, ${text.length}B`);
+      return text;
+    }).catch(e => {
+      throw new Error(`[${source.name}] 所有源均不可达: ${e.message}`);
     });
   }
 
@@ -237,19 +226,12 @@
     async getFileSha() {
       const gw = CONFIG.githubWrite;
       const url = `https://api.github.com/repos/${gw.owner}/${gw.repo}/contents/${gw.filePath}?ref=${gw.branch}`;
-      return new Promise((resolve, reject) => {
-        GM_xmlhttpRequest({
-          method: "GET", url,
-          headers: { Authorization: `token ${gw.token}`, Accept: "application/vnd.github.v3+json" },
-          onload(r) {
-            if (r.status === 200) {
-              const d = JSON.parse(r.responseText);
-              resolve({ sha: d.sha, content: atob(d.content.replace(/\n/g,"")) });
-            } else reject(new Error(`HTTP ${r.status}`));
-          },
-          onerror: reject,
-        });
+      const r = await fetch(url, {
+        headers: { Authorization: `token ${gw.token}`, Accept: "application/vnd.github.v3+json" }
       });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const d = await r.json();
+      return { sha: d.sha, content: atob(d.content.replace(/\n/g,"")) };
     },
 
     async appendRule(ruleLine) {
@@ -264,15 +246,16 @@
         const encoded = btoa(unescape(encodeURIComponent(newContent)));
         const url = `https://api.github.com/repos/${gw.owner}/${gw.repo}/contents/${gw.filePath}`;
 
-        await new Promise((resolve, reject) => {
-          GM_xmlhttpRequest({
-            method: "PUT", url,
-            headers: { Authorization: `token ${gw.token}`, Accept: "application/vnd.github.v3+json", "Content-Type":"application/json" },
-            data: JSON.stringify({ message: `[auto] add rule: ${ruleLine}`, content: encoded, sha, branch: gw.branch }),
-            onload(r) { (r.status === 200 || r.status === 201) ? resolve(JSON.parse(r.responseText)) : reject(new Error(`HTTP ${r.status}`)); },
-            onerror: reject,
-          });
+        const r = await fetch(url, {
+          method: "PUT",
+          headers: {
+            Authorization: `token ${gw.token}`,
+            Accept: "application/vnd.github.v3+json",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ message: `[auto] add rule: ${ruleLine}`, content: encoded, sha, branch: gw.branch }),
         });
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
 
         showToast("已提交: " + ruleLine);
 
