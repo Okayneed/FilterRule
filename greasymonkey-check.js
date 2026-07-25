@@ -504,7 +504,7 @@
           <div style="color:#f9e2af;word-break:break-all;margin-bottom:6px;background:#11111b;padding:5px 7px;border-radius:4px;font-size:11px;">${suggested ? escapeHTML(suggested.line) : "-"}</div>
           <div style="display:flex;gap:6px;">
             <button id="rc-copy" style="background:#45475a;color:#cdd6f4;border:none;border-radius:5px;padding:5px 10px;cursor:pointer;font-size:11px;font-family:inherit;">📋 复制</button>
-            <button id="rc-submit" style="background:${gw.token?'#cba6f7':'#313244'};color:${gw.token?'#1e1e2e':'#6c7086'};border:none;border-radius:5px;padding:5px 10px;font-size:11px;font-family:inherit;cursor:${gw.token?'pointer':'not-allowed'};" ${gw.token?'':'disabled'}>🚀 提交</button>
+            <button id="rc-submit" style="background:#cba6f7;color:#1e1e2e;border:none;border-radius:5px;padding:5px 10px;cursor:pointer;font-size:11px;font-family:inherit;">🚀 提交</button>
           </div>
         </div>
         ` : '<div style="color:#6c7086;font-size:11px;">规则加载中…</div>')}
