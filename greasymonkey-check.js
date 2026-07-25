@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         代理分流规则检测器
 // @namespace    https://github.com/Okayneed/FilterRule
-// @version      2.1.0
+// @version      2.1.1
 // @description  检测当前网页主域名是否命中代理分流规则，并显示实际延迟
 // @author       Okayneed
 // @match        *://*/*
@@ -181,10 +181,20 @@
   function generateSuggestedRule() {
     const d = STATE.domain;
     if (!d) return null;
-    const mode = CONFIG.outputMode, rt = CONFIG.defaultRuleType;
-    if (mode === "loon") return { line: `${rt},${d}`, policy: CONFIG.defaultPolicy };
-    const qxType = rt.replace("DOMAIN","host").replace("-SUFFIX","-suffix").replace("-KEYWORD","-keyword");
-    return { line: `${qxType}, ${d}`, policy: CONFIG.defaultPolicy };
+    // 根据写入目标文件路径自动判断格式：list/ → QX，loon-rule/ → LOON
+    const fp = CONFIG.githubWrite.filePath;
+    const isQX = fp.startsWith("list/");
+    const rt = CONFIG.defaultRuleType;
+    const policy = CONFIG.defaultPolicy;
+
+    if (isQX) {
+      // QX: host-suffix, example.com, Proxy
+      const qxType = rt.replace("DOMAIN","host").replace("-SUFFIX","-suffix").replace("-KEYWORD","-keyword");
+      return { line: `${qxType}, ${d}, ${policy}`, policy };
+    } else {
+      // LOON: DOMAIN-SUFFIX,example.com,Proxy
+      return { line: `${rt},${d},${policy}`, policy };
+    }
   }
 
   // ======================== 复制 ========================
