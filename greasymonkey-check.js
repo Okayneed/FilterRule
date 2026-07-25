@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         代理分流规则检测器
 // @namespace    https://github.com/Okayneed/FilterRule
-// @version      2.2.0
+// @version      2.2.1
 // @description  检测当前网页主域名是否命中代理分流规则，并显示实际延迟
 // @author       Okayneed
 // @match        *://*/*
@@ -15,23 +15,6 @@
 
 (function () {
   'use strict';
-
-  // ======================== Safari · Google 重定向 ========================
-  // 仅对 iPhone Safari 生效，将 google.cn 搜索自动跳转到 google.com
-  (function safariGoogleRedirect() {
-    const ua = navigator.userAgent;
-    const isIPhoneSafari = /iPhone/.test(ua) && /Safari/.test(ua) && !/CriOS|FxiOS|OPiOS|mercury/.test(ua);
-    if (!isIPhoneSafari) return;
-
-    if (window.location.hostname !== "www.google.cn") return;
-    if (!window.location.pathname.startsWith("/search")) return;
-
-    const q = new URL(window.location.href).searchParams.get("q");
-    if (!q) return;
-
-    const target = "https://www.google.com/search?q=" + encodeURIComponent(q);
-    window.location.replace(target);
-  })();
 
   // ======================== 配置区 ========================
 
