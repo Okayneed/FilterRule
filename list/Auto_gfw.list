@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-07-27 06:58 CST
+# Last Updated: 2026-07-28 07:02 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4028
-# Status: No Changes
+# Total Rules: 4029
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -3426,6 +3426,7 @@ host-suffix, trtworld.com
 host-suffix, truebuddha-md.org
 host-suffix, trustwallet.com
 host-suffix, truthsocial.com
+host-suffix, tryai.dev
 host-suffix, tryheart.jp
 host-suffix, tsdr.uspto.gov
 host-suffix, tt1069.com
