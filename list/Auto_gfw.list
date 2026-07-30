@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-07-30 06:59 CST
+# Last Updated: 2026-07-31 07:08 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4029
-# Status: No Changes
+# Total Rules: 4031
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -2071,6 +2071,7 @@ host-suffix, lenwhite.com
 host-suffix, leonardo.ai
 host-suffix, lesoir.be
 host-suffix, letscorp.net
+host-suffix, level-plus.net
 host-suffix, lexica.art
 host-suffix, li.taipei
 host-suffix, liangyou.net
@@ -3583,6 +3584,7 @@ host-suffix, uyghurcongress.org
 host-suffix, uyghurpen.org
 host-suffix, uyghurstudies.org
 host-suffix, uyghurtribunal.com
+host-suffix, v.recipes
 host-suffix, v2.help
 host-suffix, v2.hysteria.network
 host-suffix, v2ex.com

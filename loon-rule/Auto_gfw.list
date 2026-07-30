@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-07-30 06:59 CST
+# Last Updated: 2026-07-31 07:08 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4029
-# Status: No Changes
+# Total Rules: 4031
+# Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
 DOMAIN-SUFFIX,1-apple.com.tw
@@ -2071,6 +2071,7 @@ DOMAIN-SUFFIX,lenwhite.com
 DOMAIN-SUFFIX,leonardo.ai
 DOMAIN-SUFFIX,lesoir.be
 DOMAIN-SUFFIX,letscorp.net
+DOMAIN-SUFFIX,level-plus.net
 DOMAIN-SUFFIX,lexica.art
 DOMAIN-SUFFIX,li.taipei
 DOMAIN-SUFFIX,liangyou.net
@@ -3583,6 +3584,7 @@ DOMAIN-SUFFIX,uyghurcongress.org
 DOMAIN-SUFFIX,uyghurpen.org
 DOMAIN-SUFFIX,uyghurstudies.org
 DOMAIN-SUFFIX,uyghurtribunal.com
+DOMAIN-SUFFIX,v.recipes
 DOMAIN-SUFFIX,v2.help
 DOMAIN-SUFFIX,v2.hysteria.network
 DOMAIN-SUFFIX,v2ex.com
