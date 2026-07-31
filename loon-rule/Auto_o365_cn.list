@@ -1,10 +1,10 @@
 # Office 365 China (21Vianet) (Auto-Generated)
 # Maintained by: scripts/generate_o365.py
-# Last Updated: 2026-07-31 07:08 CST
+# Last Updated: 2026-08-01 07:01 CST
 # Source: Microsoft Official Endpoint
 # Total Domains: 45
 # Total IPv4: 55
-# Status: No Changes
+# Status: Updated
 
 ; --- Domains (DOMAIN-SUFFIX) ---
 DOMAIN-SUFFIX,aadrm.cn
@@ -15,6 +15,7 @@ DOMAIN-SUFFIX,azure-mobile.cn
 DOMAIN-SUFFIX,cdn.office.net
 DOMAIN-SUFFIX,chinacloud-mobile.cn
 DOMAIN-SUFFIX,chinacloudapi.cn
+DOMAIN-SUFFIX,collector.azure.cn
 DOMAIN-SUFFIX,crl.microsoft.com
 DOMAIN-SUFFIX,login.microsoftonline.com
 DOMAIN-SUFFIX,login.partner.microsoftonline.cn
@@ -31,7 +32,6 @@ DOMAIN-SUFFIX,officecdn.microsoft.com
 DOMAIN-SUFFIX,officeclient.microsoft.com
 DOMAIN-SUFFIX,officewebapps.cn
 DOMAIN-SUFFIX,onmschina.cn
-DOMAIN-SUFFIX,partner.lync.cn
 DOMAIN-SUFFIX,partner.microsoftonline-m-i.net.cn
 DOMAIN-SUFFIX,partner.microsoftonline-m.net.cn
 DOMAIN-SUFFIX,partner.microsoftonline-p.cn

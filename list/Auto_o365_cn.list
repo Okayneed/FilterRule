@@ -1,10 +1,10 @@
 # Office 365 China (21Vianet) (Auto-Generated)
 # Maintained by: scripts/generate_o365.py
-# Last Updated: 2026-07-31 07:08 CST
+# Last Updated: 2026-08-01 07:01 CST
 # Source: Microsoft Official Endpoint
 # Total Domains: 45
 # Total IPv4: 55
-# Status: No Changes
+# Status: Updated
 
 ; --- Domains (host-suffix) ---
 host-suffix, aadrm.cn
@@ -15,6 +15,7 @@ host-suffix, azure-mobile.cn
 host-suffix, cdn.office.net
 host-suffix, chinacloud-mobile.cn
 host-suffix, chinacloudapi.cn
+host-suffix, collector.azure.cn
 host-suffix, crl.microsoft.com
 host-suffix, login.microsoftonline.com
 host-suffix, login.partner.microsoftonline.cn
@@ -31,7 +32,6 @@ host-suffix, officecdn.microsoft.com
 host-suffix, officeclient.microsoft.com
 host-suffix, officewebapps.cn
 host-suffix, onmschina.cn
-host-suffix, partner.lync.cn
 host-suffix, partner.microsoftonline-m-i.net.cn
 host-suffix, partner.microsoftonline-m.net.cn
 host-suffix, partner.microsoftonline-p.cn
