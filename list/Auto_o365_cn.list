@@ -1,10 +1,10 @@
 # Office 365 China (21Vianet) (Auto-Generated)
 # Maintained by: scripts/generate_o365.py
-# Last Updated: 2026-08-01 07:01 CST
+# Last Updated: 2026-08-02 06:56 CST
 # Source: Microsoft Official Endpoint
 # Total Domains: 45
 # Total IPv4: 55
-# Status: Updated
+# Status: No Changes
 
 ; --- Domains (host-suffix) ---
 host-suffix, aadrm.cn

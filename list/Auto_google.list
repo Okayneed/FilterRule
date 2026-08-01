@@ -1,9 +1,9 @@
 # Google Rules (Auto-Generated)
 # Maintained by: scripts/generate_proxy_apps.py
-# Last Updated: 2026-08-01 07:01 CST
+# Last Updated: 2026-08-02 06:56 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 641
-# Status: No Changes
+# Total Rules: 644
+# Status: Updated
 
 host, 2mdn-cn.net
 host, 2mdn.net
@@ -117,6 +117,7 @@ host-suffix, 265.com
 host-suffix, 2mdn-cn.net
 host-suffix, 2mdn.net
 host-suffix, 466453.com
+host-suffix, actifio.com
 host-suffix, adgoogle.net
 host-suffix, admeld.com
 host-suffix, admob-cn.com
@@ -135,6 +136,7 @@ host-suffix, analytics-alv.google.com
 host-suffix, angulardart.org
 host-suffix, api.ai
 host-suffix, apigee.com
+host-suffix, app-ads-services.com
 host-suffix, app-analytics-services-att.com
 host-suffix, app-analytics-services.com
 host-suffix, app-measurement-cn.com
@@ -549,6 +551,7 @@ host-suffix, onefifteen.org
 host-suffix, oneworldmanystories.com
 host-suffix, openthread.io
 host-suffix, openweave.io
+host-suffix, openxla.org
 host-suffix, orbitera.com
 host-suffix, page.link
 host-suffix, pagead.l.google.com
