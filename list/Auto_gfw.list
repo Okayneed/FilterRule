@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-08-02 06:56 CST
+# Last Updated: 2026-08-03 06:56 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4032
+# Total Rules: 4029
 # Status: Updated
 
 host-suffix, 000webhost.com
@@ -590,6 +590,7 @@ host-suffix, cenews.eu
 host-suffix, centauro.com.br
 host-suffix, centerforhumanreprod.com
 host-suffix, centralnation.com
+host-suffix, cerebras.ai
 host-suffix, certificate-transparency.org
 host-suffix, cfr.org
 host-suffix, cg.play-analytics.com
@@ -663,6 +664,7 @@ host-suffix, chrome.com
 host-suffix, chromecast.com
 host-suffix, chromeexperiments.com
 host-suffix, chromestatus.com
+host-suffix, cht.com.tw
 host-suffix, ci-en.jp
 host-suffix, cia.gov
 host-suffix, cici.com
@@ -2318,7 +2320,6 @@ host-suffix, mos.ru
 host-suffix, mosavi.io
 host-suffix, movements.org
 host-suffix, moviefap.com
-host-suffix, mozilla.ai
 host-suffix, mpettis.com
 host-suffix, mpfinance.com
 host-suffix, mpinews.com
@@ -2768,7 +2769,6 @@ host-suffix, puffinbrowser.com
 host-suffix, pullfolio.co
 host-suffix, pure18.com
 host-suffix, pureconcepts.net
-host-suffix, puredns.org
 host-suffix, pureinsight.org
 host-suffix, purepdf.com
 host-suffix, purevpn.com
@@ -2810,7 +2810,6 @@ host-suffix, radio.co
 host-suffix, radio.garden
 host-suffix, radioaustralia.net.au
 host-suffix, radiohilight.net
-host-suffix, radiojar.com
 host-suffix, radioline.co
 host-suffix, radiovaticana.org
 host-suffix, radiovncr.com
@@ -2917,7 +2916,6 @@ host-suffix, sadpanda.us
 host-suffix, safechat.com
 host-suffix, safeguarddefenders.com
 host-suffix, safervpn.com
-host-suffix, sagernet.org
 host-suffix, sakuralive.com
 host-suffix, salvation.org.hk
 host-suffix, sankakucomplex.com
@@ -3836,7 +3834,6 @@ host-suffix, wwitv.com
 host-suffix, www.ajsands.com
 host-suffix, www.aolnews.com
 host-suffix, www.bing.com
-host-suffix, www.clashverge.dev
 host-suffix, www.hoyolab.com
 host-suffix, www.lorenzetti.com.br
 host-suffix, www.moztw.org
