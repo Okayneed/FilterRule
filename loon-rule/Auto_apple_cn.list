@@ -1,9 +1,9 @@
 # Apple & iCloud China (Auto-Generated)
 # Maintained by: scripts/generate_apple.py
-# Last Updated: 2026-08-04 07:01 CST
+# Last Updated: 2026-08-05 07:03 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 913
-# Status: No Changes
+# Total Rules: 915
+# Status: Updated
 
 DOMAIN,a1.mzstatic.com
 DOMAIN,a2.mzstatic.com
@@ -166,6 +166,8 @@ DOMAIN,swscan-cdn.apple.com.akadns.net
 DOMAIN,swscan.apple.com
 DOMAIN,sylvan.apple.com
 DOMAIN,tj-pod1-smp-device.apple.com
+DOMAIN,tj-pod2-smp-device.apple.com
+DOMAIN,tj-pod3-smp-device.apple.com
 DOMAIN,updates-http.cdn-apple.com
 DOMAIN,updates-http.cdn-apple.com.akadns.net
 DOMAIN,updates.cdn-apple.com
