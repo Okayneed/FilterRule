@@ -1,8 +1,8 @@
 # Apple & iCloud China (Auto-Generated)
 # Maintained by: scripts/generate_apple.py
-# Last Updated: 2026-08-05 07:03 CST
+# Last Updated: 2026-08-06 06:59 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 915
+# Total Rules: 904
 # Status: Updated
 
 host, a1.mzstatic.com
@@ -24,16 +24,6 @@ host, appldnld.g.aaplimg.com
 host, apple.com.akadns.net
 host, appleid.cdn-apple.com
 host, apps.mzstatic.com
-host, cdn-cn.apple-mapkit.com
-host, cdn-cn1.apple-mapkit.com
-host, cdn-cn2.apple-mapkit.com
-host, cdn-cn3.apple-mapkit.com
-host, cdn-cn4.apple-mapkit.com
-host, cdn.apple-mapkit.com
-host, cdn1.apple-mapkit.com
-host, cdn2.apple-mapkit.com
-host, cdn3.apple-mapkit.com
-host, cdn4.apple-mapkit.com
 host, cds-cdn.v.aaplimg.com
 host, cds.apple.com
 host, cds.apple.com.akadns.net
@@ -227,7 +217,6 @@ host-suffix, apple-icloud.cn
 host-suffix, apple-imac.com
 host-suffix, apple-inc.net
 host-suffix, apple-livephotoskit.com
-host-suffix, apple-mapkit.com
 host-suffix, apple-maps.cn
 host-suffix, apple-online.com
 host-suffix, apple-pay.com

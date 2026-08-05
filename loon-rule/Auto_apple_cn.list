@@ -1,8 +1,8 @@
 # Apple & iCloud China (Auto-Generated)
 # Maintained by: scripts/generate_apple.py
-# Last Updated: 2026-08-05 07:03 CST
+# Last Updated: 2026-08-06 06:59 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 915
+# Total Rules: 904
 # Status: Updated
 
 DOMAIN,a1.mzstatic.com
@@ -24,16 +24,6 @@ DOMAIN,appldnld.g.aaplimg.com
 DOMAIN,apple.com.akadns.net
 DOMAIN,appleid.cdn-apple.com
 DOMAIN,apps.mzstatic.com
-DOMAIN,cdn-cn.apple-mapkit.com
-DOMAIN,cdn-cn1.apple-mapkit.com
-DOMAIN,cdn-cn2.apple-mapkit.com
-DOMAIN,cdn-cn3.apple-mapkit.com
-DOMAIN,cdn-cn4.apple-mapkit.com
-DOMAIN,cdn.apple-mapkit.com
-DOMAIN,cdn1.apple-mapkit.com
-DOMAIN,cdn2.apple-mapkit.com
-DOMAIN,cdn3.apple-mapkit.com
-DOMAIN,cdn4.apple-mapkit.com
 DOMAIN,cds-cdn.v.aaplimg.com
 DOMAIN,cds.apple.com
 DOMAIN,cds.apple.com.akadns.net
@@ -227,7 +217,6 @@ DOMAIN-SUFFIX,apple-icloud.cn
 DOMAIN-SUFFIX,apple-imac.com
 DOMAIN-SUFFIX,apple-inc.net
 DOMAIN-SUFFIX,apple-livephotoskit.com
-DOMAIN-SUFFIX,apple-mapkit.com
 DOMAIN-SUFFIX,apple-maps.cn
 DOMAIN-SUFFIX,apple-online.com
 DOMAIN-SUFFIX,apple-pay.com
