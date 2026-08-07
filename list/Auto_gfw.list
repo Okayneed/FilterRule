@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-08-06 06:59 CST
+# Last Updated: 2026-08-07 09:29 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4029
-# Status: No Changes
+# Total Rules: 4028
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -281,7 +281,6 @@ host-suffix, atlanta168.com
 host-suffix, atnext.com
 host-suffix, auctions.yahoo.co.jp
 host-suffix, audacy.com
-host-suffix, auntology.fandom.com
 host-suffix, autodraw.com
 host-suffix, av.movie
 host-suffix, av01.tv
@@ -1071,6 +1070,7 @@ host-suffix, falundafaindia.org
 host-suffix, falunhr.org
 host-suffix, famunion.com
 host-suffix, fanbox.cc
+host-suffix, fandom.com
 host-suffix, fangeqiang.com
 host-suffix, fanglizhi.info
 host-suffix, fangong.org
@@ -1727,7 +1727,6 @@ host-suffix, hole.thu.monster
 host-suffix, holyspiritspeaks.org
 host-suffix, home.saxo
 host-suffix, homedepot.com
-host-suffix, hongkong.fandom.com
 host-suffix, hongkongfp.com
 host-suffix, hongzhi.li
 host-suffix, honven.xyz
