@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-08-10 06:31 CST
+# Last Updated: 2026-08-11 06:37 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4032
+# Total Rules: 4033
 # Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
@@ -877,6 +877,7 @@ DOMAIN-SUFFIX,disneyplus.com
 DOMAIN-SUFFIX,disp.cc
 DOMAIN-SUFFIX,disqus.com
 DOMAIN-SUFFIX,dit-inc.us
+DOMAIN-SUFFIX,divdyn.com
 DOMAIN-SUFFIX,diyin.org
 DOMAIN-SUFFIX,dizhuzhishang.com
 DOMAIN-SUFFIX,dl-laby.jp
