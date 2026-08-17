@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-08-17 06:21 CST
+# Last Updated: 2026-08-18 06:25 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4033
-# Status: No Changes
+# Total Rules: 4034
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -2121,6 +2121,7 @@ host-suffix, liveleak.com
 host-suffix, livemint.com
 host-suffix, livestream.com
 host-suffix, livevideo.com
+host-suffix, livingatlas.arcgis.com
 host-suffix, livingstream.com
 host-suffix, lmarena.ai
 host-suffix, localbitcoins.com

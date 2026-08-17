@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-08-17 06:21 CST
+# Last Updated: 2026-08-18 06:25 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4033
-# Status: No Changes
+# Total Rules: 4034
+# Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
 DOMAIN-SUFFIX,1-apple.com.tw
@@ -2121,6 +2121,7 @@ DOMAIN-SUFFIX,liveleak.com
 DOMAIN-SUFFIX,livemint.com
 DOMAIN-SUFFIX,livestream.com
 DOMAIN-SUFFIX,livevideo.com
+DOMAIN-SUFFIX,livingatlas.arcgis.com
 DOMAIN-SUFFIX,livingstream.com
 DOMAIN-SUFFIX,lmarena.ai
 DOMAIN-SUFFIX,localbitcoins.com
