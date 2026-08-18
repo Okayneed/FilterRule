@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-08-18 06:25 CST
+# Last Updated: 2026-08-19 06:24 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4034
+# Total Rules: 4036
 # Status: Updated
 
 host-suffix, 000webhost.com
@@ -2914,6 +2914,7 @@ host-suffix, rutracker.org
 host-suffix, s-cute.com
 host-suffix, s.yimg.com
 host-suffix, s3-ap-northeast-1.amazonaws.com
+host-suffix, s3.dualstack.us-west-2.amazonaws.com
 host-suffix, sacks.com
 host-suffix, sacom.hk
 host-suffix, sadistic-v.com
@@ -3787,6 +3788,7 @@ host-suffix, wiktionary.org
 host-suffix, willw.net
 host-suffix, wilsoncenter.org
 host-suffix, windscribe.com
+host-suffix, windy.com
 host-suffix, wingamestore.com
 host-suffix, wingy.site
 host-suffix, wionews.com
