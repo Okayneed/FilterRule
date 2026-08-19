@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-08-19 06:24 CST
+# Last Updated: 2026-08-20 06:25 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4036
+# Total Rules: 4037
 # Status: Updated
 
 host-suffix, 000webhost.com
@@ -2514,6 +2514,7 @@ host-suffix, okk.tw
 host-suffix, oklink.com
 host-suffix, okpool.me
 host-suffix, okx.com
+host-suffix, oldmapsonline.org
 host-suffix, olehdtv.com
 host-suffix, olelive.com
 host-suffix, olevod.com

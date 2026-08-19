@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-08-19 06:24 CST
+# Last Updated: 2026-08-20 06:25 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4036
+# Total Rules: 4037
 # Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
@@ -2514,6 +2514,7 @@ DOMAIN-SUFFIX,okk.tw
 DOMAIN-SUFFIX,oklink.com
 DOMAIN-SUFFIX,okpool.me
 DOMAIN-SUFFIX,okx.com
+DOMAIN-SUFFIX,oldmapsonline.org
 DOMAIN-SUFFIX,olehdtv.com
 DOMAIN-SUFFIX,olelive.com
 DOMAIN-SUFFIX,olevod.com
