@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-08-21 06:28 CST
+# Last Updated: 2026-08-22 06:25 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4037
-# Status: No Changes
+# Total Rules: 4039
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -471,6 +471,7 @@ host-suffix, break.com
 host-suffix, breakgfw.com
 host-suffix, breakingtweets.com
 host-suffix, breakwall.net
+host-suffix, briarproject.org
 host-suffix, brill.com
 host-suffix, brizzly.com
 host-suffix, broadpressinc.com
@@ -605,6 +606,7 @@ host-suffix, character.ai
 host-suffix, chat.com
 host-suffix, chat.lmsys.org
 host-suffix, chatgpt.com
+host-suffix, chatgpt.site
 host-suffix, chatpdf.com
 host-suffix, chaturbate.com
 host-suffix, checkgfw.com
