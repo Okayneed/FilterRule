@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-08-23 06:22 CST
+# Last Updated: 2026-08-24 06:22 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4043
+# Total Rules: 4045
 # Status: Updated
 
 host-suffix, 000webhost.com
@@ -211,6 +211,7 @@ host-suffix, api.moomoobull.com
 host-suffix, api.palworldgame.com
 host-suffix, api.pureapk.com
 host-suffix, api.recaptcha.net
+host-suffix, api.shuaiapi.com
 host-suffix, api.steampowered.com
 host-suffix, api5.futunn.com
 host-suffix, apiary.io
@@ -3866,6 +3867,7 @@ host-suffix, x.co
 host-suffix, x.com
 host-suffix, x.company
 host-suffix, x3guide.com
+host-suffix, x86.fr
 host-suffix, xbabe.com
 host-suffix, xbookcn.com
 host-suffix, xbtce.com
