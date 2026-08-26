@@ -3,8 +3,7 @@
 # Last Updated: User-driven (manual edits only)
 # Total Rules: 4
 host-suffix, dmm.co.jp
-host-suffix, dmm.com
-host-keyword, ladybo
+host-suffix, fanza.jp
 geoip, jp
 HOST-SUFFIX, cc3001.dmm.co.jp
 DOMAIN-SUFFIX,johntronx.com
