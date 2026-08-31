@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-08-30 07:55 CST
+# Last Updated: 2026-08-31 08:14 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4046
-# Status: No Changes
+# Total Rules: 4048
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -1299,6 +1299,7 @@ host-suffix, geti2p.net
 host-suffix, getlantern.org
 host-suffix, getmalus.com
 host-suffix, getmdl.io
+host-suffix, getmonero.org
 host-suffix, getoutline.org
 host-suffix, getsession.org
 host-suffix, getsync.com
@@ -2442,6 +2443,7 @@ host-suffix, nga.mil
 host-suffix, nhentai.net
 host-suffix, nic.cz.cc
 host-suffix, nic.gov
+host-suffix, nicoseiga.jp
 host-suffix, nicovideo.jp
 host-suffix, nightswatch.top
 host-suffix, nikke-en.com
