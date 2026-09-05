@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-09-05 07:47 CST
+# Last Updated: 2026-09-06 07:35 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4051
+# Total Rules: 4060
 # Status: Updated
 
 host-suffix, 000webhost.com
@@ -10,6 +10,8 @@ host-suffix, 1-apple.com.tw
 host-suffix, 1000giri.net
 host-suffix, 10beasts.net
 host-suffix, 10musume.com
+host-suffix, 123av.com
+host-suffix, 123av.me
 host-suffix, 12bet.com
 host-suffix, 12vpn.com
 host-suffix, 12vpn.net
@@ -1678,6 +1680,7 @@ host-suffix, help.byspotify.com
 host-suffix, helpeachpeople.com
 host-suffix, helpster.de
 host-suffix, hembed.com
+host-suffix, hentai.tv
 host-suffix, heqinglian.net
 host-suffix, heritage.org
 host-suffix, herokuapp.com
@@ -2893,6 +2896,7 @@ host-suffix, rlwlw.com
 host-suffix, rmbl.ws
 host-suffix, roblox.com
 host-suffix, robustnessiskey.com
+host-suffix, roc-taiwan.org
 host-suffix, rocket-inc.net
 host-suffix, rocket.chat
 host-suffix, rocksdb.org
@@ -2902,6 +2906,7 @@ host-suffix, rolia.net
 host-suffix, rolsociety.org
 host-suffix, ronjoneswriter.com
 host-suffix, rou.video
+host-suffix, roushuwo.com
 host-suffix, rsdlmonitor.com
 host-suffix, rsf-chinese.org
 host-suffix, rsf.org
@@ -3189,6 +3194,7 @@ host-suffix, sunporno.com
 host-suffix, supchina.com
 host-suffix, superpages.com
 host-suffix, supervpn.net
+host-suffix, supjav.com
 host-suffix, support.futunn.com
 host-suffix, supremecourt.gov
 host-suffix, surfeasy.com
@@ -3216,10 +3222,12 @@ host-suffix, t66y.com
 host-suffix, taaze.tw
 host-suffix, taedp.org.tw
 host-suffix, tagwalk.com
+host-suffix, taiav.com
 host-suffix, tails.net
 host-suffix, taipeisociety.org
 host-suffix, taipeitimes.com
 host-suffix, taisounds.com
+host-suffix, taiwanembassy.org
 host-suffix, taiwanhot.net
 host-suffix, taiwanjustice.net
 host-suffix, taiwanncf.org.tw
@@ -3846,6 +3854,7 @@ host-suffix, write.as
 host-suffix, writesonic.com
 host-suffix, wsj.com
 host-suffix, wsj.net
+host-suffix, wtfpass.com
 host-suffix, wufafangwen.com
 host-suffix, wufi.org.tw
 host-suffix, wujieliulan.com
