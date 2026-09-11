@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-09-11 07:48 CST
+# Last Updated: 2026-09-12 07:55 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4060
-# Status: No Changes
+# Total Rules: 4045
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -203,19 +203,15 @@ host-suffix, aoxvpn.com
 host-suffix, apartmentratings.com
 host-suffix, apartments.com
 host-suffix, apat1989.org
-host-suffix, api-gl.lbkrs.com
 host-suffix, api-secure.recaptcha.net
 host-suffix, api-verify.recaptcha.net
 host-suffix, api.ai
-host-suffix, api.futunn.com
-host-suffix, api.lbkrs.com
 host-suffix, api.moomoobull.com
 host-suffix, api.palworldgame.com
 host-suffix, api.pureapk.com
 host-suffix, api.recaptcha.net
 host-suffix, api.shuaiapi.com
 host-suffix, api.steampowered.com
-host-suffix, api5.futunn.com
 host-suffix, apiary.io
 host-suffix, apigee.com
 host-suffix, apk.support
@@ -575,7 +571,6 @@ host-suffix, cdjp.org
 host-suffix, cdn-images.mailchimp.com
 host-suffix, cdn-telegram.org
 host-suffix, cdn.arstechnica.net
-host-suffix, cdn.futustatic.com
 host-suffix, cdn.jwplayer.com
 host-suffix, cdn.printfriendly.com
 host-suffix, cdn.seatguru.com
@@ -713,7 +708,6 @@ host-suffix, cmule.com
 host-suffix, cmx.im
 host-suffix, cn.sandscotaicentral.com
 host-suffix, cn.theaustralian.com.au
-host-suffix, cn.uptodown.com
 host-suffix, cna.com.tw
 host-suffix, cnbbnews.wordpress.com
 host-suffix, cnbeta.com.tw
@@ -930,7 +924,6 @@ host-suffix, dougscripts.com
 host-suffix, doujincafe.com
 host-suffix, dowjones.io
 host-suffix, download.dappcdn.com
-host-suffix, download.futunn.com
 host-suffix, dpool.top
 host-suffix, dpp.org.tw
 host-suffix, dpr.info
@@ -2557,12 +2550,8 @@ host-suffix, ooni.org
 host-suffix, open.firstory.me
 host-suffix, openai.com
 host-suffix, openapi-quote.longbridge.cn
-host-suffix, openapi-quote.longbridge.com
 host-suffix, openapi-trade.longbridge.cn
-host-suffix, openapi-trade.longbridge.com
-host-suffix, openapi.futunn.com
 host-suffix, openapi.longbridge.cn
-host-suffix, openapi.longbridge.com
 host-suffix, openart.ai
 host-suffix, opencritic.com
 host-suffix, opendemocracy.net
@@ -2810,9 +2799,8 @@ host-suffix, qiwen.lu
 host-suffix, qoos.com
 host-suffix, qq.co.za
 host-suffix, qstatus.com
-host-suffix, qtcard.futunn.com
-host-suffix, qtcardfthk.futufin.com
 host-suffix, qtrac.eu
+host-suffix, quakemachinex.com
 host-suffix, questvisual.com
 host-suffix, quitccp.org
 host-suffix, quiz.directory
@@ -3195,7 +3183,6 @@ host-suffix, supchina.com
 host-suffix, superpages.com
 host-suffix, supervpn.net
 host-suffix, supjav.com
-host-suffix, support.futunn.com
 host-suffix, supremecourt.gov
 host-suffix, surfeasy.com
 host-suffix, surfshark.com
@@ -3438,8 +3425,6 @@ host-suffix, totalvpn.com
 host-suffix, tou.tv
 host-suffix, tpi.org.tw
 host-suffix, tracfone.com
-host-suffix, trade.futunn.com
-host-suffix, trade.longportapp.com
 host-suffix, tradeup.com
 host-suffix, tradingview.com
 host-suffix, translate.goog
