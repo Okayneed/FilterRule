@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-09-21 07:54 CST
+# Last Updated: 2026-09-22 08:37 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4045
-# Status: No Changes
+# Total Rules: 4047
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -652,6 +652,7 @@ host-suffix, chinesedemocracy.com
 host-suffix, chinesegay.org
 host-suffix, chinesen.de
 host-suffix, chinesenews.net.au
+host-suffix, chineseposters.net
 host-suffix, chineseradioseattle.com
 host-suffix, chineseupress.com
 host-suffix, chingcheong.com
@@ -2469,6 +2470,7 @@ host-suffix, nordstromimage.com
 host-suffix, nordstromrack.com
 host-suffix, nordvpn.com
 host-suffix, nos.nl
+host-suffix, note.com
 host-suffix, notepad-plus-plus.org
 host-suffix, nottinghampost.com
 host-suffix, now.com
