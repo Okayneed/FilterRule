@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-09-26 08:24 CST
+# Last Updated: 2026-09-27 08:19 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4047
-# Status: No Changes
+# Total Rules: 4050
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -517,6 +517,7 @@ host-suffix, byrut.org
 host-suffix, c-est-simple.com
 host-suffix, c-span.org
 host-suffix, c-spanvideo.org
+host-suffix, c.go-mpulse.net
 host-suffix, c.mi.com
 host-suffix, c2cx.com
 host-suffix, c3pool.com
@@ -2798,6 +2799,7 @@ host-suffix, qiangwaikan.com
 host-suffix, qiangyou.org
 host-suffix, qianmo.tw
 host-suffix, qiwen.lu
+host-suffix, qobuz.com
 host-suffix, qoos.com
 host-suffix, qq.co.za
 host-suffix, qstatus.com
@@ -3608,6 +3610,7 @@ host-suffix, valeursactuelles.com
 host-suffix, vansky.com
 host-suffix, vaticannews.va
 host-suffix, vatn.org
+host-suffix, vava8.com
 host-suffix, vcf-online.org
 host-suffix, vcfbuilder.org
 host-suffix, veed.io

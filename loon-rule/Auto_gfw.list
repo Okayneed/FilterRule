@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-09-26 08:24 CST
+# Last Updated: 2026-09-27 08:19 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4047
-# Status: No Changes
+# Total Rules: 4050
+# Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
 DOMAIN-SUFFIX,1-apple.com.tw
@@ -517,6 +517,7 @@ DOMAIN-SUFFIX,byrut.org
 DOMAIN-SUFFIX,c-est-simple.com
 DOMAIN-SUFFIX,c-span.org
 DOMAIN-SUFFIX,c-spanvideo.org
+DOMAIN-SUFFIX,c.go-mpulse.net
 DOMAIN-SUFFIX,c.mi.com
 DOMAIN-SUFFIX,c2cx.com
 DOMAIN-SUFFIX,c3pool.com
@@ -2798,6 +2799,7 @@ DOMAIN-SUFFIX,qiangwaikan.com
 DOMAIN-SUFFIX,qiangyou.org
 DOMAIN-SUFFIX,qianmo.tw
 DOMAIN-SUFFIX,qiwen.lu
+DOMAIN-SUFFIX,qobuz.com
 DOMAIN-SUFFIX,qoos.com
 DOMAIN-SUFFIX,qq.co.za
 DOMAIN-SUFFIX,qstatus.com
@@ -3608,6 +3610,7 @@ DOMAIN-SUFFIX,valeursactuelles.com
 DOMAIN-SUFFIX,vansky.com
 DOMAIN-SUFFIX,vaticannews.va
 DOMAIN-SUFFIX,vatn.org
+DOMAIN-SUFFIX,vava8.com
 DOMAIN-SUFFIX,vcf-online.org
 DOMAIN-SUFFIX,vcfbuilder.org
 DOMAIN-SUFFIX,veed.io
