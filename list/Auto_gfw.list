@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-09-30 09:07 CST
+# Last Updated: 2026-10-01 09:07 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4050
-# Status: No Changes
+# Total Rules: 4052
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -1247,6 +1247,7 @@ host-suffix, futuremessage.org
 host-suffix, futustatic.com
 host-suffix, fututrade.com
 host-suffix, fututrustee.com
+host-suffix, fuyin116.com
 host-suffix, fw.cm
 host-suffix, fxcm-chinese.com
 host-suffix, fxnetworks.com
@@ -2344,6 +2345,7 @@ host-suffix, mthruf.com
 host-suffix, mubi.com
 host-suffix, mullvad.net
 host-suffix, multiply.com
+host-suffix, muse.ai
 host-suffix, music.amazon.com
 host-suffix, musixmatch.com
 host-suffix, muzi.com

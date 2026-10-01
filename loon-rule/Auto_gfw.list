@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-09-30 09:07 CST
+# Last Updated: 2026-10-01 09:07 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4050
-# Status: No Changes
+# Total Rules: 4052
+# Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
 DOMAIN-SUFFIX,1-apple.com.tw
@@ -1247,6 +1247,7 @@ DOMAIN-SUFFIX,futuremessage.org
 DOMAIN-SUFFIX,futustatic.com
 DOMAIN-SUFFIX,fututrade.com
 DOMAIN-SUFFIX,fututrustee.com
+DOMAIN-SUFFIX,fuyin116.com
 DOMAIN-SUFFIX,fw.cm
 DOMAIN-SUFFIX,fxcm-chinese.com
 DOMAIN-SUFFIX,fxnetworks.com
@@ -2344,6 +2345,7 @@ DOMAIN-SUFFIX,mthruf.com
 DOMAIN-SUFFIX,mubi.com
 DOMAIN-SUFFIX,mullvad.net
 DOMAIN-SUFFIX,multiply.com
+DOMAIN-SUFFIX,muse.ai
 DOMAIN-SUFFIX,music.amazon.com
 DOMAIN-SUFFIX,musixmatch.com
 DOMAIN-SUFFIX,muzi.com
