@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-10-01 09:07 CST
+# Last Updated: 2026-10-02 09:20 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4052
+# Total Rules: 4053
 # Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
@@ -3706,6 +3706,7 @@ DOMAIN-SUFFIX,waffle1999.com
 DOMAIN-SUFFIX,wainao.me
 DOMAIN-SUFFIX,walletconnect.com
 DOMAIN-SUFFIX,walletconnect.org
+DOMAIN-SUFFIX,wallhaven.cc
 DOMAIN-SUFFIX,wallmama.com
 DOMAIN-SUFFIX,wallpapercasa.com
 DOMAIN-SUFFIX,wallsttv.com

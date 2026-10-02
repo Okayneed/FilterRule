@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-10-01 09:07 CST
+# Last Updated: 2026-10-02 09:20 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4052
+# Total Rules: 4053
 # Status: Updated
 
 host-suffix, 000webhost.com
@@ -3706,6 +3706,7 @@ host-suffix, waffle1999.com
 host-suffix, wainao.me
 host-suffix, walletconnect.com
 host-suffix, walletconnect.org
+host-suffix, wallhaven.cc
 host-suffix, wallmama.com
 host-suffix, wallpapercasa.com
 host-suffix, wallsttv.com
