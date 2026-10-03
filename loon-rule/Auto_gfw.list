@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-10-02 09:20 CST
+# Last Updated: 2026-10-03 08:58 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4053
+# Total Rules: 4054
 # Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
@@ -3026,6 +3026,7 @@ DOMAIN-SUFFIX,simpleswap.io
 DOMAIN-SUFFIX,simplex.chat
 DOMAIN-SUFFIX,sina.com.hk
 DOMAIN-SUFFIX,sinchew.com.my
+DOMAIN-SUFFIX,sing-box.sagernet.org
 DOMAIN-SUFFIX,singaporepools.com.sg
 DOMAIN-SUFFIX,singlelogin.se
 DOMAIN-SUFFIX,singtao.com

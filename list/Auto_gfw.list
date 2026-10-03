@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-10-02 09:20 CST
+# Last Updated: 2026-10-03 08:58 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4053
+# Total Rules: 4054
 # Status: Updated
 
 host-suffix, 000webhost.com
@@ -3026,6 +3026,7 @@ host-suffix, simpleswap.io
 host-suffix, simplex.chat
 host-suffix, sina.com.hk
 host-suffix, sinchew.com.my
+host-suffix, sing-box.sagernet.org
 host-suffix, singaporepools.com.sg
 host-suffix, singlelogin.se
 host-suffix, singtao.com
