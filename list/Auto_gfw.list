@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-10-06 10:06 CST
+# Last Updated: 2026-10-07 09:14 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4054
-# Status: No Changes
+# Total Rules: 4090
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -126,6 +126,7 @@ host-suffix, agoogleaday.com
 host-suffix, agro.hk
 host-suffix, ai.dev
 host-suffix, ai.studio
+host-suffix, aidc.com.tw
 host-suffix, aihub.top
 host-suffix, aiosearch.com
 host-suffix, aiph.net
@@ -437,6 +438,7 @@ host-suffix, bloomberg.de
 host-suffix, bloombergview.com
 host-suffix, bloomfortune.com
 host-suffix, blubrry.com
+host-suffix, blue-plus.net
 host-suffix, bmdru.com
 host-suffix, bnbstatic.com
 host-suffix, bnext.com.tw
@@ -459,6 +461,7 @@ host-suffix, bowenpress.com
 host-suffix, boxpn.com
 host-suffix, boxun.com
 host-suffix, boxun.tv
+host-suffix, boylove.cc
 host-suffix, boysmaster.com
 host-suffix, br.st
 host-suffix, braumeister.org
@@ -532,6 +535,7 @@ host-suffix, camfrog.com
 host-suffix, campaign-archive.com
 host-suffix, campaignforuyghurs.org
 host-suffix, cams.com
+host-suffix, cangku.moe
 host-suffix, canva.com
 host-suffix, canyu.org
 host-suffix, caobian.info
@@ -759,6 +763,7 @@ host-suffix, counter.social
 host-suffix, coursehero.com
 host-suffix, covenantswatch.org.tw
 host-suffix, coze.com
+host-suffix, cpc.com.tw
 host-suffix, cpj.org
 host-suffix, cpu-monkey.com
 host-suffix, crackle.com
@@ -779,6 +784,7 @@ host-suffix, crrev.com
 host-suffix, crucial.com
 host-suffix, crunchyroll.com
 host-suffix, cruxpool.com
+host-suffix, csc.com.tw
 host-suffix, csdparty.com
 host-suffix, csis.org
 host-suffix, csmonitor.com
@@ -861,6 +867,7 @@ host-suffix, deviantart.net
 host-suffix, devio.us
 host-suffix, devpn.com
 host-suffix, devv.ai
+host-suffix, dh.net
 host-suffix, diaoyuislands.org
 host-suffix, digisfera.com
 host-suffix, diigo.com
@@ -1034,6 +1041,7 @@ host-suffix, everipedia.org
 host-suffix, evschool.net
 host-suffix, exchristian.hk
 host-suffix, exhentai.org
+host-suffix, eximbank.com.tw
 host-suffix, exmo.com
 host-suffix, exmormon.org
 host-suffix, expatshield.com
@@ -1657,7 +1665,9 @@ host-suffix, haiwaikan.com
 host-suffix, hakkatv.org.tw
 host-suffix, halktv.com.tr
 host-suffix, hanime.tv
+host-suffix, hanime1.com
 host-suffix, hanime1.me
+host-suffix, hanimeone.me
 host-suffix, hardsextube.com
 host-suffix, hautelook.com
 host-suffix, hautelookcdn.com
@@ -1677,6 +1687,7 @@ host-suffix, helpeachpeople.com
 host-suffix, helpster.de
 host-suffix, hembed.com
 host-suffix, hentai.tv
+host-suffix, hentaiclub.net
 host-suffix, heqinglian.net
 host-suffix, heritage.org
 host-suffix, herokuapp.com
@@ -1811,6 +1822,7 @@ host-suffix, iam.soy
 host-suffix, iask.ca
 host-suffix, iavian.net
 host-suffix, ibvpn.com
+host-suffix, icdf.org.tw
 host-suffix, icedrive.net
 host-suffix, icij.org
 host-suffix, icl-fi.org
@@ -1866,6 +1878,7 @@ host-suffix, indianarrative.com
 host-suffix, indiandefensenews.in
 host-suffix, indiatoday.in
 host-suffix, indiemerch.com
+host-suffix, indsr.org.tw
 host-suffix, inews-api.tvb.com
 host-suffix, info-graf.fr
 host-suffix, infosec.exchange
@@ -1892,6 +1905,7 @@ host-suffix, investigating.wordpress.com
 host-suffix, investing.com
 host-suffix, invidio.us
 host-suffix, inxian.com
+host-suffix, ipac.global
 host-suffix, ipdefenseforum.com
 host-suffix, ipfire.org
 host-suffix, ipfs.4everland.io
@@ -1947,9 +1961,11 @@ host-suffix, japantimes.co.jp
 host-suffix, jav321.com
 host-suffix, javakiba.org
 host-suffix, javbus.com
+host-suffix, javchu.com
 host-suffix, javdb.com
 host-suffix, javfinder.ai
 host-suffix, javfor.me
+host-suffix, javfree.me
 host-suffix, javhub.net
 host-suffix, javhuge.com
 host-suffix, javlibrary.com
@@ -1969,6 +1985,7 @@ host-suffix, jinrizhiyi.news
 host-suffix, jintian.net
 host-suffix, jinx.com
 host-suffix, jitouch.com
+host-suffix, jkforum.net
 host-suffix, jma.go.jp
 host-suffix, jmsc.hku.hk
 host-suffix, joachims.org
@@ -2014,6 +2031,7 @@ host-suffix, kex.com
 host-suffix, keycdn.com
 host-suffix, kfor.com
 host-suffix, khatrimaza.org
+host-suffix, khc.edu.tw
 host-suffix, kichiku-doujinko.com
 host-suffix, kik.com
 host-suffix, killwall.com
@@ -2057,6 +2075,7 @@ host-suffix, lala.im
 host-suffix, lama.com.tw
 host-suffix, lamayeshe.com
 host-suffix, lamnia.co.uk
+host-suffix, landbank.com.tw
 host-suffix, landofhope.tv
 host-suffix, lantern.io
 host-suffix, laogai.org
@@ -2201,6 +2220,7 @@ host-suffix, mastodon.social
 host-suffix, mastodon.xyz
 host-suffix, matainja.com
 host-suffix, material.io
+host-suffix, matichon.co.th
 host-suffix, matome-plus.com
 host-suffix, matome-plus.net
 host-suffix, matrix.org
@@ -2282,11 +2302,14 @@ host-suffix, miningpoolhub.com
 host-suffix, ministrybooks.org
 host-suffix, minzhuzhongguo.org
 host-suffix, miraheze.org
+host-suffix, mirdc.org.tw
 host-suffix, miroguide.com
 host-suffix, mirror.xyz
 host-suffix, mirrorbooks.com
 host-suffix, mirrormedia.mg
+host-suffix, missav.ai
 host-suffix, missav.com
+host-suffix, missav.live
 host-suffix, missav.ws
 host-suffix, mistral.ai
 host-suffix, mitbbs.com
@@ -2307,6 +2330,7 @@ host-suffix, mobileways.de
 host-suffix, mod.io
 host-suffix, modernchinastudies.org
 host-suffix, moeerolibrary.com
+host-suffix, moeli-desu.com
 host-suffix, moeshare.cc
 host-suffix, mog.com
 host-suffix, mohu.club
@@ -2384,6 +2408,7 @@ host-suffix, national-lottery.co.uk
 host-suffix, nationalawakening.org
 host-suffix, nationalinterest.org
 host-suffix, nationalreview.com
+host-suffix, nationthailand.com
 host-suffix, nationwide.com
 host-suffix, naughtyamerica.com
 host-suffix, naver.com
@@ -2394,6 +2419,7 @@ host-suffix, nbyy.tv
 host-suffix, nchrd.org
 host-suffix, ncn.org
 host-suffix, ndi.org
+host-suffix, ned.org
 host-suffix, nekoslovakia.net
 host-suffix, neo-miracle.com
 host-suffix, neodb.social
@@ -2482,6 +2508,7 @@ host-suffix, noxinfluencer.com
 host-suffix, npa.go.jp
 host-suffix, npsboost.com
 host-suffix, nrk.no
+host-suffix, nstc.org.tw
 host-suffix, ntd.tv
 host-suffix, ntdtv.com
 host-suffix, ntdtv.com.tw
@@ -2707,6 +2734,7 @@ host-suffix, poe.com
 host-suffix, points-media.com
 host-suffix, pokerstars.com
 host-suffix, pokerstars.net
+host-suffix, poland.tw
 host-suffix, politicalchina.org
 host-suffix, poloniex.com
 host-suffix, polymarket.com
@@ -2800,6 +2828,7 @@ host-suffix, qianglie.com
 host-suffix, qiangwaikan.com
 host-suffix, qiangyou.org
 host-suffix, qianmo.tw
+host-suffix, qingse.one
 host-suffix, qiwen.lu
 host-suffix, qobuz.com
 host-suffix, qoos.com
@@ -2894,6 +2923,7 @@ host-suffix, roc-taiwan.org
 host-suffix, rocket-inc.net
 host-suffix, rocket.chat
 host-suffix, rocksdb.org
+host-suffix, rocmgov.org
 host-suffix, rojo.com
 host-suffix, rolfoundation.org
 host-suffix, rolia.net
@@ -3271,6 +3301,7 @@ host-suffix, tew.org
 host-suffix, textnow.com
 host-suffix, textnow.me
 host-suffix, tfc-taiwan.org.tw
+host-suffix, tfd.org.tw
 host-suffix, tfhub.dev
 host-suffix, tfiflve.com
 host-suffix, tg-me.com
@@ -3449,6 +3480,7 @@ host-suffix, tryai.dev
 host-suffix, tryheart.jp
 host-suffix, tsdr.uspto.gov
 host-suffix, tt1069.com
+host-suffix, ttl.com.tw
 host-suffix, tttan.com
 host-suffix, ttv.com.tw
 host-suffix, ttvnw.net
@@ -3491,6 +3523,7 @@ host-suffix, tweettunnel.com
 host-suffix, tweetwally.com
 host-suffix, twelve.today
 host-suffix, twerkingbutt.com
+host-suffix, twfhcsec.com.tw
 host-suffix, twftp.org
 host-suffix, twgov.tw
 host-suffix, twgreatdaily.com
@@ -3527,6 +3560,7 @@ host-suffix, twreporter.org
 host-suffix, twstalker.com
 host-suffix, twttr.com
 host-suffix, tx.me
+host-suffix, tybio.com.tw
 host-suffix, tycool.com
 host-suffix, typepad.com
 host-suffix, typeset.io
@@ -3700,6 +3734,7 @@ host-suffix, vpsxb.net
 host-suffix, vrchat.com
 host-suffix, vrporn.com
 host-suffix, vrsmash.com
+host-suffix, vscc.org.tw
 host-suffix, vtunnel.com
 host-suffix, vultryhw.com
 host-suffix, w-pool.com
@@ -3932,6 +3967,7 @@ host-suffix, xvideos-cdn.com
 host-suffix, xvideos.com
 host-suffix, xvideos.es
 host-suffix, xvinlink.com
+host-suffix, xx.net
 host-suffix, xxx.com
 host-suffix, xxxx.com.au
 host-suffix, y2mate.com
