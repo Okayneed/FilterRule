@@ -33,7 +33,6 @@ host-suffix, app.notion.com, Proxy
 host-suffix, johntronx.com, Proxy
 host-suffix, thisbitz.com, Proxy
 host-suffix, vip4k.com, Proxy
-ip-cidr, 213.61.194.234/32, reject
 host-suffix, listedcompany.com, DMIT
 host-suffix, bursamalaysia.com, Proxy
 host-suffix, authkit.cline.bot, Proxy
