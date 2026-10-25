@@ -1,9 +1,9 @@
 # Apple & iCloud China (Auto-Generated)
 # Maintained by: scripts/generate_apple.py
-# Last Updated: 2026-10-24 08:20 CST
+# Last Updated: 2026-10-25 08:02 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 904
-# Status: No Changes
+# Total Rules: 903
+# Status: Updated
 
 host, a1.mzstatic.com
 host, a2.mzstatic.com
@@ -614,7 +614,6 @@ host-suffix, icloud-content.com.cn
 host-suffix, icloud-isupport.com
 host-suffix, icloud-sandbox.com
 host-suffix, icloud.ch
-host-suffix, icloud.cn
 host-suffix, icloud.com
 host-suffix, icloud.com.cn
 host-suffix, icloud.de

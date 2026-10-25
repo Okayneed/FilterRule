@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-10-24 08:20 CST
+# Last Updated: 2026-10-25 08:02 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4095
+# Total Rules: 4104
 # Status: Updated
 
 host-suffix, 000webhost.com
@@ -12,6 +12,7 @@ host-suffix, 10beasts.net
 host-suffix, 10musume.com
 host-suffix, 123av.com
 host-suffix, 123av.me
+host-suffix, 123av.org
 host-suffix, 12bet.com
 host-suffix, 12vpn.com
 host-suffix, 12vpn.net
@@ -2038,6 +2039,7 @@ host-suffix, khc.edu.tw
 host-suffix, kichiku-doujinko.com
 host-suffix, kik.com
 host-suffix, killwall.com
+host-suffix, kimootoko.net
 host-suffix, kindle4rss.com
 host-suffix, kingdomsalvation.org
 host-suffix, kingkong.com.tw
@@ -2305,6 +2307,7 @@ host-suffix, mingshengbao.com
 host-suffix, minhhue.net
 host-suffix, miningpoolhub.com
 host-suffix, ministrybooks.org
+host-suffix, minkch.com
 host-suffix, minzhuzhongguo.org
 host-suffix, miraheze.org
 host-suffix, mirdc.org.tw
@@ -2362,6 +2365,7 @@ host-suffix, morningsun.org
 host-suffix, mos.ru
 host-suffix, mosavi.io
 host-suffix, movements.org
+host-suffix, movie.eroterest.net
 host-suffix, moviefap.com
 host-suffix, mpettis.com
 host-suffix, mpfinance.com
@@ -2492,6 +2496,9 @@ host-suffix, nitter.net
 host-suffix, niu.moe
 host-suffix, niusnews.com
 host-suffix, njactb.org
+host-suffix, njav.com
+host-suffix, njav.tv
+host-suffix, njavtv.com
 host-suffix, nlfreevpn.com
 host-suffix, nmsl.website
 host-suffix, nnews.eu
@@ -2730,6 +2737,7 @@ host-suffix, plexvpn.pro
 host-suffix, plurk.com
 host-suffix, plus.codes
 host-suffix, pmatehunter.com
+host-suffix, po-kaki-to.com
 host-suffix, po2b.com
 host-suffix, podbean.com
 host-suffix, podcast.co
@@ -4091,6 +4099,7 @@ host-suffix, zootool.com
 host-suffix, zophar.net
 host-suffix, zorrovpn.com
 host-suffix, zozotown.com
+host-suffix, zozovideo.com
 host-suffix, zpn.im
 host-suffix, zspeeder.me
 host-suffix, zuo.la
