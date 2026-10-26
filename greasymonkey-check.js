@@ -42,7 +42,9 @@
       owner: "Okayneed",
       repo: "FilterRule",
       branch: "main",
+      // 双目录写入目标：规则须同时落到 QX 与 Loon 两侧，否则会造成目录漂移
       filePath: "list/Manual_ManualSetting.list",
+      filePathLoon: "loon-rule/Manual_ManualSetting.list",
       token: "",
     },
 
@@ -288,23 +290,25 @@
   }
 
   // ======================== 建议规则 ========================
-  function generateSuggestedRule() {
+  // 规则同时生成 QX 与 Loon 两种写法，写入时分别落到 list/ 与 loon-rule/
+  function buildRuleLine(fmt) {
     const d = STATE.domain;
     if (!d) return null;
-    // 根据写入目标文件路径自动判断格式：list/ → QX，loon-rule/ → LOON
-    const fp = CONFIG.githubWrite.filePath;
-    const isQX = fp.startsWith("list/");
     const rt = CONFIG.defaultRuleType;
     const policy = CONFIG.defaultPolicy;
 
-    if (isQX) {
+    if (fmt === "qx") {
       // QX: host-suffix, example.com, Proxy
-      const qxType = rt.replace("DOMAIN","host").replace("-SUFFIX","-suffix").replace("-KEYWORD","-keyword");
-      return { line: `${qxType}, ${d}, ${policy}`, policy };
-    } else {
-      // LOON: DOMAIN-SUFFIX,example.com,Proxy
-      return { line: `${rt},${d},${policy}`, policy };
+      const qxType = rt.replace("DOMAIN", "host").replace("-SUFFIX", "-suffix").replace("-KEYWORD", "-keyword");
+      return `${qxType}, ${d}, ${policy}`;
     }
+    // LOON: DOMAIN-SUFFIX,example.com,Proxy
+    return `${rt},${d},${policy}`;
+  }
+
+  function generateSuggestedRule() {
+    const line = buildRuleLine(CONFIG.outputMode);
+    return line ? { line, policy: CONFIG.defaultPolicy } : null;
   }
 
   // ======================== 复制 ========================
@@ -315,20 +319,64 @@
     showToast("已复制: " + s.line);
   }
 
+  // ======================== 规则比对（去重核心） ========================
+  // 背景：原实现用 content.includes(ruleLine) 做整行精确匹配，
+  // 导致「同域名、不同策略」或「大小写/空格不同」的规则被误判为新规则而重复写入。
+  // 现改为按 (规则类型, 域名) 归一比对 —— 同类型同域名视为同一规则。
+  const TYPE_ALIAS = {
+    "host": "domain", "domain": "domain",
+    "host-suffix": "domain-suffix", "domain-suffix": "domain-suffix",
+    "host-keyword": "domain-keyword", "domain-keyword": "domain-keyword",
+    "ip-cidr": "ip-cidr", "ip6-cidr": "ip-cidr6", "ip-asn": "ip-asn",
+  };
+
+  function ruleKey(line) {
+    const s = (line || "").trim();
+    if (!s || s.startsWith("#") || s.startsWith(";")) return null;
+    const parts = s.split(",");
+    if (parts.length < 2) return null;
+    const t = parts[0].trim().toLowerCase();
+    const d = parts[1].trim().toLowerCase();
+    return `${TYPE_ALIAS[t] || t}|${d}`;
+  }
+
+  function fileHasRule(content, ruleLine) {
+    const want = ruleKey(ruleLine);
+    if (!want) return false;
+    return content.split("\n").some(l => ruleKey(l) === want);
+  }
+
   // ======================== GitHub 写入 ========================
   const GitHubWriter = {
-    async getFileSha() {
+    async getFile(path) {
       const gw = CONFIG.githubWrite;
-      const url = `https://api.github.com/repos/${gw.owner}/${gw.repo}/contents/${gw.filePath}?ref=${gw.branch}`;
+      const url = `https://api.github.com/repos/${gw.owner}/${gw.repo}/contents/${path}?ref=${gw.branch}`;
       const r = await fetch(url, {
         headers: { Authorization: `token ${gw.token}`, Accept: "application/vnd.github.v3+json" }
       });
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       const d = await r.json();
-      return { sha: d.sha, content: atob(d.content.replace(/\n/g,"")) };
+      return { sha: d.sha, content: atob(d.content.replace(/\n/g, "")) };
     },
 
-    async appendRule(ruleLine) {
+    async putFile(path, content, sha, message) {
+      const gw = CONFIG.githubWrite;
+      const encoded = btoa(unescape(encodeURIComponent(content)));
+      const url = `https://api.github.com/repos/${gw.owner}/${gw.repo}/contents/${path}`;
+      const r = await fetch(url, {
+        method: "PUT",
+        headers: {
+          Authorization: `token ${gw.token}`,
+          Accept: "application/vnd.github.v3+json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message, content: encoded, sha, branch: gw.branch }),
+      });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    },
+
+    // 双目录写入：QX 与 Loon 必须同时落盘，否则会产生目录漂移
+    async appendRule() {
       const gw = CONFIG.githubWrite;
       if (!gw.token) {
         const input = prompt("请输入 GitHub Personal Access Token（需 repo 权限）：\n\n去 https://github.com/settings/tokens 生成 classic token");
@@ -337,32 +385,44 @@
         if (!CONFIG.githubWrite.token) return;
       }
 
+      const qxLine = buildRuleLine("qx");
+      const loonLine = buildRuleLine("loon");
+      if (!qxLine || !loonLine) { showToast("无法生成规则", "error"); return; }
+
+      const targets = [
+        { path: gw.filePath, line: qxLine, label: "QX" },
+        { path: gw.filePathLoon, line: loonLine, label: "Loon" },
+      ];
+
       try {
-        const { sha, content } = await this.getFileSha();
-        if (content.includes(ruleLine)) { showToast("规则已存在，跳过", "warn"); return; }
+        // 逐目标检查是否已存在（按 类型+域名 归一比对，避免同域名不同策略被重复写入）
+        const pending = [];
+        for (const t of targets) {
+          const { sha, content } = await this.getFile(t.path);
+          if (fileHasRule(content, t.line)) {
+            showToast(`${t.label} 侧规则已存在，跳过`, "warn");
+          } else {
+            pending.push({ ...t, sha, content });
+          }
+        }
 
-        const newContent = content.trimEnd() + "\n" + ruleLine + "\n";
-        const encoded = btoa(unescape(encodeURIComponent(newContent)));
-        const url = `https://api.github.com/repos/${gw.owner}/${gw.repo}/contents/${gw.filePath}`;
+        if (!pending.length) {
+          showToast("两侧规则均已存在，未做改动", "warn");
+          return;
+        }
 
-        const r = await fetch(url, {
-          method: "PUT",
-          headers: {
-            Authorization: `token ${gw.token}`,
-            Accept: "application/vnd.github.v3+json",
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ message: `[auto] add rule: ${ruleLine}`, content: encoded, sha, branch: gw.branch }),
-        });
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        for (const t of pending) {
+          const newContent = t.content.trimEnd() + "\n" + t.line + "\n";
+          await this.putFile(t.path, newContent, t.sha, `[auto] add rule: ${t.line}`);
+        }
 
-        showToast("已提交: " + ruleLine);
+        showToast(`已提交 ${pending.map(p => p.label).join(" + ")}: ${STATE.domain}`);
 
         // 标记下次拉取时强制刷新缓存
         SettingsStore.set("forceRefresh", true);
 
         // 更新本地状态
-        STATE.rules.push({ type: CONFIG.defaultRuleType, value: STATE.domain, source: `${gw.owner}/${gw.repo}`, rawLine: ruleLine });
+        STATE.rules.push({ type: CONFIG.defaultRuleType, value: STATE.domain, source: `${gw.owner}/${gw.repo}`, rawLine: loonLine });
         STATE.matched = STATE.rules[STATE.rules.length - 1];
         updateFloatingIcon();
         renderPanelIfOpen();
@@ -374,8 +434,7 @@
   };
 
   function submitRule() {
-    const s = generateSuggestedRule();
-    if (s) GitHubWriter.appendRule(s.line, STATE.domain);
+    GitHubWriter.appendRule();
   }
 
   // ======================== Toast ========================

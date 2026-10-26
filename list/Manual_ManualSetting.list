@@ -1,7 +1,7 @@
 # Manual Settings (Manually Maintained)
 # Maintained by: manual editing (no auto-script)
 # Last Updated: User-driven (manual edits only)
-# Total Rules: 32
+# Total Rules: 31
 host-suffix, sec.gov, Fast_All
 host-suffix, yfsp.tv, Fast_All
 host-suffix, iyf.tv, Fast_All
@@ -28,12 +28,11 @@ HOST-SUFFIX, tm.com.my, Fast_All
 HOST-SUFFIX, qq.pw, Fast_All
 HOST-SUFFIX, informa.com, Fast_All
 HOST-SUFFIX, johntronx.com, Fast_All
-HOST-SUFFIX, missav.ai, Fast_All
 host-suffix, app.notion.com, Proxy
-host-suffix, johntronx.com, Proxy
 host-suffix, thisbitz.com, Proxy
 host-suffix, vip4k.com, Proxy
 host-suffix, listedcompany.com, DMIT
 host-suffix, bursamalaysia.com, Proxy
 host-suffix, authkit.cline.bot, Proxy
 host-suffix, skills.sh, Proxy
+host-keyword, missav, Fast_All

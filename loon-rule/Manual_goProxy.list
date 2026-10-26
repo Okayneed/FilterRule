@@ -1,7 +1,7 @@
 # goProxy Rules (Manually Maintained)
 # Maintained by: manual editing (no auto-script)
 # Last Updated: User-driven (manual edits only)
-# Total Rules: 11
+# Total Rules: 12
 DOMAIN-KEYWORD,nalvids
 DOMAIN-KEYWORD,swallowed
 DOMAIN-SUFFIX,aibj.fun
@@ -11,9 +11,7 @@ DOMAIN-SUFFIX,grammarly.net
 DOMAIN-SUFFIX,grammarly.io
 DOMAIN-SUFFIX,xn--l3cb1eaaa2dkbbb.com
 DOMAIN-SUFFIX,av-th.net
-DOMAIN-KEYWORD,missav
 DOMAIN-SUFFIX,kiapysa.xyz
 
 DOMAIN-SUFFIX,informa.com
 DOMAIN-SUFFIX,xc8866.com
-HOST-SUFFIX, tm.com.my
