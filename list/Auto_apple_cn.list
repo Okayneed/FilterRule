@@ -1,9 +1,9 @@
 # Apple & iCloud China (Auto-Generated)
 # Maintained by: scripts/generate_apple.py
-# Last Updated: 2026-10-27 09:14 CST
+# Last Updated: 2026-10-28 09:00 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 903
-# Status: No Changes
+# Total Rules: 905
+# Status: Updated
 
 host, a1.mzstatic.com
 host, a2.mzstatic.com
@@ -131,7 +131,9 @@ host, seed-sequoia.siri.apple.com
 host, seed-swallow.siri.apple.com
 host, seed.siri.apple.com
 host, sequoia.apple.com
+host, sh-pod1-smp-device.apple.com
 host, sh-pod2-smp-device.apple.com
+host, sh-pod3-smp-device.apple.com
 host, shazam-insights.cdn-apple.com
 host, smp-device-content.apple.com
 host, static.gc.apple.com
