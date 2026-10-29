@@ -36,3 +36,5 @@ host-suffix, bursamalaysia.com, Proxy
 host-suffix, authkit.cline.bot, Proxy
 host-suffix, skills.sh, Proxy
 host-keyword, missav, Fast_All
+dst-port, 22, DMIT
+dst-port, 22222, DMIT
