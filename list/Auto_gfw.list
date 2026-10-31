@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-10-30 09:38 CST
+# Last Updated: 2026-10-31 09:26 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4104
-# Status: No Changes
+# Total Rules: 4109
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -195,6 +195,7 @@ host-suffix, anobii.com
 host-suffix, anonfiles.com
 host-suffix, anonymouse.org
 host-suffix, anthonycalzadilla.com
+host-suffix, anthropic.auth0.com
 host-suffix, anthropic.com
 host-suffix, antpool.com
 host-suffix, anuneko.com
@@ -482,6 +483,7 @@ host-suffix, broadpressinc.com
 host-suffix, brookings.edu
 host-suffix, brutaltgp.com
 host-suffix, bsky.app
+host-suffix, bsky.chat
 host-suffix, bsky.network
 host-suffix, bsky.social
 host-suffix, bt4g.org
@@ -693,7 +695,10 @@ host-suffix, ck101.com
 host-suffix, clashyun.com
 host-suffix, classicalguitarblog.net
 host-suffix, claude.ai
+host-suffix, claude.app
 host-suffix, claude.com
+host-suffix, claudemcpcontent.com
+host-suffix, claudeusercontent.com
 host-suffix, cldr.unicode.org
 host-suffix, clearsurance.com
 host-suffix, clementine-player.org
