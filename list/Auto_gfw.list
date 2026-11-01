@@ -1,8 +1,8 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-10-31 09:26 CST
+# Last Updated: 2026-11-01 08:44 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4109
+# Total Rules: 4112
 # Status: Updated
 
 host-suffix, 000webhost.com
@@ -216,6 +216,7 @@ host-suffix, api.pureapk.com
 host-suffix, api.recaptcha.net
 host-suffix, api.shuaiapi.com
 host-suffix, api.steampowered.com
+host-suffix, api.themoviedb.org
 host-suffix, apiary.io
 host-suffix, apigee.com
 host-suffix, apk.support
@@ -3473,6 +3474,7 @@ host-suffix, torlock.com
 host-suffix, torproject.org
 host-suffix, torrentgalaxy.to
 host-suffix, torrentkitty.tv
+host-suffix, torrentleech.org
 host-suffix, torrentprivacy.com
 host-suffix, torrenty.org
 host-suffix, tortoisesvn.net
@@ -4038,6 +4040,7 @@ host-suffix, youtubeeducation.com
 host-suffix, youtubegaming.com
 host-suffix, youtubekids.com
 host-suffix, youversion.com
+host-suffix, youversionapi.com
 host-suffix, youwin.com
 host-suffix, youxu.info
 host-suffix, yt.be
