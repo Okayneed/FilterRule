@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-11-03 11:19 CST
+# Last Updated: 2026-11-04 09:57 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4112
-# Status: No Changes
+# Total Rules: 4113
+# Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
 DOMAIN-SUFFIX,1-apple.com.tw
@@ -384,6 +384,7 @@ DOMAIN-SUFFIX,bigjapanesesex.com
 DOMAIN-SUFFIX,bignews.org
 DOMAIN-SUFFIX,bigone.com
 DOMAIN-SUFFIX,bild.de
+DOMAIN-SUFFIX,bilibili.tv
 DOMAIN-SUFFIX,bilinovel.com
 DOMAIN-SUFFIX,binance.com
 DOMAIN-SUFFIX,binance.org
