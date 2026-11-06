@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-11-05 10:00 CST
+# Last Updated: 2026-11-06 10:00 CST
 # Source: gfwlist/gfwlist
 # Total Rules: 4113
-# Status: No Changes
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -2240,7 +2240,6 @@ host-suffix, matters.news
 host-suffix, matters.town
 host-suffix, matthewdgreen.wordpress.com
 host-suffix, mattwilcox.net
-host-suffix, maven.neoforged.net
 host-suffix, mcadforums.com
 host-suffix, mceindex.com
 host-suffix, mcusercontent.com
@@ -2439,6 +2438,7 @@ host-suffix, ned.org
 host-suffix, nekoslovakia.net
 host-suffix, neo-miracle.com
 host-suffix, neodb.social
+host-suffix, neoforged.net
 host-suffix, neowin.net
 host-suffix, nephobox.com
 host-suffix, netalert.me

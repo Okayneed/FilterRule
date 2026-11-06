@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-11-05 10:00 CST
+# Last Updated: 2026-11-06 10:00 CST
 # Source: gfwlist/gfwlist
 # Total Rules: 4113
-# Status: No Changes
+# Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
 DOMAIN-SUFFIX,1-apple.com.tw
@@ -2240,7 +2240,6 @@ DOMAIN-SUFFIX,matters.news
 DOMAIN-SUFFIX,matters.town
 DOMAIN-SUFFIX,matthewdgreen.wordpress.com
 DOMAIN-SUFFIX,mattwilcox.net
-DOMAIN-SUFFIX,maven.neoforged.net
 DOMAIN-SUFFIX,mcadforums.com
 DOMAIN-SUFFIX,mceindex.com
 DOMAIN-SUFFIX,mcusercontent.com
@@ -2439,6 +2438,7 @@ DOMAIN-SUFFIX,ned.org
 DOMAIN-SUFFIX,nekoslovakia.net
 DOMAIN-SUFFIX,neo-miracle.com
 DOMAIN-SUFFIX,neodb.social
+DOMAIN-SUFFIX,neoforged.net
 DOMAIN-SUFFIX,neowin.net
 DOMAIN-SUFFIX,nephobox.com
 DOMAIN-SUFFIX,netalert.me
