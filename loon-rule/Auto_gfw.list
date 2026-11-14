@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-11-13 10:26 CST
+# Last Updated: 2026-11-14 09:59 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4113
-# Status: No Changes
+# Total Rules: 4114
+# Status: Updated
 
 DOMAIN-SUFFIX,000webhost.com
 DOMAIN-SUFFIX,1-apple.com.tw
@@ -51,6 +51,7 @@ DOMAIN-SUFFIX,500px.org
 DOMAIN-SUFFIX,51.ca
 DOMAIN-SUFFIX,51jav.org
 DOMAIN-SUFFIX,51luoben.com
+DOMAIN-SUFFIX,51papaya.com
 DOMAIN-SUFFIX,5278.cc
 DOMAIN-SUFFIX,611study.com
 DOMAIN-SUFFIX,611study.icu

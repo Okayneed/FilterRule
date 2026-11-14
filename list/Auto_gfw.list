@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-11-13 10:26 CST
+# Last Updated: 2026-11-14 09:59 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4113
-# Status: No Changes
+# Total Rules: 4114
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -51,6 +51,7 @@ host-suffix, 500px.org
 host-suffix, 51.ca
 host-suffix, 51jav.org
 host-suffix, 51luoben.com
+host-suffix, 51papaya.com
 host-suffix, 5278.cc
 host-suffix, 611study.com
 host-suffix, 611study.icu
