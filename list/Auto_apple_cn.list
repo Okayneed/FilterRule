@@ -1,9 +1,9 @@
 # Apple & iCloud China (Auto-Generated)
 # Maintained by: scripts/generate_apple.py
-# Last Updated: 2026-11-15 09:31 CST
+# Last Updated: 2026-11-16 09:35 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 905
-# Status: No Changes
+# Total Rules: 907
+# Status: Updated
 
 host, a1.mzstatic.com
 host, a2.mzstatic.com
@@ -48,6 +48,7 @@ host, communities.apple.com
 host, configuration-lb.ls-apple.com.akadns.net
 host, configuration.apple.com
 host, configuration.apple.com.akadns.net
+host, configuration.ls.apple.com
 host, cstat.apple.com
 host, cstat.cdn-apple.com
 host, dd-cdn.origin-apple.com.akadns.net
@@ -541,6 +542,7 @@ host-suffix, buyaapl.net
 host-suffix, buyaple.com
 host-suffix, camelphat.com
 host-suffix, camelspaceeffect.com
+host-suffix, captive.apple.com
 host-suffix, carbon.com
 host-suffix, catalina.hk
 host-suffix, cdn-apple.com
