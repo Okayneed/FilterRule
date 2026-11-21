@@ -1,9 +1,9 @@
 # Apple & iCloud China (Auto-Generated)
 # Maintained by: scripts/generate_apple.py
-# Last Updated: 2026-11-20 10:51 CST
+# Last Updated: 2026-11-21 10:59 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 907
-# Status: No Changes
+# Total Rules: 905
+# Status: Updated
 
 DOMAIN,a1.mzstatic.com
 DOMAIN,a2.mzstatic.com
@@ -734,7 +734,6 @@ DOMAIN-SUFFIX,iphone5.com
 DOMAIN-SUFFIX,iphone5casescovers.com
 DOMAIN-SUFFIX,iphone5s5case.com
 DOMAIN-SUFFIX,iphoneacessorios.com.br
-DOMAIN-SUFFIX,iphonecase2013.com
 DOMAIN-SUFFIX,iphonecase5.com
 DOMAIN-SUFFIX,iphonecases100.com
 DOMAIN-SUFFIX,iphonecases5.com
@@ -874,7 +873,6 @@ DOMAIN-SUFFIX,quicktime.eu
 DOMAIN-SUFFIX,quicktime.net
 DOMAIN-SUFFIX,quicktime.tv
 DOMAIN-SUFFIX,qwapi.com
-DOMAIN-SUFFIX,reform-apple.com
 DOMAIN-SUFFIX,services-apple.net
 DOMAIN-SUFFIX,shazam.com
 DOMAIN-SUFFIX,simplyipod.com

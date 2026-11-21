@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-11-20 10:51 CST
+# Last Updated: 2026-11-21 10:59 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4114
-# Status: No Changes
+# Total Rules: 4142
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -719,6 +719,8 @@ host-suffix, clyp.it
 host-suffix, cmcn.org
 host-suffix, cmegroup.com
 host-suffix, cmi.org.tw
+host-suffix, cmmedia.com.tw
+host-suffix, cmoney.tw
 host-suffix, cms.gov
 host-suffix, cmule.com
 host-suffix, cmx.im
@@ -730,6 +732,7 @@ host-suffix, cnbeta.com.tw
 host-suffix, cnd.org
 host-suffix, cnnews.chosun.com
 host-suffix, cnpolitics.org
+host-suffix, cnyes.com
 host-suffix, co.ng.mil
 host-suffix, coat.co.jp
 host-suffix, cobinhood.com
@@ -958,6 +961,7 @@ host-suffix, dt18.com
 host-suffix, dtiblog.com
 host-suffix, dtic.mil
 host-suffix, dubox.com
+host-suffix, duck.ai
 host-suffix, duck.com
 host-suffix, duckduckgo.com
 host-suffix, duckmylife.com
@@ -979,6 +983,7 @@ host-suffix, dysfz.cc
 host-suffix, e-classical.com.tw
 host-suffix, e-gold.com
 host-suffix, e-hentai.org
+host-suffix, e-info.org.tw
 host-suffix, e123.hk
 host-suffix, e621.net
 host-suffix, earthvpn.com
@@ -1280,9 +1285,9 @@ host-suffix, gab.com
 host-suffix, gabocorp.com
 host-suffix, gagaoolala.com
 host-suffix, galenwu.com
-host-suffix, game735.com
 host-suffix, gamer.com.tw
 host-suffix, gamez.com.tw
+host-suffix, gamma.app
 host-suffix, ganjing.com
 host-suffix, ganjingworld.com
 host-suffix, gaoming.net
@@ -1646,6 +1651,7 @@ host-suffix, greatfire.org
 host-suffix, greatfire.us7.list-manage.com
 host-suffix, greatfirevpn.com
 host-suffix, greatfirewallofchina.org
+host-suffix, greenbean.media
 host-suffix, greenpeace.org
 host-suffix, greenvpn.net
 host-suffix, grindr.com
@@ -1735,12 +1741,15 @@ host-suffix, hka8964.wordpress.com
 host-suffix, hkanews.wordpress.com
 host-suffix, hkbookcity.com
 host-suffix, hkchronicles.com
+host-suffix, hkcitycreation.com
 host-suffix, hkcnews.com
 host-suffix, hkcoc.com
+host-suffix, hkcourtnews.com
 host-suffix, hkdc.us
 host-suffix, hkej.com
 host-suffix, hket.com
 host-suffix, hkfaa.com
+host-suffix, hkfeature.com
 host-suffix, hkgalden.com
 host-suffix, hkgolden.com
 host-suffix, hkgpao.com
@@ -2129,6 +2138,7 @@ host-suffix, libgen.is
 host-suffix, library-access.sk
 host-suffix, libredd.it
 host-suffix, lifemiles.com
+host-suffix, lifesitenews.com
 host-suffix, lighten.org.tw
 host-suffix, lighti.me
 host-suffix, lightnovel.cn
@@ -2137,6 +2147,7 @@ host-suffix, lih.kg
 host-suffix, lihkg.com
 host-suffix, like.com
 host-suffix, lilaoshibushinilaoshi.com
+host-suffix, limedia.tw
 host-suffix, line-apps.com
 host-suffix, line-scdn.net
 host-suffix, line.me
@@ -2226,6 +2237,7 @@ host-suffix, martau.com
 host-suffix, marxist.net
 host-suffix, marxists.org
 host-suffix, mas.to
+host-suffix, master-insight.com
 host-suffix, mastodon.cloud
 host-suffix, mastodon.host
 host-suffix, mastodon.online
@@ -2241,6 +2253,7 @@ host-suffix, matters.news
 host-suffix, matters.town
 host-suffix, matthewdgreen.wordpress.com
 host-suffix, mattwilcox.net
+host-suffix, mc.yandex.ru
 host-suffix, mcadforums.com
 host-suffix, mceindex.com
 host-suffix, mcusercontent.com
@@ -2355,6 +2368,7 @@ host-suffix, momoshop.com.tw
 host-suffix, mondex.org
 host-suffix, money-link.com.tw
 host-suffix, moneydj.com
+host-suffix, moneynet.com.tw
 host-suffix, monica.im
 host-suffix, monitorchina.org
 host-suffix, monocloud.me
@@ -2392,6 +2406,7 @@ host-suffix, muzi.com
 host-suffix, muzi.net
 host-suffix, muzu.tv
 host-suffix, mvg.jp
+host-suffix, my-formosa.com.tw
 host-suffix, my-private-network.co.uk
 host-suffix, my.pcloud.com
 host-suffix, myaudiocast.com
@@ -2473,6 +2488,7 @@ host-suffix, newtalk.tw
 host-suffix, newthuhole.com
 host-suffix, newyorker.com
 host-suffix, nexon.com
+host-suffix, nextapple.com
 host-suffix, nextdigital.com.hk
 host-suffix, nexton-net.jp
 host-suffix, nexttv.com.tw
@@ -2656,6 +2672,7 @@ host-suffix, parse.com
 host-suffix, parsevideo.com
 host-suffix, partnerstack.xyz
 host-suffix, passion.com
+host-suffix, passiontimes.hk
 host-suffix, paste.ee
 host-suffix, pastie.org
 host-suffix, patreon.com
@@ -2830,6 +2847,7 @@ host-suffix, ptwxz.com
 host-suffix, pubu.com.tw
 host-suffix, puffinbrowser.com
 host-suffix, pullfolio.co
+host-suffix, pulsehknews.com
 host-suffix, pure18.com
 host-suffix, pureconcepts.net
 host-suffix, pureinsight.org
@@ -3042,6 +3060,7 @@ host-suffix, shadowsocks.be
 host-suffix, shadowsocks.com.hk
 host-suffix, shadowsocks.org
 host-suffix, shahit.biz
+host-suffix, shanghainationalparty.com
 host-suffix, share-videos.se
 host-suffix, share.america.gov
 host-suffix, sharecool.org
@@ -3080,6 +3099,7 @@ host-suffix, sinchew.com.my
 host-suffix, sing-box.sagernet.org
 host-suffix, singaporepools.com.sg
 host-suffix, singlelogin.se
+host-suffix, singpao.com.hk
 host-suffix, singtao.com
 host-suffix, singtaousa.com
 host-suffix, sinoants.com
@@ -3142,6 +3162,7 @@ host-suffix, sosad.fun
 host-suffix, sosreader.com
 host-suffix, sotwe.com
 host-suffix, soulcaliburhentai.net
+host-suffix, soulogic.com
 host-suffix, soundcloud.com
 host-suffix, soundofhope.org
 host-suffix, soundon.fm
@@ -3277,6 +3298,7 @@ host-suffix, taiwanhot.net
 host-suffix, taiwanjustice.net
 host-suffix, taiwanncf.org.tw
 host-suffix, taiwannews.com.tw
+host-suffix, taiwantoday.tw
 host-suffix, taiwantt.org.tw
 host-suffix, talkatone.com
 host-suffix, talkboxapp.com
@@ -3338,6 +3360,7 @@ host-suffix, thebodyshop-usa.com
 host-suffix, thecenter.mit.edu
 host-suffix, thechasernews.co.uk
 host-suffix, thechinacollection.org
+host-suffix, thecollectivehk.com
 host-suffix, theconversation.com
 host-suffix, thediplomat.com
 host-suffix, thedw.us
@@ -3351,18 +3374,22 @@ host-suffix, thehun.net
 host-suffix, theinitium.com
 host-suffix, theintercept.com
 host-suffix, thenewslens.com
+host-suffix, theonlinecitizen.com
 host-suffix, thepiratebay.org
 host-suffix, theporndude.com
 host-suffix, theportalwiki.com
 host-suffix, theprint.in
 host-suffix, thesaturdaypaper.com.au
+host-suffix, thestandard.com.hk
 host-suffix, thestandnews.com
+host-suffix, thestar.com
 host-suffix, thetatoken.org
 host-suffix, thetibetpost.com
 host-suffix, thetvdb.com
 host-suffix, theweek.com
 host-suffix, thewgo.org
 host-suffix, thewirechina.com
+host-suffix, thewitnesshk.com
 host-suffix, thinkchina.sg
 host-suffix, thinkgeek.com
 host-suffix, thinkingtaiwan.com
@@ -3885,6 +3912,7 @@ host-suffix, wo3ttt.wordpress.com
 host-suffix, woeser.com
 host-suffix, wokar.org
 host-suffix, wolfax.com
+host-suffix, womany.net
 host-suffix, wombo.ai
 host-suffix, woolyss.com
 host-suffix, woopie.jp

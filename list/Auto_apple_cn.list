@@ -1,9 +1,9 @@
 # Apple & iCloud China (Auto-Generated)
 # Maintained by: scripts/generate_apple.py
-# Last Updated: 2026-11-20 10:51 CST
+# Last Updated: 2026-11-21 10:59 CST
 # Source: v2fly/domain-list-community
-# Total Rules: 907
-# Status: No Changes
+# Total Rules: 905
+# Status: Updated
 
 host, a1.mzstatic.com
 host, a2.mzstatic.com
@@ -734,7 +734,6 @@ host-suffix, iphone5.com
 host-suffix, iphone5casescovers.com
 host-suffix, iphone5s5case.com
 host-suffix, iphoneacessorios.com.br
-host-suffix, iphonecase2013.com
 host-suffix, iphonecase5.com
 host-suffix, iphonecases100.com
 host-suffix, iphonecases5.com
@@ -874,7 +873,6 @@ host-suffix, quicktime.eu
 host-suffix, quicktime.net
 host-suffix, quicktime.tv
 host-suffix, qwapi.com
-host-suffix, reform-apple.com
 host-suffix, services-apple.net
 host-suffix, shazam.com
 host-suffix, simplyipod.com
