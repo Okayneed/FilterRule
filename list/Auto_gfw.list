@@ -1,9 +1,9 @@
 # GFWList (Auto-Generated)
 # Maintained by: scripts/generate_gfw.py
-# Last Updated: 2026-11-27 11:57 CST
+# Last Updated: 2026-11-28 11:45 CST
 # Source: gfwlist/gfwlist
-# Total Rules: 4142
-# Status: No Changes
+# Total Rules: 4145
+# Status: Updated
 
 host-suffix, 000webhost.com
 host-suffix, 1-apple.com.tw
@@ -129,6 +129,7 @@ host-suffix, agoogleaday.com
 host-suffix, agro.hk
 host-suffix, ai.dev
 host-suffix, ai.studio
+host-suffix, aicu.cc
 host-suffix, aidc.com.tw
 host-suffix, aihub.top
 host-suffix, aiosearch.com
@@ -842,6 +843,7 @@ host-suffix, dalianmeng.org
 host-suffix, daliulian.org
 host-suffix, danbooru.donmai.us
 host-suffix, danke4china.net
+host-suffix, danmakus.com
 host-suffix, darmau.co
 host-suffix, darpa.mil
 host-suffix, darrenliuwei.com
@@ -3173,6 +3175,7 @@ host-suffix, southmongolia.org
 host-suffix, southnews.com.tw
 host-suffix, southpark.cc.com
 host-suffix, sowers.org.hk
+host-suffix, spacedesk.net
 host-suffix, spaceforce.mil
 host-suffix, spaces.hightail.com
 host-suffix, spacex.com
